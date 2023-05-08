@@ -1,0 +1,20 @@
+//main: style.scss
+section.contact-form-section {
+  @include lqu-overview;
+  background-color:$tan;
+  margin-top:0px; margin-bottom:0px;
+  padding-top:30px;
+  overflow: hidden;
+  >div {
+    //border:1px solid blue;
+  }
+
+  //div.lqu-contact-form form input[name=submit]:disabled
+  div.lqu-contact-form {
+    margin-left:auto; margin-right:auto;
+    padding-left:30px;
+    padding-right:30px;
+    max-width:720px;
+  }
+
+}

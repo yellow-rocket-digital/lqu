@@ -1,0 +1,186 @@
+//main: style.scss
+section.commitment {
+  background-color:$gray02;
+  min-height:100vh;
+  position:relative;
+  >div {
+    //max-width:$page-width;
+    margin-left: auto; margin-right: auto;
+    >div.items {
+      //items opacity is set to 0 in js
+      >div.item {
+        >div.image {
+          padding:30px 30px 0px 30px;
+          >img {
+            display:block;
+            width:100%; height:auto;
+          }
+        }
+        >div.text {
+          @include lqu-h1-medium-statement;
+          color:$tan;
+          padding:0px 30px;
+          text-align: center;
+        }
+      }
+    }
+    >div.overlay {
+      //opacity: 0.5; // to see items, under when opacity > 0
+      display:grid;
+      display:none;
+      color:$tan;
+      position:sticky;
+      top:0px;
+      left:0px;
+      width:100%;
+      height:100vh;
+      //background-color:fade-out(orange,0.5);
+      background-color:$gray02;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      @media(min-height: $iphone-6-landscape) { grid-template-rows: 2fr 1fr; }
+      >div {
+        &.images {
+          margin:30px;
+          //@include header-height-margin-top; plus 30px
+          margin-top:($header-height-s+30px);
+          @media(min-width:$desktop) {
+            margin-top:($header-height-l+30px);
+          }
+          //@media(min-width:$desktop) {
+          //  margin:0px
+          //}
+          overflow: hidden;
+          position:relative;
+          display:flex;
+          //background-color:red;
+          >div.image-item {
+            /*
+            // assuming 6x4 photos where this row takes up 2fr : 1fr
+            // but, this may not fill up stage
+            height:66.6666vh;
+            width:100vh;
+            */
+            // assuming 6/4 and close to square stage
+            width:150%;
+
+            flex-shrink: 0;
+            background-size: cover;
+            background-position:center;
+          }
+        }
+        &.text_and_nav {
+          display:grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: auto 3em;
+          >div {
+            &.text {
+              position:relative;
+              >div.text-item {
+                position:absolute;
+                top:0px;
+                height:100%;
+                overflow: hidden;
+                display:flex;
+                align-items: center;
+                @include lqu-h1-medium-statement;
+                color:$tan;
+                width:100%;
+                text-align: center;
+                justify-content: center;
+                >span {
+                  display:block;
+                  padding:30px;
+                }
+                opacity: 0;
+                transition-property: opacity;
+                transition-duration: 0.5s;
+                //transition-delay: 0.5s;
+                &.shown {
+                  transition-duration: 2s;
+                  opacity: 1;
+                }
+              }
+            }
+            &.nav {
+              //background-color:green;
+              display:flex;
+              align-items: center;
+              justify-content: center;
+              @include p2-small-note;
+              >span {
+                cursor: pointer;
+                display:inline-block;
+                margin-left:10px; margin-right:10px;
+                padding:2px;
+                &.selected {
+                  padding-bottom:1px;
+                  border-bottom:1px solid $tan;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: $iphone-5-portrait) and (min-height: $iphone-5-portrait) {
+    &.portrait {
+      >div {
+        >div.items {
+          >div.item {
+            height:100vh;
+            overflow:hidden;
+          }
+        }
+        >div.overlay {
+          display:grid;
+        }
+      }
+    }
+    &.landscape {
+      >div {
+        >div.items {
+          >div.item {
+            height:100vh;
+            overflow:hidden;
+          }
+        }
+        >div.overlay {
+          display:grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr;
+          @media(min-height: $iphone-6-landscape) { grid-template-rows: 1fr; }
+          >div.images {
+            margin:0px;
+            @include header-height-margin-top;
+          }
+          >div.text_and_nav {
+            @include header-height-margin-top;
+            display:grid;
+            grid-template-columns: auto 3rem;
+            grid-template-rows: 1fr;
+            >div.text {
+              >div.text-item {
+                >span {
+                  max-width:540px;
+                }
+              }
+            }
+            >div.nav {
+              flex-direction: column;
+              >span {
+                margin-left:0px; margin-right:0px;
+                margin-top:30px; margin-bottom:30px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+}

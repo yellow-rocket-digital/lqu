@@ -1,0 +1,212 @@
+//main: style.scss
+
+// All about sections
+section.about-introduction,
+section.about-team,
+section.about-services-overview {
+  @include lqu-overview;
+  background-color:$tan;
+  >div {
+    max-width:$page-width;
+    margin-left: auto; margin-right: auto;
+    >h1 {
+      max-width:720px;
+      margin-top:0px; padding-top:30px;
+      padding-left:30px; padding-right:30px;
+      margin-left:auto; margin-right:auto;
+    }
+    >div.team-grid, >div.lists {
+      margin-left:30px; margin-right:30px;
+      @media(min-width:$iphone-6-landscape) {
+        margin-left:auto; margin-right:auto;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        margin-left:percentage(120/1440);
+        margin-right:percentage(120/1440);
+        column-gap:percentage(120/1440);
+      }
+      >div {
+        >div.image {
+          width:100%; padding-bottom:100%;
+          margin:30px auto;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center center;
+        }
+        >div.name {}
+        >div.title { font-style: italic;}
+        >div.quote {
+          margin-top:30px;
+          padding-bottom:30px;
+          margin-bottom:0px;
+          @include lqu-h4;
+        }
+      }
+    }
+  }
+}
+section.about-introduction {
+  >div {
+    >div.introduction {
+      padding-left:30px; padding-right:30px;
+      padding-bottom:30px;
+      margin-bottom:0px;
+    }
+  }
+}
+section.about-team {
+  >div {
+    >h3 {
+      margin-top:0px;
+    }
+  }
+  ///padding-bottom:30px;
+}
+section.about-services-overview {
+  padding-bottom:30px;
+  >div {
+    >div.lists {
+      cursor:default;
+      >div.title-and-list {
+        padding-bottom:30px;
+        >h3 {
+          margin-top:30px; margin-bottom:30px;
+        }
+        >div.list {
+          >span {
+            display:block;
+            margin-top:30px; margin-bottom:30px;
+          }
+          &.limited { //see js
+            >span:nth-child(n+4) {
+              display:none;
+              @media(min-width:$desktop) {
+                display:block;
+              }
+            }
+          }
+        }
+        >span.more {
+          font-style: italic;
+          display:none;
+          &.shown {
+            display:block;
+            @media(min-width:$desktop) {
+              display:none;
+            }
+          }
+        }
+      }
+    }
+    >a.contact-button {
+    }
+  }
+}
+
+section.about-process {
+  background-color:$gray02;
+  color:$tan;
+  h1 { color:$tan; }
+  a { color:$tan; }
+  >div {
+    max-width:$page-width;
+    margin-left: auto; margin-right: auto;
+    >div.processes {
+      display:flex;
+      flex-direction: column;
+      >div.process {
+        margin:30px;
+        >div.image {
+          >img {
+            display:block;
+            width:100%; height:auto;
+          }
+        }
+        >div.title-text-link {
+          margin-top:30px;
+          >div {
+            >div.text {
+              &.clamped {
+                >*:nth-child(n+2) {
+                  display:none;
+                }
+                >*:first-child {
+                  //background-color:red;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 10;
+                  -webkit-box-orient: vertical;
+                  overflow:hidden;
+                }
+                @media (min-width:$iphone-6-landscape) {
+                  //no clamping on large screens
+                  >*:nth-child(n+2) {
+                    display:block;
+                  }
+                  >*:first-child {
+                    display:block;
+                    -webkit-line-clamp: none;
+                    -webkit-box-orient: inherit;
+                    overflow:visible;
+                  }
+                }
+              }
+            }
+            >div.more {
+              cursor:pointer;
+              display:none;
+              &.shown {
+                display:block;
+                padding-bottom:1em;
+                font-style: italic;
+                @media (min-width:$iphone-6-landscape) {
+                  display:none;
+                }
+              }
+            }
+            >a {
+              @include cta;
+              color:$tan;
+            }
+          }
+        }
+      }
+      @media (min-width:$iphone-6-landscape) {
+        >div.process {
+          margin:0px;
+          display:flex;
+          flex-direction: row;
+          &:nth-child(2n) {
+            flex-direction: row-reverse;
+          }
+          >div {
+            width:50%;
+          }
+          >div.title-text-link {
+            display:flex;
+            align-items: center;
+            margin-top:0px;
+            >div {
+              padding:30px;
+              @media (min-width: $desktop) {
+                padding:120px 60px;
+              }
+            }
+          }
+          >div.image {
+            @media (min-width:$iphone-6-landscape) {
+              min-height: 600px;
+            }
+            @media (min-width: $desktop) {
+              min-height: 900px;
+            }
+            background-position: center center;
+            background-size: cover;
+            >img {
+              display:none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

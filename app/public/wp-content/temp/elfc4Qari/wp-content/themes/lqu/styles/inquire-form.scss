@@ -1,0 +1,87 @@
+//main: style.scss
+div.inquire-overlay {
+  display:block;
+  position:fixed;
+  top:0px; left:0px;
+  width:100vw;
+  height:100vh;
+  z-index:3000;
+  background-color: rgba($white,0.6666);
+  overflow: hidden;
+  color:$tan;
+  >div.blank-area-to-close-the-overlay {
+    display:none;
+    @media (min-width:$iphone-6-landscape) {
+      display:block;
+      position:absolute;
+      width:50vw; height:100vh;
+      top:0px; left:0px;
+      //transition: background-filter 2s;
+      //backdrop-filter: blur(15px);
+      //background-color:red;
+      //z-index:3001;
+    }
+  }
+  >div.full-or-right {
+    position:absolute;
+    //z-index:3002;
+    width:100vw;
+    @media (min-width:$iphone-6-landscape) {
+      width:50vw;
+    }
+    height:100vh;
+    background-color:$blue02;
+    right:0px;
+    overflow: scroll;
+    >div {
+      padding:30px;
+      @media (min-width:$iphone-6-landscape) {
+        padding-left:60px;
+        padding-right:60px;
+      }
+      >div.top {
+        text-align:right;
+        >span.close-inquire-button {
+          display:inline-block;
+          @include nav-items;
+          color:$tan;
+          cursor:pointer;
+        }
+        padding-bottom:30px;
+      }
+      >div.bottom {
+        >div.lqu-contact-form {
+          >div {
+            >form.lqu-contact-form {
+            }
+            >ul {
+              list-style: none;
+              padding-left:0px;
+              >li {
+                >a {
+                  @include cta;
+                  color:$tan;
+                  margin-bottom:15px;
+                  @media(min-width:$iphone-6-landscape) {
+                    margin-bottom:30px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  display:none;
+  &.shown {
+    display:block;
+    >div.blank-area-to-close-the-overlay {
+      @media (min-width:$iphone-6-landscape) {
+
+      }
+    }
+  }
+
+}

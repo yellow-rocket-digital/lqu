@@ -1,0 +1,513 @@
+@use "sass:math";
+@import "../../../css/input-group";
+
+//region Variables
+$navHoverColor: #2271b1;
+$navHoverBackgroundColor: #f6f7f7;
+$contentColor: #50575e;
+$boxBorderColor: #dcdcde;
+$boxBorder: 1px solid $boxBorderColor;
+
+$backButtonWidth: 48px;
+
+$labelFontSize: 14px;
+//endregion
+
+//region Overall structure
+#ame-ac-admin-customizer {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	max-height: 100%;
+}
+
+#ame-ac-sidebar {
+	flex-basis: 18%;
+	min-width: 320px;
+	max-width: 600px;
+	flex-grow: 1;
+
+	display: flex;
+	flex-direction: column;
+
+	background: #f4f4f5;
+	border-right: $boxBorder;
+}
+
+#ame-ac-container-collection {
+	position: relative;
+	width: 100%;
+}
+
+#ame-ac-preview-container {
+	flex-basis: 82%;
+	flex-grow: 1;
+	background: #ddd;
+	position: relative; //Let the refresh spinner position itself relative to the container.
+}
+
+#ame-ac-primary-actions {
+	min-height: 30px;
+	border-bottom: $boxBorder;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding-right: 15px;
+}
+
+#ame-ac-sidebar-content {
+	//background: lightyellow;
+	flex-grow: 1;
+
+	//Scroll contents vertically.
+	overflow-y: auto;
+	overflow-x: hidden;
+
+	//Allow the "save/publish in progress" overlay to position itself correctly.
+	position: relative;
+}
+
+#ame-ac-sidebar-blocker-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4);
+	display: none;
+}
+
+//endregion
+
+//region Action buttons
+#ame-ac-exit-admin-customizer {
+	box-sizing: border-box;
+
+	$buttonSize: 45px;
+	$topBorderWidth: 4px;
+	$hoverColor: #2271b1;
+
+	display: block;
+	height: $buttonSize;
+	//Match at least the width of the "back" button in section navigation.
+	width: math.max($buttonSize, $backButtonWidth);
+	//Push everything else to the right.
+	margin-right: auto;
+
+	border-right: 1px solid #dcdcde;
+	border-top: $topBorderWidth solid transparent;
+	color: #3c434a;
+
+	position: relative;
+	text-align: center;
+
+	&:before {
+		font: normal 22px/#{$buttonSize} dashicons;
+		content: "\f335";
+		position: relative;
+		top: (1px - $topBorderWidth);
+	}
+
+	&:hover {
+		background: #fff;
+		color: $hoverColor;
+		border-top-color: $hoverColor;
+		cursor: pointer;
+	}
+}
+
+#ame-ac-primary-actions {
+	.spinner {
+		margin-top: 0;
+		float: none;
+	}
+}
+
+//endregion
+
+//region Info
+#ame-ac-sidebar-info {
+	.notice {
+		margin: 0;
+		padding-top: 9px;
+		padding-left: 12px;
+		padding-bottom: 9px;
+		//Intentionally leave the padding-right property unchanged for the "dismiss" button.
+	}
+
+	#ame-ac-global-notification-area {
+		border-bottom: $boxBorder;
+		overflow-x: hidden;
+
+		&:empty {
+			display: none;
+		}
+	}
+}
+
+//endregion
+
+//region Controls
+.ame-ac-control-label {
+	display: block;
+	box-sizing: border-box;
+
+	font-size: $labelFontSize;
+	line-height: 1.75;
+	font-weight: 600;
+	margin-bottom: 4px;
+}
+
+.ame-ac-control {
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+
+	margin-bottom: 12px;
+	padding-left: 12px;
+	padding-right: 12px;
+
+	.description {
+		color: $contentColor;
+
+		display: block;
+		font-style: italic;
+		line-height: 1.5;
+
+		margin-top: 0;
+		margin-bottom: 5px;
+	}
+
+	p.description {
+		margin-top: 0.5em;
+	}
+}
+
+.ame-ac-control-group .ame-ac-control {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.ame-text-input-control {
+	width: 100%;
+}
+
+//endregion
+
+//region Validation errors
+
+#ame-ac-sidebar-content {
+	.ame-ac-validation-errors {
+		li {
+			list-style: none;
+		}
+	}
+
+	.ame-ac-validation-error {
+		margin: 0 0 6px 0;
+		padding: 9px 12px;
+	}
+}
+
+.ame-ac-control {
+	.ame-ac-has-error {
+		outline: 2px solid #d63638;
+	}
+}
+
+//endregion
+
+//region Sections
+.ame-ac-section {
+	list-style: none;
+	box-sizing: border-box;
+	margin: 0;
+	width: 100%;
+}
+
+.ame-ac-section-link {
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0;
+
+	cursor: pointer;
+
+	//Emulate appearance of the the Theme Customizer.
+	.ame-ac-section-title {
+		display: block;
+		position: relative;
+		padding: 10px 10px 11px 14px;
+		margin: 0;
+
+		color: $contentColor;
+		background-color: white;
+		border-bottom: $boxBorder;
+		border-left: 4px solid #fff;
+
+		line-height: 1.55;
+		font-size: $labelFontSize;
+
+		transition: .14s color ease-in-out, .14s background-color ease-in-out, .14s border-color ease-in-out;
+
+		//Add a ">" indicator to the title.
+		&:after {
+			font: normal 20px/1 dashicons;
+			display: block;
+			content: "\f345";
+			color: #a7aaad;
+
+			position: absolute;
+			right: 10px;
+			top: calc(50% - 10px);
+		}
+
+		&:hover {
+			color: $navHoverColor;
+			background: $navHoverBackgroundColor;
+			border-left-color: $navHoverColor;
+
+			&:after {
+				color: $navHoverColor;
+			}
+		}
+	}
+}
+
+.ame-ac-section .ame-ac-section-meta + .ame-ac-section-link,
+li:not(.ame-ac-section-link) + .ame-ac-section-link {
+	border-top: $boxBorder;
+}
+
+.ame-ac-section-meta {
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+
+	background: white;
+}
+
+.ame-ac-section-header {
+	$headerFontSize: 20px;
+	$headerLineHeight: 27px;
+
+	display: flex;
+	border-bottom: $boxBorder;
+	margin-bottom: 15px;
+
+	color: $contentColor;
+
+	.ame-ac-section-title {
+		flex-grow: 1;
+		padding-left: 14px;
+		padding-right: 10px;
+
+		font-size: 20px;
+		font-weight: 200;
+		line-height: 27px;
+
+		//Note: 23 + 24 to match the height if the breadcrumbs are hidden.
+		margin-top: (23px / $headerFontSize) * 1em;
+		margin-bottom: (24px / $headerFontSize) * 1em;
+
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.ame-ac-section-breadcrumbs {
+		display: block;
+
+		font-size: 13px;
+		line-height: $headerLineHeight - 1px;
+		font-weight: 400;
+		color: #50575e;
+
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	//Reduce margins when there are breadcrumbs and avoid making the header too tall.
+	//These values were chosen to visually match the Theme Customizer.
+	.ame-ac-section-title.ame-ac-has-breadcrumbs {
+		margin-top: (9px / $headerFontSize) * 1em;
+		margin-bottom: (11px / $headerFontSize) * 1em;
+	}
+}
+
+.ame-ac-section-back-button {
+	display: block;
+	width: $backButtonWidth;
+	flex-shrink: 0;
+
+	margin: 0;
+	padding: 0 3px 0 0;
+
+	background: #fff;
+	color: $contentColor;
+
+	border: none;
+	border-right: $boxBorder;
+	border-left: 4px solid #fff;
+	box-shadow: none;
+
+	cursor: pointer;
+	text-align: center;
+
+	&:before {
+		display: block;
+		font: normal 20px/1 dashicons;
+		content: "\f341";
+		margin-right: 1px; //To line up with the close button.
+	}
+
+	&:hover {
+		color: $navHoverColor;
+		border-left-color: $navHoverColor;
+		background: $navHoverBackgroundColor;
+	}
+}
+
+//No back button for the root section.
+#ame-ac-section-structure-root .ame-ac-section-back-button {
+	display: none;
+}
+
+//Slide sections left or right when the user navigates to/away from them.
+.ame-ac-section {
+	//By default, all sections are hidden on the right side.
+	transform: translateX(100%);
+	visibility: hidden;
+	height: 0;
+	overflow: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	transition-property: transform, visibility;
+	transition-duration: 0.182s;
+	transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+
+	&.ame-ac-transitioning {
+		visibility: visible;
+		height: auto;
+		overflow: auto;
+	}
+}
+
+.ame-ac-current-section {
+	//The current section is not translated, so it's visible.
+	transform: none;
+	visibility: visible;
+	height: auto;
+	overflow: auto;
+}
+
+.ame-ac-previous-section {
+	transform: translateX(-100%);
+}
+
+//Disable section transitions for users who prefer reduced motion.
+@media (prefers-reduced-motion: reduce) {
+	.ame-ac-section {
+		transition: none;
+	}
+}
+
+//region Content sections
+//These sections serve as headings for groups of controls.
+.ame-ac-content-section {
+	background: #fff;
+	border-top: 1px solid $boxBorderColor;
+	border-bottom: 1px solid $boxBorderColor;
+
+	padding-top: 4px;
+	padding-bottom: 5px;
+}
+
+.ame-ac-content-section-title {
+	margin: 0;
+	font-size: $labelFontSize + 1px;
+}
+
+//Increase the top margin of the heading item unless it's the first thing in the parent section.
+.ame-ac-control + .ame-ac-content-section {
+	margin-top: 18px;
+}
+
+//endregion
+
+//endregion
+
+//region Preview
+#ame-ac-preview {
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+#ame-ac-preview-refresh-indicator {
+	display: block;
+	position: absolute;
+	//Position the spinner in the center of the preview.
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	z-index: 2;
+	background: rgba(255, 255, 255, 0.5);
+
+	$fadeTime: 250ms;
+	visibility: hidden;
+	opacity: 0;
+	//Fade the overlay in and out. When fading out, delay the visibility change
+	//until the fade is complete.
+	transition: opacity $fadeTime ease-in, visibility 0ms ease-in $fadeTime;
+
+	&.ame-ac-show-indicator {
+		visibility: visible;
+		opacity: 1;
+
+		//When fading in, change visibility immediately instead of waiting for
+		//the delay. Does not affect opacity because it already had no delay.
+		transition-delay: 0ms;
+	}
+
+	#ame-ac-refresh-spinner {
+		display: none; //Not used.
+		/*box-sizing: border-box;
+		width: 10em;
+		height: 10em;
+		border-radius: 50%;
+
+		$backColor: rgba(100, 100, 100, 0.4);
+		border: 1.1em solid $backColor;
+		border-left: 1.1em solid #ffffff;
+
+		animation: ame-ac-basic-spin 1.1s infinite linear;*/
+	}
+}
+
+@keyframes ame-ac-basic-spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+//endregion

@@ -1,0 +1,1029 @@
+
+
+<h3>includes/class-yith-request-quote-cart.php</h3>
+
+<h4>ywraq_quote_button_cart_html</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   string  $html  Html to filter.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+
+<h3>includes/class-yith-ywraq-post-types.php</h3>
+
+<h4>ywraq_register_post_type_ywraq-pdf-template</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   array  $post_type_args  Attributes to filter.</code>
+
+
+
+
+<b>Return</b>
+<code> array</code>
+
+</pre>
+<hr />
+
+
+<h3>includes/class.yith-request-quote-admin.php</h3>
+
+<h4>ywraq_admin_tabs</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   array  $tabs  Tabs.</code>
+
+
+
+
+<b>Return</b>
+<code> array</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_register_panel_capability</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   string  $capability  Capability.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_export_columns</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   array  $export_columns  List of columns.</code>
+
+
+
+
+<b>Return</b>
+<code> array</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_export_column_value</h4>
+<p>Filter the value of the column to export</p>
+<pre>
+
+<b>Params</b>
+
+<code>   mixed  $value  Value</code>
+
+<code>   WC_Order  $quote  Quote</code>
+
+<code>   string  $key Current column-</code>
+
+
+
+
+<b>Return</b>
+<code> mixed</code>
+
+</pre>
+<hr />
+
+
+<h3>includes/class.yith-request-quote-privacy.php</h3>
+
+<h4>ywraq_privacy_export_personal_data_props</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   array  $data_props  List of personal data properties</code>
+
+
+
+
+<b>Return</b>
+<code> array</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_privacy_eraser_personal_data_props</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   array  $data_props  List of personal data properties.</code>
+
+
+
+
+<b>Return</b>
+<code> array</code>
+
+</pre>
+<hr />
+
+
+<h3>includes/class.yith-request-quote.php</h3>
+
+<h4> ywraq_force_start_session</h4>
+<p>This filter allows forcing the start of the session</p>
+<pre>
+
+<b>Params</b>
+
+<code>   boolean  $force  It true the session will be started.</code>
+
+
+
+
+<b>Return</b>
+<code> boolean</code>
+
+</pre>
+<hr />
+
+<h4> ywraq_number_items_count</h4>
+<p>Filter the number of items in the list</p>
+<pre>
+
+<b>Params</b>
+
+<code>   int  $item_number  Number of item.</code>
+
+<code> array $quote_content Content of quote list.</code>
+
+
+
+
+<b>Return</b>
+<code> int</code>
+
+</pre>
+<hr />
+
+<h4> ywraq_number_product_count</h4>
+<p>Filter the number of items in the list</p>
+<pre>
+
+<b>Params</b>
+
+<code>   int  $item_number  Number of item.</code>
+
+<code> array $quote_content Content of quote list.</code>
+
+
+
+
+<b>Return</b>
+<code> int</code>
+
+</pre>
+<hr />
+
+<h4> ywraq_add_item</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   array  $raq  Quote item to add to the list.</code>
+
+<code>   array  $product_raq  Product to add.</code>
+
+
+
+
+<b>Return</b>
+<code> array</code>
+
+</pre>
+<hr />
+
+<h4> ywraq_quote_item_id</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   string  $quote_item_id  Quote item id.</code>
+
+<code>   array  $product_raq  Product to add.</code>
+
+<code>   int  $item_id  Item id.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_raq_content_before_add_item</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   array  $quote_content  Content of quote.</code>
+
+<code>   array  $product_raq  Product to add to the quote</code>
+
+<code>   array  $raq  Quote request.</code>
+
+
+
+
+<b>Return</b>
+<code> array</code>
+
+</pre>
+<hr />
+
+<h4> ywraq_ajax_validate_uploaded_files</h4>
+<p>Filter the uploaded file with Product add-ons</p>
+<pre>
+
+<b>Params</b>
+
+<code>   array  $valid  Valid files.</code>
+
+
+
+
+<b>Return</b>
+<code> array</code>
+
+</pre>
+<hr />
+
+<h4> yith_ywraq_ajax_add_item_json</h4>
+<p>Filter the  add item json response</p>
+<pre>
+
+<b>Params</b>
+
+<code>   array  $response  Json response.</code>
+
+
+
+
+<b>Return</b>
+<code> array</code>
+
+</pre>
+<hr />
+
+<h4> ywraq_ajax_add_item_is_valid</h4>
+<p>Filter if the item to add is valid</p>
+<pre>
+
+<b>Params</b>
+
+<code>   boolean  $is_valid Check if the item to add is valid.</code>
+
+<code>   int  $product_id  Product id.</code>
+
+
+
+
+<b>Return</b>
+<code> boolean</code>
+
+</pre>
+<hr />
+
+<h4> ywraq_ajax_add_item_prepare</h4>
+<p>Filter the post data of quote item</p>
+<pre>
+
+<b>Params</b>
+
+<code>   array  $postdata Post data</code>
+
+<code>   int  $product_id  Product id.</code>
+
+
+
+
+<b>Return</b>
+<code> boolean</code>
+
+</pre>
+<hr />
+
+<h4> yith_ywraq_error_adding_to_list_message</h4>
+<p>Filter the error message triggered after that a product is added to the quote</p>
+<pre>
+
+<b>Params</b>
+
+<code>   string  $message Error message.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_quantity_max_value</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   int  $max_value  Max value.</code>
+
+<code>   WC_Product  $_product  Current product.</code>
+
+
+
+
+<b>Return</b>
+<code> int</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_quantity_min_value</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   int  $min_value  Max value.</code>
+
+<code>   WC_Product  $_product  Current product.</code>
+
+
+
+
+<b>Return</b>
+<code> int</code>
+
+</pre>
+<hr />
+
+<h4> yith_ywraq_product_not_quoted</h4>
+<p>Filter the message that says that a product is not quotable</p>
+<pre>
+
+<b>Params</b>
+
+<code>   string  $product_not_quotable  Message that says that a product is not quotable.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_request_page_url</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>  string  $base_url  Base url.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_request_page_id</h4>
+<p>Filter the id of the request a quote page</p>
+<pre>
+
+<b>Params</b>
+
+<code>   int  $page_id  Request a quote page id.</code>
+
+
+
+
+<b>Return</b>
+<code> int</code>
+
+</pre>
+<hr />
+
+<h4> ywraq_request_validate_fields</h4>
+<p>Filter the errors after that the customer sends the request</p>
+<pre>
+
+<b>Params</b>
+
+<code>   array  $errors  List of errors</code>
+
+<code>   array  $post    List of posted arguments.</code>
+
+
+
+
+<b>Return</b>
+<code> array</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_force_create_account</h4>
+<p>Filter if is necessary to force the creation of an account</p>
+<pre>
+
+<b>Params</b>
+
+<code>   boolean  $create_account If true is necessary to create an account.</code>
+
+
+
+
+<b>Return</b>
+<code> boolean</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_new_user_role</h4>
+<p>Filter the role assigned when a user is added</p>
+<pre>
+
+<b>Params</b>
+
+<code>   string  $role Role.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4> ywraq_thankyou_page_url</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   string  $thank_you_page  Redirect page</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4> ywraq_endpoint</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   string  $endpoint  Endpoint</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+
+<h3>includes/functions.yith-request-quote.php</h3>
+
+<h4>yith_ywraq_before_print_button</h4>
+<p>Filter status that are shown inside the list</p>
+<pre>
+
+<b>Params</b>
+
+<code>   bool  $hide_button  It true hide the quote button.</code>
+
+
+
+
+<b>Return</b>
+<code> bool</code>
+
+</pre>
+<hr />
+
+<h4> ywraq_add_to_quote_args</h4>
+<p>Filter arguments to pass to the template</p>
+<pre>
+
+<b>Params</b>
+
+<code>   array  $args  List of arguments to pass to the template</code>
+
+
+
+
+<b>Return</b>
+<code> array</code>
+
+</pre>
+<hr />
+
+<h4> yith_ywraq_render_button_check_loop</h4>
+<p>Filter the possibility to show or hide the button on loop</p>
+<pre>
+
+<b>Params</b>
+
+<code>   bool  $render_button  If true show buttons on loop.</code>
+
+<code>   int   $product_id     Product id.</code>
+
+
+
+
+<b>Return</b>
+<code> bool</code>
+
+</pre>
+<hr />
+
+<h4>yith_ywraq_product_added_to_list_message</h4>
+<p>Filter the message displayed when the product is added to the list</p>
+<pre>
+
+<b>Params</b>
+
+<code> string $message  Message.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_product_added_view_browse_list</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> string $message  Message.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_product_add_to_quote</h4>
+<p>Filter the label of button</p>
+<pre>
+
+<b>Params</b>
+
+<code> string $label  Label of button.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>yith_ywraq_product_already_in_list_message</h4>
+<p>Filter the message which says that the product is already on list</p>
+<pre>
+
+<b>Params</b>
+
+<code> string $message  Message.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_accept_link_label</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> string $label  Label.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_reject_link_label</h4>
+<p>Filter the label of button to reject the quote</p>
+<pre>
+
+<b>Params</b>
+
+<code> string $label  Label.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_get_label</h4>
+<p>Filter the label requested</p>
+<pre>
+
+<b>Params</b>
+
+<code> string $label  Label.</code>
+
+<code> string $key  Type of label requested.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_request_list_status_filter</h4>
+<p>Filter status that are shown inside the list</p>
+<pre>
+
+<b>Params</b>
+
+<code>   array  $status_list  List of status.</code>
+
+
+
+
+<b>Return</b>
+<code> array</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_meta_data_carret</h4>
+<p>Filter the char to use to move the text in a new line</p>
+<pre>
+
+<b>Params</b>
+
+<code>   string  $char  Char.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_item_data</h4>
+<p>Filter the item data</p>
+<pre>
+
+<b>Params</b>
+
+<code>   array  $item_data  Item data.</code>
+
+
+
+
+<b>Return</b>
+<code> array</code>
+
+</pre>
+<hr />
+
+<h4>yith_ywraq_add_message</h4>
+<p>Filter the content of the notice message</p>
+<pre>
+
+<b>Params</b>
+
+<code> string $message  Message.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>yith_ywraq_add_{$notice_type}</h4>
+<p>Filter the content of the $notice_type message</p>
+<pre>
+
+<b>Params</b>
+
+<code> string $message  Message.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_notices</h4>
+<p>Filter the content of the notice messages</p>
+<pre>
+
+<b>Params</b>
+
+<code> array $all_notices  All notices list.</code>
+
+
+
+
+<b>Return</b>
+<code> array</code>
+
+</pre>
+<hr />
+
+<h4>yith_ywraq_notice_types</h4>
+<p>Filter the list of notice types</p>
+<pre>
+
+<b>Params</b>
+
+<code> array $notice_types  All notice types list.</code>
+
+
+
+
+<b>Return</b>
+<code> array</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_quote_number</h4>
+<p>Filter the quote number</p>
+<pre>
+
+<b>Params</b>
+
+<code> string $quote_number  Quote number.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_quote_number_after_request_quote_sending</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> string $quote_number_link  Url of quote.</code>
+
+<code> WC_Order $quote  Quote object.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_simple_thank_you_message</h4>
+<p>Filter the thank-you message</p>
+<pre>
+
+<b>Params</b>
+
+<code> string $message  Message of thank you page.</code>
+
+<code> WC_Order $quote  Quote object.</code>
+
+<code> string $quote_number_link  Url of quote.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_get_list_empty_message_text</h4>
+<p>Filter the message when the list is empty</p>
+<pre>
+
+<b>Params</b>
+
+<code> string $message  Message of empty list.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>yith_ywraq_return_to_shop_after_sent_the_request_label</h4>
+<p>Filter the label of button to return to the shop page after that the quote is sent</p>
+<pre>
+
+<b>Params</b>
+
+<code> string $label  Label.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>yith_ywraq_return_to_shop_label</h4>
+<p>Filter the label of button to return to the shop page</p>
+<pre>
+
+<b>Params</b>
+
+<code> string $label  Label.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_get_list_empty_message</h4>
+<p>Filter the message when the list is empty</p>
+<pre>
+
+<b>Params</b>
+
+<code> string $empty_list_message  Empty list message.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_date_local_formats</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   array  $local_formats  Local format.</code>
+
+
+
+
+<b>Return</b>
+<code> array</code>
+
+</pre>
+<hr />
+
+<h4>ywraq_check_recaptcha</h4>
+<p>Filter if is possible to use the recaptcha</p>
+<pre>
+
+<b>Params</b>
+
+<code>  bool  $is_captcha If true the recaptcha can be used.</code>
+
+
+
+
+<b>Return</b>
+<code> bool</code>
+
+</pre>
+<hr />
+
+<h4> ywraq_valid_order_statuses_for_order_again</h4>
+<p>Set the valid order status for which to show the Request Quote Again button</p>
+<pre>
+
+<b>Params</b>
+
+<code>   array  $quote_status  List of status.</code>
+
+
+
+
+<b>Return</b>
+<code> array</code>
+
+</pre>
+<hr />
+
+<h4> ywraq_quote_again_button_label</h4>
+<p>Change the label of the Request Quote Again button</p>
+<pre>
+
+<b>Params</b>
+
+<code>   string  $quote_status  List of status.</code>
+
+
+
+
+<b>Return</b>
+<code> string</code>
+
+</pre>
+<hr />
+
+
+
+

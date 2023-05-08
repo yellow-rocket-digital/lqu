@@ -1,0 +1,512 @@
+
+
+
+
+
+<h3>includes/class-yith-ywraq-post-types.php</h3>
+
+<h4>ywraq_before_register_post_type</h4>
+<p></p>
+<pre>
+
+</pre>
+<hr />
+
+<h4>ywraq_after_register_post_type</h4>
+<p></p>
+<pre>
+
+</pre>
+<hr />
+
+
+<h3>includes/class.yith-request-quote-premium.php</h3>
+
+<h4>ywraq_form_integration</h4>
+<p></p>
+<pre>
+
+</pre>
+<hr />
+
+<h4>create_pdf</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> int $order_id Order id.</code>
+
+<code> bool $preview Set if the pdf is a preview or not.</code>
+
+
+</pre>
+<hr />
+
+<h4>send_quote_mail</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> int $order_id Order id.</code>
+
+
+</pre>
+<hr />
+
+
+<h3>includes/class.yith-request-quote.php</h3>
+
+<h4>yith_raq_updated</h4>
+<p></p>
+<pre>
+
+</pre>
+<hr />
+
+<h4>yith_ywraq_set_rqa_cookies</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   bool  $set  If true the cookie must be set.</code>
+
+
+</pre>
+<hr />
+
+<h4>yith_ywraq_set_rqa_cookies</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   bool  $set  If true the cookie must be set.</code>
+
+
+</pre>
+<hr />
+
+<h4>ywraq_added_to_quote_by_url</h4>
+<p></p>
+<pre>
+
+</pre>
+<hr />
+
+<h4>ywraq_process</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   array  $arguments  List of arguments useful to process the quote.</code>
+
+
+</pre>
+<hr />
+
+<h4>send_raq_customer_mail</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code>   array  $arguments  List of arguments useful to send the email with quote.</code>
+
+
+</pre>
+<hr />
+
+
+<h3>includes/class.yith-ywraq-cron.php</h3>
+
+<h4>send_reminder_quote_mail</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> int $order_id Quote id.</code>
+
+<code> int $expired_data Expiring date of quote.</code>
+
+
+</pre>
+<hr />
+
+<h4>send_reminder_quote_accept_mail</h4>
+<p>This action is triggered to send the reminder the customer to pay the quote</p>
+<pre>
+
+<b>Params</b>
+
+<code> WP_Post $quote Quote post object.</code>
+
+
+</pre>
+<hr />
+
+<h4>create_pdf</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> int $order_id Order id.</code>
+
+<code> bool $preview Set if the pdf is a preview or not.</code>
+
+
+</pre>
+<hr />
+
+<h4>send_quote_mail</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> int $order_id Order id.</code>
+
+
+</pre>
+<hr />
+
+
+<h3>includes/class.yith-ywraq-order-request.php</h3>
+
+<h4>send_raq_mail</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> array $raq List of arguments useful to send the email with quote.</code>
+
+
+</pre>
+<hr />
+
+<h4>send_raq_customer_mail</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> array $raq List of arguments useful to send the email with quote.</code>
+
+
+</pre>
+<hr />
+
+<h4>ywraq_after_create_order_from_checkout</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> array $raq Quote information.</code>
+
+<code> WC_Order $order Order with quote.</code>
+
+
+</pre>
+<hr />
+
+<h4>ywraq_before_create_order</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> array $raq Quote information.</code>
+
+
+</pre>
+<hr />
+
+<h4>ywraq_from_cart_to_order_item</h4>
+<p>This action is triggered during the process that convert the quote on order</p>
+<pre>
+
+<b>Params</b>
+
+<code> array $values Cart item.</code>
+
+<code> string $cart_item_key Cart item key.</code>
+
+<code> int $item_id Order ttem id created.</code>
+
+<code> WC_Order $order Current order.</code>
+
+
+</pre>
+<hr />
+
+<h4>ywraq_after_create_order</h4>
+<p>This action is triggered after the order creation</p>
+<pre>
+
+<b>Params</b>
+
+<code> int $order_id Order id.</code>
+
+<code> array $posted Posted params.</code>
+
+<code> array $raq Quote information.</code>
+
+
+</pre>
+<hr />
+
+<h4>ywraq_add_order_meta</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> int $order_id Order id.</code>
+
+<code> array $raq Quote information.</code>
+
+
+</pre>
+<hr />
+
+<h4>ywraq_before_order_accepted</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> int $order_id Order id.</code>
+
+
+</pre>
+<hr />
+
+<h4>ywraq_after_order_accepted</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> int $order_id Order id.</code>
+
+
+</pre>
+<hr />
+
+<h4>change_status_mail</h4>
+<p>This action is triggered when the quote changes the status</p>
+<pre>
+
+<b>Params</b>
+
+<code> array $args Arguments necessary to send the email.</code>
+
+
+</pre>
+<hr />
+
+<h4>create_pdf</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> int $post_id Order id.</code>
+
+<code> bool $preview Set if the pdf is a preview or not.</code>
+
+
+</pre>
+<hr />
+
+<h4>send_quote_mail</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> int $order_id Order id.</code>
+
+
+</pre>
+<hr />
+
+<h4>create_pdf</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> int $post_id Order id.</code>
+
+<code> bool $preview Set if the pdf is a preview or not.</code>
+
+
+</pre>
+<hr />
+
+<h4>create_pdf</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> int $post_id Order id.</code>
+
+<code> bool $preview Set if the pdf is a preview or not.</code>
+
+
+</pre>
+<hr />
+
+<h4>send_quote_mail</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> int $order_id Order id.</code>
+
+
+</pre>
+<hr />
+
+<h4>change_status_mail</h4>
+<p>This action is triggered when the quote changes the status</p>
+<pre>
+
+<b>Params</b>
+
+<code> array $args Arguments necessary to send the email.</code>
+
+
+</pre>
+<hr />
+
+<h4>change_status_mail</h4>
+<p>This action is triggered when the quote changes the status</p>
+<pre>
+
+<b>Params</b>
+
+<code> array $args Arguments necessary to send the email.</code>
+
+
+</pre>
+<hr />
+
+
+<h3>includes/forms/default/class.yith-ywraq-default-form.php</h3>
+
+<h4>ywraq_process</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> array $arguments List of arguments useful to process the quote.</code>
+
+
+</pre>
+<hr />
+
+<h4>send_raq_mail</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> array $raq List of arguments useful to send the email with quote.</code>
+
+
+</pre>
+<hr />
+
+<h4>send_raq_customer_mail</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> array $arguments List of arguments useful to send the email with quote.</code>
+
+
+</pre>
+<hr />
+
+<h4>ywraq_checkout_update_customer</h4>
+<p></p>
+<pre>
+
+<b>Params</b>
+
+<code> WC_Customer $customer Customer object.</code>
+
+<code> array $filled_form_fields List of arguments useful adjust customer.</code>
+
+
+</pre>
+<hr />
+
+
+<h3>init.php</h3>
+
+<h4>yith_ywraq_init</h4>
+<p></p>
+<pre>
+
+</pre>
+<hr />
+
+
+<h3>templates/request-quote-default-form.php</h3>
+
+<h4>ywraq_before_default_form</h4>
+<p></p>
+<pre>
+
+</pre>
+<hr />
+
+<h4>ywraq_before_content_default_form</h4>
+<p></p>
+<pre>
+
+</pre>
+<hr />
+
+<h4>ywraq_before_registration_default_form</h4>
+<p></p>
+<pre>
+
+</pre>
+<hr />
+
+<h4>ywraq_after_registration_default_form</h4>
+<p></p>
+<pre>
+
+</pre>
+<hr />
+
+<h4>ywraq_before_submit_default_form</h4>
+<p></p>
+<pre>
+
+</pre>
+<hr />
+
+<h4>ywraq_after_content_default_form</h4>
+<p></p>
+<pre>
+
+</pre>
+<hr />
+

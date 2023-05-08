@@ -1,0 +1,70 @@
+//main: style.scss
+
+section.locations {
+  background-color:$tan;
+  >div {
+    max-width:$page-width;
+    margin-left: auto; margin-right: auto;
+    /*
+    >h1 {
+      max-width:840px;
+      padding-top:60px;
+      margin-left:auto; margin-right:auto;
+      text-align: center;
+    }
+    */
+    >div.introduction {
+      max-width:840px;
+      padding:60px 60px 0px 60px;
+      text-align: center;
+      margin-left:auto; margin-right: auto;
+      >h1 {
+        margin-top:30px; margin-bottom:30px;
+      }
+      >div.cta {
+        margin-top:30px; margin-bottom:30px;
+        >a { @include cta; }
+      }
+    } //end introduction
+    >div.locations {
+      margin-left:30px; margin-right:30px;
+      padding-bottom:30px;
+      @media(min-width:$iphone-6-landscape) {
+        display:flex;
+        flex-wrap: wrap;
+        align-items: baseline; //image is the first baseline
+        justify-content: center;
+        padding-bottom: 60px; //NOTE: Added
+      }
+      >div.location {
+        @media(min-width:$iphone-6-landscape) {
+          width:50%;
+        }
+        @media(min-width:$ipad-landscape) {
+          width:33.33%;
+        }
+        overflow:hidden;
+        text-align: center;
+        >div {
+          margin:30px;
+          >div {
+            margin:10px 0px;
+            &.image {
+              >img {
+                display:block;
+                width:100%; height: auto;
+              }
+            }
+            &.title {
+              @include lqu-h3-subheading;
+              margin-top:30px;
+            }
+            &.address, &.phone {
+              @include p2-small-note;
+            }
+          }
+        }
+      }
+    }
+  }
+}

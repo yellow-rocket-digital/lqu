@@ -1,0 +1,115 @@
+//main: style.scss
+
+// Used here and on single case-studies page
+@mixin case-studies-grid {
+  margin-left:20px; margin-right:20px;
+  // grid-column-gap: 120px; //specified
+  grid-column-gap: percentage(120/1400); //NOTE: better, scales
+  grid-template-columns: repeat(1,1fr);
+  @media( min-width:$desktop) {
+    grid-template-columns: repeat(2,1fr);
+  }
+  >a {
+    //color:$gray02;
+    color:$blue01;
+    >span.image {
+      padding-bottom:percentage(430/640); //from indesign
+      background-size: cover;
+      // NOTE: In case otehr size images are used, cover is used
+      // For  more "editorial" look, use background-position bottom
+      // with the default background-size: contain
+      //background-position: bottom;
+
+    }
+    >span.case-hero-text {
+      display:block;
+      //margin:30px 30px 60px 30px;
+      margin-bottom:30px;
+      padding:30px;
+      >h4 {
+        //color:$gray02;
+        font-style: italic;
+      }
+      >div.text {
+        >span.product-category {
+          @include p2-small-note;
+        }
+        >span.product-title, >span.product-category-title {
+          @include p1-body-big-highlight;
+        }
+
+      }
+    }
+    &:hover {
+      >span.case-hero-text {
+        //border:1px solid $blue01;
+        >h4, >div.text {
+          color:$blue01;
+        }
+      }
+    }
+    &.fill-effect {
+      >span.case-hero-text { border:0px; }
+      &:hover>span.case-hero-text { background-color:$blue02; >h4, >div.text { color:$tan; } }
+    }
+
+    /* old, unused without php GET URL arguments */
+    &.border-effect {
+      >span.case-hero-text { border:1px solid $tan; }
+      &:hover>span.case-hero-text { border:1px solid $blue01; }
+    }
+    &.shadow-effect {
+      >span.image {
+        transition: all 0.25s;
+        box-shadow: 0px 0px 0px rgba(0,0,0,1);
+      }
+      &:hover {
+        >span.image {
+          transition: all 0.1s;
+          box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+          transform:translateX(-2px);
+          transform:translateY(-2px);
+        }
+      }
+    }
+    &.zoom-effect {
+      >span.image {
+        transition: all 0.25s;
+        //background-size: 100%;
+      }
+      &:hover {
+        >span.image {
+          transition: all 0.1s;
+          transform: scale(1.01);
+        }
+      }
+    }
+
+
+  }
+}
+
+section.case-studies { // used in single case study as well
+  @include lqu-overview;
+  background-color:$tan;
+  >div {
+    >h1, >h3 { //h2 used in single-case
+      margin-top:0px;
+      @media(min-width:$desktop) {
+        max-width:840px;
+        margin-bottom:60px;
+        margin-left:auto;
+        margin-right:auto;
+      }
+    }
+    >h1 {
+      padding-top:30px;
+    }
+    >h3 {
+      padding-top:60px;
+    }
+    >div.case-studies.grid {
+      @include case-studies-grid
+    }
+  }
+}

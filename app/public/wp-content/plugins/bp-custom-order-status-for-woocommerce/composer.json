@@ -1,0 +1,22 @@
+{
+    "name": "brightplugins/custom-order-status",
+    "description": "plugin allows you to create, delete edit order statuses to better control the flow of your orders.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "BrightPlugins",
+            "email": "support@brightplugins.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "include/codestar/codestar-framework.php"
+        ],
+        "psr-4": {
+            "Brightplugins_COS\\": "src/"
+        }
+    },
+    "require": {
+        "collizo4sky/persist-admin-notices-dismissal": "^1.4"
+    }
+}

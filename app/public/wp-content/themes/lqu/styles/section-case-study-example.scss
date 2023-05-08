@@ -1,0 +1,56 @@
+//main: style.scss
+section.case-study-example {
+  background-color:$gray01;
+  >div {
+    background-color:$gray02;
+    max-width:1440px;
+    margin-left:auto; margin-right: auto;
+    color:$tan;
+    position:relative;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+
+    >div.image {
+      width:100%; height:auto;
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding-bottom:80%;
+    }
+
+    >div.text-and-cta {
+      box-sizing: border-box;
+      padding:30px;
+      >div.text {
+
+        @include lqu-h1-medium-statement;
+        color:$tan;
+      }
+      >div.cta {
+        >a {
+          @include cta;
+          color:$tan;
+          border-color:$tan
+        }
+      }
+    }
+
+    //@media( min-width:$desktop ) {
+    @media( min-width:$desktop ) {
+      flex-direction: row;
+      >div.image {
+        width:percentage(840/1440);
+        padding-bottom:percentage(575/1440);
+        //height: 0px; //NOTE: As specfied use 0px height
+
+      }
+      >div.text-and-cta {
+        width:percentage((1440-840)/1440);
+        min-width:($desktop/2);
+        padding:60px;
+        align-self: center;
+      }
+    }
+
+  } //end inner section div
+} //end section

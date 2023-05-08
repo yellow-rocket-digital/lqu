@@ -1,0 +1,232 @@
+//main: style.scss
+
+/*
+Intro Video and Top Navigation
+*/
+
+$single-line-nav-width: 1240px;
+
+//Intro Video
+section.intro-video {
+  width:100vw;
+  height:200vh;
+  >div.video {
+    //See inline styles calcaulted based on video dimensions
+    position:sticky; top:0px; left:0px;
+    width:100vw;
+    height:100vh;
+    background-color:$gray01;
+    overflow: hidden;
+    >video {
+      position:absolute;
+      top:50%; left:50%;
+      transform: translate(-50%, -50%);
+    }
+  } // end video
+  >div.curtain {
+    position:absolute;
+    top:0px;
+    width:100vw;
+    height:100vh;
+    overflow: hidden;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:minmax(0px,440px) minmax(50vh,auto);
+    >div.top {
+      background-color:$tan; // overlay position in js, see init.js
+      // background image is 600x440 and is set in html to prevent FOUC on css reload
+      // background-image:url("/wp-content/themes/lqu/images/Q-hole-3.svg");
+      background-repeat:no-repeat;
+      background-position: top center;
+      position:relative;
+      >div {
+        position:absolute;
+        &.left { left:0px; background-color:$tan;}
+        &.right { right:0px; background-color:$tan;}
+        &.below_q {
+          width:100%; left:0px; right:0px; bottom:0px; background-color:$tan;
+          margin-top:-2px; padding-bottom:2px; //screen rounding error over video
+        }
+      }
+    }
+    >div.bottom {
+      background-color:$tan;
+      padding:20px;
+      text-align: center;
+      display:grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto 1fr;
+      >div {
+        &.logo {
+          margin-top:5vh;
+        }
+        &.lqu-name {
+          margin-top:30px;
+          @include lqu-h1-medium-statement
+        }
+        &.lqu-text {
+          margin-top:60px;
+          @include lqu-h3-subheading
+          margin-top:auto;
+          padding-top:5vh;
+          padding-bottom:10vh; //NOTE: This was 5vh, but raised for iOS tabs
+
+        }
+      }
+    }
+  } // end curtain
+
+}
+
+// Top Navigation
+section.top-navigation {
+  background-color:$tan;
+  width:100%;
+  position:sticky; top:0px; left:0px;
+  z-index: 10;
+  >nav {
+    //background-color:red;
+    max-width:1410px;
+    padding-left:15px; padding-right:15px;
+    margin:0px auto;
+    ul, li {margin:0px; padding:0px; list-style: none;}
+    @include nav-items;
+
+    display:flex;
+    >ul, >div {
+      flex-basis: 0;
+    }
+    >ul { //.left, .right
+      flex-grow:1;
+      display:flex;
+      align-items: center;
+      >li {
+        position:relative;
+        height:80px;
+        @media (min-width:$desktop) {
+          height:140px;
+        }
+        display:flex;
+        align-items: center;
+        &.desktop-link { display:none; }
+        @media (min-width:$desktop) {
+          &.mobile-link { display:none; }
+          &.desktop-link { display:flex; }
+        }
+        >span {
+          cursor: pointer;
+        }
+        >a, >span {
+          padding:15px;
+          @media (min-width:$single-line-nav-width) {
+            padding:15px;
+          }
+          text-align:center;
+          >span {
+            display:block;
+            @media (min-width:$single-line-nav-width) {
+              display:inline-block;
+            }
+            >span.us { display:none; }
+            @media (min-width:960px) {
+              >span.us { display:inline; }
+              >span.and { display:none; }
+              &.contact {
+                &::before {
+                  content: "& ";
+                }
+              }
+            }
+          }
+        }
+        >ul {
+          display:none;
+          background-color:$tan;
+          position:absolute;
+          top:100%;
+          width:100%;
+          min-width:240px;
+          height: auto;
+          z-index: 2;
+          @media (min-width:$desktop) { margin-top:-40px; } //nav links can be two lines
+          @media (min-width:$single-line-nav-width) { margin-top:-60px; } //nav on a single line
+          >li {
+            >a {
+              display:block;
+              padding-left:15px; padding-right:15px;
+              padding:30px 15px;
+              text-align: center;
+            }
+          }
+        }
+        &:hover {
+          >ul {
+            display:block;
+          }
+        }
+      }
+      //@media (min-width:$single-line-nav-width) {
+      @media (min-width:$desktop) {
+        &.left>li>ul>li>a { text-align:left; }
+        &.right>li>ul>li>a { text-align:right; }
+      }
+      &.right {
+        justify-content: flex-end;
+        >li {
+          >ul {
+            right:0px;
+            text-align: right;
+          }
+        }
+      }
+    }
+    >div.logo {
+      display:flex;
+      align-items: center;
+      >a {
+        padding-left:15px; padding-right:15px;
+        >img, >svg {
+          margin-top:10px; //to center that Q
+          @media (min-width:$desktop) {
+            width:140px; height:auto;
+          }
+          >path {
+            fill:$blue01;
+            &.logo-letter-l { transition: fill 1.25s; }
+            &.logo-letter-q { transition: fill 1s; }
+            &.logo-letter-u { transition: fill 0.5s; }
+          }
+        }
+      }
+    }
+  } //end nav
+  &.color-theme-white {
+    background-color:$white;
+    >nav>ul>li>ul {
+      background-color:$white;
+    }
+  }
+
+
+  &.mobile-open {
+    position:fixed;
+    background-color: $blue02;
+    a { color:$tan; }
+    nav>div.logo>a>svg>path {
+      fill:$tan;
+      &.logo-letter-l { transition: fill 0.5s; }
+      &.logo-letter-q { transition: fill 1s; }
+      &.logo-letter-u { transition: fill 1.25s; }
+
+    }
+    @media (min-width:$desktop) {
+      position:sticky;
+      background-color: $tan;
+      a { color:$blue01; }
+      nav>div.logo>a>svg>path { fill:$blue01; }
+
+    }
+  }
+
+
+}

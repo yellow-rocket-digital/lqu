@@ -1,0 +1,40 @@
+//main: style.scss
+
+section.finishes, section.draperies {
+  @include lqu-overview;
+  >div {
+    >div.grid {
+      grid-template-columns: 1fr 1fr;
+      border-top:1px solid $tan;
+      >span.finish, >span.drapery {
+        border-bottom:1px solid $tan;
+        border-right:1px solid $tan;
+        &:nth-child(2n) { border-right:0px; }
+      }
+      @media(min-width:$desktop) {
+        grid-template-columns: 1fr 1fr 1fr;
+        >span.finish, >span.drapery {
+          &:nth-child(2n) { border-right:1px solid $tan; }
+          &:nth-child(3n) { border-right:0px; }
+        }
+      }
+      >span.finish, >span.drapery {
+        cursor: pointer;
+        >span.image {
+          background-size: cover;
+          background-repeat: no-repeat;
+          &.image1 { display:block;}
+          &.image2 { display:none;}
+          padding-bottom:percentage(760/960);
+        }
+        &:hover {
+          >span.image {
+            &.image1 { display:none; }
+            &.image2 { display:block; }
+          }
+        }
+      }
+    }
+
+  }
+}
