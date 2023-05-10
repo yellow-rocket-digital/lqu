@@ -118,7 +118,7 @@
   color:$blue01;
 }
 @mixin lqu-h1-medium-statement-highlight {
-  @include lqu-h1-medium-statement
+  @include lqu-h1-medium-statement;
   font-style: oblique;
 }
 @mixin lqu-h2-pull-quote {

@@ -62,11 +62,11 @@ section.intro-video {
         }
         &.lqu-name {
           margin-top:30px;
-          @include lqu-h1-medium-statement
+          @include lqu-h1-medium-statement;
         }
         &.lqu-text {
           margin-top:60px;
-          @include lqu-h3-subheading
+          @include lqu-h3-subheading;
           margin-top:auto;
           padding-top:5vh;
           padding-bottom:10vh; //NOTE: This was 5vh, but raised for iOS tabs
