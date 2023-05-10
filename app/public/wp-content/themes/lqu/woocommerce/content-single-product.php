@@ -44,21 +44,36 @@ if ( post_password_required() ) {
 	?>
 
 	<div class="summary entry-summary">
-		<?php
-		/**
-		 * Hook: woocommerce_single_product_summary.
-		 *
-		 * @hooked woocommerce_template_single_title - 5
-		 * @hooked woocommerce_template_single_rating - 10
-		 * @hooked woocommerce_template_single_price - 10
-		 * @hooked woocommerce_template_single_excerpt - 20
-		 * @hooked woocommerce_template_single_add_to_cart - 30
-		 * @hooked woocommerce_template_single_meta - 40
-		 * @hooked woocommerce_template_single_sharing - 50
-		 * @hooked WC_Structured_Data::generate_product_data() - 60
-		 */
-		do_action( 'woocommerce_single_product_summary' );
-		?>
+		<h1><?= $product->get_title(); ?></h1>
+
+		<h3>Dimensions</h3>
+		<p><?= wc_format_dimensions($product->get_dimensions(false)); ?></p>
+
+		<p>All pieces are made to order, frame to fabric so the dimensions may be determined by the customer.</p>
+
+		<h3>Fabric</h3>
+		<p>All fabrics are supplied by the customer. Yardage requirements are supplied in estimates once the design is specified.</p>
+
+		<?php if (is_user_logged_in()): ?>
+			<?php
+			/**
+			 * Hook: woocommerce_single_product_summary.
+			 *
+			 * @hooked woocommerce_template_single_title - 5
+			 * @hooked woocommerce_template_single_rating - 10
+			 * @hooked woocommerce_template_single_price - 10
+			 * @hooked woocommerce_template_single_excerpt - 20
+			 * @hooked woocommerce_template_single_add_to_cart - 30
+			 * @hooked woocommerce_template_single_meta - 40
+			 * @hooked woocommerce_template_single_sharing - 50
+			 * @hooked WC_Structured_Data::generate_product_data() - 60
+			 */
+			do_action( 'woocommerce_single_product_summary' );
+			?>
+		<?php else: ?>
+			<p>You must log in</p>
+			<a href="/my-account" class="button">Login</a>
+		<?php endif; ?>
 	</div>
 
 	<?php

@@ -1,0 +1,24 @@
+.type-product,
+.product-type-simple {
+   display: flex;
+}
+
+
+/* buttons */
+.button,
+.woocommerce .button,
+.woocommerce a.button {
+   @include cta-button;
+}
+
+.woocommerce a.add-request-quote-button.button {
+   font-size: initial !important;
+
+   &:hover {
+      background-color: initial !important;
+      border: 2px solid $blue01 !important;
+      color: $blue01 !important;
+   }
+}
+
+

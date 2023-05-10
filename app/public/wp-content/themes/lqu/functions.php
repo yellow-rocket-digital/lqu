@@ -63,7 +63,8 @@ if (is_user_logged_in()) {
   add_action('map_meta_cap', 'custom_manage_privacy_options', 1, 4);
 }
 
-require_once('chris/functions-chris.php');
+//require_once('chris/functions-chris.php');
+require_once('functions-yellow.php');
 
 
 //require_once('functions-tinymce.php');        // editor customization
