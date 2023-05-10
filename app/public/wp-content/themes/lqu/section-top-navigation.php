@@ -94,11 +94,13 @@ $show_reupholstery = current_user_can('edit_posts') ? true : get_field('show_reu
 				</a>
 			</li>
 			<li class="text-link desktop-link">
-			<?php if ( is_user_logged_in() ) { ?>
-				<a href="/my-account" class="clientDashboard"><span>Client Dashboard</span></a>
-				<?php } else { ?>
-				<a href="/my-account"><span>Client Login</span></a>
-				<?php } ?>
+				<a href="/my-account">
+					<?php if (is_user_logged_in()): ?>
+						<span>My Account</span>
+					<?php else: ?>
+						<span>Login</span>
+					<?php endif; ?>
+				</a>
 			</li>
 		</ul>
 
