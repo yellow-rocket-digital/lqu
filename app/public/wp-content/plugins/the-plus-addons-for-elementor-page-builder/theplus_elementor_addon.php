@@ -2,20 +2,20 @@
 /*
 * Plugin Name: The Plus Addons for Elementor
 * Plugin URI: https://theplusaddons.com/
-* Description: Biggest collection of Widgets & Features to supercharge your Elementor Page builder in WordPress.
-* Version: 5.2.0
+* Description: Highly Customisable 120+ Advanced Elementor Widgets & Extensions for Performance Driven Website.
+* Version: 5.2.3
 * Author: POSIMYTH
 * Author URI: https://posimyth.com/
 * Text Domain: tpebl
-* Elementor tested up to: 3.12
-* Elementor Pro tested up to: 3.12
+* Elementor tested up to: 3.13
+* Elementor Pro tested up to: 3.13
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-defined( 'L_THEPLUS_VERSION' ) or define( 'L_THEPLUS_VERSION', '5.2.0' );
+defined( 'L_THEPLUS_VERSION' ) or define( 'L_THEPLUS_VERSION', '5.2.3' );
 define( 'L_THEPLUS_FILE__', __FILE__ );
 
 define( 'L_THEPLUS_PATH', plugin_dir_path( __FILE__ ) );
@@ -23,10 +23,10 @@ define( 'L_THEPLUS_PBNAME', plugin_basename(__FILE__) );
 define( 'L_THEPLUS_PNAME', basename( dirname(__FILE__)) );
 define( 'L_THEPLUS_URL', plugins_url( '/', __FILE__ ) );
 define( 'L_THEPLUS_ASSETS_URL', L_THEPLUS_URL . 'assets/' );
-define('L_THEPLUS_ASSET_PATH', wp_upload_dir()['basedir'] . DIRECTORY_SEPARATOR . 'theplus-addons');
-define('L_THEPLUS_ASSET_URL', wp_upload_dir()['baseurl'] . '/theplus-addons');
+define( 'L_THEPLUS_ASSET_PATH', wp_upload_dir()['basedir'] . DIRECTORY_SEPARATOR . 'theplus-addons');
+define( 'L_THEPLUS_ASSET_URL', wp_upload_dir()['baseurl'] . '/theplus-addons');
 define( 'L_THEPLUS_INCLUDES_URL', L_THEPLUS_PATH . 'includes/' );
-
+define( 'L_THEPLUS_Tpdoc', 'https://theplusaddons.com/docs/' );
 
 
 /* theplus language plugins loaded */

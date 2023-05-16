@@ -2425,7 +2425,16 @@ class L_ThePlus_Block_Quote extends Widget_Base {
 							
 							if(isset($settings['quote_dropcap']) && $settings['quote_dropcap']=='yes' && $quote_style !='style-2'){
 								$content = wp_kses_post($content_description);
-								$text_block .= '<span><span class="tp-blockquote-dropcap">'.$content[0].'</span> '.trim($content, $content[0]) .' </span>';
+								if( $content[0] == '<' ) {
+                                    $position = strpos($content, '>');
+                                    $pos = $position + 2;
+                                    $FirstPos = $position + 1;
+                                    $result = substr($content, 0, $pos);
+
+                                    $text_block .= '<span><span class="tp-blockquote-dropcap">'.$content[$FirstPos].'</span> '.trim($content, $result) .' </span>';
+                                }else{
+                                    $text_block .= '<span class="tp-bq-desc">'.($content_description).'</span>';
+                                }
 							}else{
 								$text_block .= '<span class="tp-bq-desc">'.wp_kses_post($content_description).'</span>';
 							}							

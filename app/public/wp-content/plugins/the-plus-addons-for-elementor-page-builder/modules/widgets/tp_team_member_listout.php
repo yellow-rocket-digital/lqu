@@ -937,6 +937,16 @@ class L_ThePlus_Team_Member_ListOut extends Widget_Base {
                 'tab' => Controls_Manager::TAB_STYLE,
 			]
         );
+		$this->add_responsive_control('content_bi_padding',
+			[
+				'label' => esc_html__( 'Content Padding', 'theplus' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em' ],
+				'selectors' => [
+					'{{WRAPPER}} .team-member-list .post-content-bottom' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 		$this->add_responsive_control(
 			'content_inner_padding',
 			[

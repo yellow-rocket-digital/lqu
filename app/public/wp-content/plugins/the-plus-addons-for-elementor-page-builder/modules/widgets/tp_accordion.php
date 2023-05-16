@@ -22,9 +22,10 @@ use TheplusAddons\L_Theplus_Element_Load;
 if (!defined('ABSPATH'))
     exit; // Exit if accessed directly
 
-
 class L_ThePlus_Accordion extends Widget_Base {
-		
+
+	public $TpDoc = L_THEPLUS_Tpdoc;
+
 	public function get_name() {
 		return 'tp-accordion';
 	}
@@ -36,6 +37,12 @@ class L_ThePlus_Accordion extends Widget_Base {
     public function get_icon() {
         return 'fa fa-lightbulb-o theplus_backend_icon';
     }
+
+	public function get_custom_help_url() {
+		$DocUrl = $this->TpDoc . "accordion";
+
+		return esc_url($DocUrl);
+	}
 
     public function get_categories() {
         return array('plus-tabbed');
@@ -72,7 +79,7 @@ class L_ThePlus_Accordion extends Widget_Base {
 		$repeater->add_control(
 			'content_source',
 			[
-				'label' => esc_html__( 'Content Source', 'tpebl' ),
+				'label' => wp_kses_post( "Content Source <a class='tp-docs-link' href='" . esc_url($this->TpDoc) . "elementor-accordion-widget-settings-overview?utm_source=wpbackend&utm_medium=elementoreditor&utm_campaign=widget' target='_blank' rel='noopener noreferrer'> <i class='eicon-help-o'></i> </a>", 'theplus' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'content',
 				'options' => [
@@ -162,8 +169,8 @@ class L_ThePlus_Accordion extends Widget_Base {
 		);
 		$this->add_control(
 			'display_icon',[
-				'label'   => esc_html__( 'Show Icon', 'tpebl' ),
-				'type'    =>  Controls_Manager::SWITCHER,
+				'label' => wp_kses_post( "Show Icon <a class='tp-docs-link' href='" . esc_url($this->TpDoc) . "add-icons-in-elementor-accordion?utm_source=wpbackend&utm_medium=elementoreditor&utm_campaign=widget' target='_blank'  rel='noopener noreferrer'> <i class='eicon-help-o'></i> </a>", 'theplus' ),
+				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 				'label_on' => esc_html__( 'Show', 'tpebl' ),
 				'label_off' => esc_html__( 'Hide', 'tpebl' ),	
@@ -292,6 +299,7 @@ class L_ThePlus_Accordion extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+
 		$this->start_controls_section(
 			'section_toggle_style_icon',
 			[
@@ -1009,6 +1017,8 @@ class L_ThePlus_Accordion extends Widget_Base {
             ]
         );
 		$this->end_controls_section();
+
+		include L_THEPLUS_PATH. 'modules/widgets/theplus-needhelp.php';
 	}
 	
     protected function render() {

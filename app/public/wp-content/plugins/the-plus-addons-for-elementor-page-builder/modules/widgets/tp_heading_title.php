@@ -298,6 +298,16 @@ class L_Theplus_Ele_Heading_Title extends Widget_Base {
 				],
             ]
         );
+		$this->add_control('input_margin',
+			[
+				'label' => esc_html__( 'Margin', 'theplus' ),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%'],
+				'selectors' => [
+					'{{WRAPPER}} .seprator' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
 		$this->add_control(
             'double_color',
             [

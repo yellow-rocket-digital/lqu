@@ -19,8 +19,9 @@ use TheplusAddons\L_Theplus_Element_Load;
 if (!defined('ABSPATH'))
     exit; // Exit if accessed directly
 
-
 class L_ThePlus_Adv_Text_Block extends Widget_Base {
+
+	public $TpDoc = L_THEPLUS_Tpdoc;
 		
 	public function get_name() {
 		return 'tp-adv-text-block';
@@ -33,6 +34,12 @@ class L_ThePlus_Adv_Text_Block extends Widget_Base {
     public function get_icon() {
         return 'fa fa-file-text theplus_backend_icon';
     }
+
+	public function get_custom_help_url() {
+		$DocUrl =  $this->TpDoc . "advanced-text";
+
+		return esc_url($DocUrl);
+	}
 
     public function get_categories() {
         return array('plus-essential');
@@ -50,12 +57,12 @@ class L_ThePlus_Adv_Text_Block extends Widget_Base {
 		$this->add_control(
 			'content_description',
 			[
-				'label' => esc_html__( 'Description', 'tpebl' ),
+				'label' => wp_kses_post( "Description <a class='tp-docs-link' href='" . esc_url($this->TpDoc) . "advanced-text-block-elementor?utm_source=wpbackend&utm_medium=elementoreditor&utm_campaign=widget' target='_blank' rel='noopener noreferrer'> <i class='eicon-help-o'></i> </a>", 'theplus' ),
 				'type' => Controls_Manager::WYSIWYG,
 				'default' => esc_html__( 'I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'tpebl' ),
 				'placeholder' => esc_html__( 'Type your description here', 'tpebl' ),
 				'dynamic' => [
-					'active'   => true,
+					'active' => true,
 				],
 			]
 		);
@@ -89,7 +96,7 @@ class L_ThePlus_Adv_Text_Block extends Widget_Base {
 		$this->add_control(
 			'display_count',
 			[
-				'label' => esc_html__( 'Description Limit', 'tpebl' ),
+				'label' => wp_kses_post( "Description Limit <a class='tp-docs-link' href='" . esc_url($this->TpDoc) . "limit-wordcount-text-widget-elementor?utm_source=wpbackend&utm_medium=elementoreditor&utm_campaign=widget' target='_blank' rel='noopener noreferrer'> <i class='eicon-help-o'></i> </a>", 'theplus' ),
 				'type' => Controls_Manager::SWITCHER,
 				'label_on' => esc_html__( 'Show', 'tpebl' ),
 				'label_off' => esc_html__( 'Hide', 'tpebl' ),
@@ -319,6 +326,8 @@ class L_ThePlus_Adv_Text_Block extends Widget_Base {
             ]
         );
 		$this->end_controls_section();
+
+		include L_THEPLUS_PATH. 'modules/widgets/theplus-needhelp.php';
 	}
 	
 	protected function l_limit_words($string, $word_limit){

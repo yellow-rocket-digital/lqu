@@ -118,8 +118,7 @@ final class L_Theplus_Element_Load {
 	* Widget Include required files
 	*
 	*/
-	public function include_widgets()
-	{			
+	public function include_widgets(){			
 		require_once L_THEPLUS_PATH.'modules/theplus-include-widgets.php';		
 	}
 	
@@ -303,9 +302,7 @@ final class L_Theplus_Element_Load {
 	 */
 	public function print_style() {
 		?>
-		<style>*:not(.elementor-editor-active) .plus-conditions--hidden {
-				  display: none;
-				}</style>
+			<style>*:not(.elementor-editor-active) .plus-conditions--hidden {display: none;}</style>
 		<?php
 	}
 
@@ -386,6 +383,40 @@ final class L_Theplus_Element_Load {
 		);
 	}
 
+	// public function tp_advanced_shadow_style() {
+	// 	wp_enqueue_script( 'tp-advanced-shadows', L_THEPLUS_ASSETS_URL .'js/admin/tp-advanced-shadow-layout.js', array('jquery'),L_THEPLUS_VERSION, true );
+	// }
+
+	/**
+	 * ThePlus_Load constructor.
+	 */
+	private function __construct() {
+		
+		// Register class automatically
+		$this->includes();
+
+		// Finally hooked up all things
+		$this->hooks();
+		
+		if( !defined('THEPLUS_VERSION') ){
+			L_Theplus_Elements_Integration()->init();
+		}
+		
+		// $plus_extras=l_theplus_get_option('general','extras_elements');
+		
+		// if((isset($plus_extras) && empty($plus_extras) && empty($theplus_options)) || (!empty($plus_extras) && in_array('plus_adv_shadow',$plus_extras))){
+		// 	//add_action( 'wp_enqueue_scripts', [ $this, 'tp_advanced_shadow_style' ] );
+		// }
+
+		//@since 5.0.6
+		theplus_core_cp_lite()->init();
+
+		$this->include_widgets();
+
+		l_theplus_widgets_include();
+		
+	}
+
 	/**
 	*
 	* @since 5.1.18
@@ -405,7 +436,13 @@ final class L_Theplus_Element_Load {
 
 		// Include some backend files
 		add_action( 'admin_enqueue_scripts', [ $this,'theplus_elementor_admin_css'] );
-				
+		
+		if ( current_user_can( 'install_plugins' ) ) {
+			/**Install ThePlus Blocks Notice*/
+			add_action( 'admin_notices', array( $this, 'l_ThePlus_Addons_for_Block_Editor_Notice' ) );
+			add_action( 'wp_ajax_tp_tpag_blocks_dismiss_notice', array( $this, 'tp_tpag_blocks_dismiss_notice' ) );
+		}
+
 		if( is_admin() && current_user_can("manage_options") ){
 			add_action( 'wp_ajax_tp_get_elementor_pages', [$this, 'tp_get_elementor_pages'] );
 			add_action( 'wp_ajax_tp_check_elements_status_scan', [$this, 'tp_check_elements_status_scan'] );
@@ -418,12 +455,91 @@ final class L_Theplus_Element_Load {
 			add_filter( 'plugin_row_meta', array( $this, 'tp_extra_links_plugin_row_meta' ), 10, 2 );
 		}
 		
-	}	
+	}
 
 	/**
-	*
-	* @since 5.1.18
-	*/
+	 * Plugin Active Theplus Addons for Block Editor Notice Installing Notice show
+	 *
+	 * @since 5.2.3
+	 */
+	public function l_ThePlus_Addons_for_Block_Editor_Notice() {
+		$file_path = 'the-plus-addons-for-block-editor/the-plus-addons-for-block-editor.php';
+		$installed_plugins = get_plugins();
+		$screen = get_current_screen();
+		$nonce = wp_create_nonce( 'tp-addons-tpag-dismiss' );
+		$PT_exclude = !empty( $screen->post_type ) && in_array( $screen->post_type, [ 'elementor_library', 'product' ] );
+		$ParentBase = !empty( $screen->parent_base ) && in_array( $screen->parent_base, [ 'edit', 'plugins' ] );
+
+		if ( !$ParentBase || $PT_exclude ) {
+			return;
+		}
+
+		$notice_dismissed = get_user_meta( get_current_user_id(), 'theplus_tpag_blocks_dismissed_notice', true );
+		if ( $notice_dismissed ) {
+			return; 
+		}
+
+		if ( is_plugin_active( $file_path ) || isset( $installed_plugins[ $file_path ] ) ) {
+			/**when Plugin Install But Not active */
+		} else {
+			$install_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=the-plus-addons-for-block-editor' ), 'install-plugin_the-plus-addons-for-block-editor' );
+			$CheckDemo = "https://theplusblocks.com/?utm_source=wpbackend&utm_medium=adminpanel&utm_campaign=notice";
+
+			$admin_notice = '<h3>' . esc_html__( "It's Live 🎉 The Plus Blocks for Gutenberg is Ready to Use!", 'tpebl' ) . '</h3>';
+			$admin_notice .= '<p>' . esc_html__( 'Do you use Gutenberg Block Editor to create websites or post blogs?', 'tpebl' ) . '</p>';
+			$admin_notice .= '<p>' . esc_html__( 'Then check our Gutenberg Block version, where we provide you over 80+ WordPress Blocks (40 Free Blocks) to help you create fast websites without compromising on design.', 'tpebl' ) . '</p>';
+			$admin_notice .= '<p>' . sprintf( '<a href="%s" class="tp-block-notice-checkdemos" target="_blank" rel="noopener noreferrer">%s</a>', $CheckDemo, esc_html__( 'Check Live demos', 'tpebl' ) ) . '</p>';
+			$admin_notice .= '<p>' . sprintf( '<a href="%s" class="button-primary">%s</a>', $install_url, esc_html__( 'Install The Plus Blocks', 'tpebl' ) ) . '</p>';
+			$admin_notice .= '<button type="button" class="notice-dismiss"><span class="screen-reader-text">' . esc_html__( 'Dismiss this notice', 'tpebl' ) . '</span></button>';
+	
+			echo '<div class="notice notice-error is-dismissible theplus-tpag-blocks-notice">'.wp_kses_post( $admin_notice ).'</div>';
+			
+			?>
+			<script>
+				jQuery('.theplus-tpag-blocks-notice .notice-dismiss').on('click', function() {
+					jQuery.ajax({
+						url: ajaxurl,
+						type: 'POST',
+						data: {
+							action: 'tp_tpag_blocks_dismiss_notice',
+							security: "<?php echo esc_html( $nonce ); ?>",
+						},
+						success: function(response) {
+							jQuery('.theplus-tpag-blocks-notice').hide();
+						}
+					});
+				});
+			</script>
+			<?php
+		}
+	}
+
+	/**
+	 * It's is use for Save key in database
+	 * TAPG Notice Dismisse
+	 * 
+	 * @since 5.2.3
+	 */
+	public function tp_tpag_blocks_dismiss_notice() {
+
+		if( !isset($_POST['security']) || empty($_POST['security']) || ! wp_verify_nonce( $_POST['security'], 'tp-addons-tpag-dismiss' ) ) {	
+			die ('Security checked!');
+		}
+
+		if ( !current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( __( 'You are not allowed to do this action', 'the-plus-addons-for-elementor-page-builder' ) );
+		}
+
+		update_user_meta( get_current_user_id(), 'theplus_tpag_blocks_dismissed_notice', true );
+
+		wp_send_json_success();
+	}   	
+
+	/**
+	 * Plugin Active Settings, Need Help link Show 
+	 *
+	 * @since 5.1.18
+	 */
 	public function tp_settings_pro_link( $links ){
 
 		/**Settings link.*/
@@ -446,9 +562,10 @@ final class L_Theplus_Element_Load {
 	}
 	
 	/**
-	*
-	* @since 5.1.18
-	*/
+	 * Plugin Active show Document links 
+	 *
+	 * @since 5.1.18
+	 */
 	public function tp_extra_links_plugin_row_meta( $plugin_meta = [], $plugin_file =''){
 
 		if ( strpos( $plugin_file, L_THEPLUS_PBNAME ) !== false ) {
@@ -468,41 +585,11 @@ final class L_Theplus_Element_Load {
 		return $plugin_meta;
 	}
 
-	// public function tp_advanced_shadow_style() {
-	// 	wp_enqueue_script( 'tp-advanced-shadows', L_THEPLUS_ASSETS_URL .'js/admin/tp-advanced-shadow-layout.js', array('jquery'),L_THEPLUS_VERSION, true );
-	// }
-	
-	/**
-	 * ThePlus_Load constructor.
-	 */
-	private function __construct() {
-		
-		// Register class automatically
-		$this->includes();
-		// Finally hooked up all things
-		$this->hooks();
-		if(!defined('THEPLUS_VERSION')){	
-			L_Theplus_Elements_Integration()->init();
-		}
-		
-		// $plus_extras=l_theplus_get_option('general','extras_elements');
-		
-		// if((isset($plus_extras) && empty($plus_extras) && empty($theplus_options)) || (!empty($plus_extras) && in_array('plus_adv_shadow',$plus_extras))){
-		// 	//add_action( 'wp_enqueue_scripts', [ $this, 'tp_advanced_shadow_style' ] );
-		// }
-
-		//@since 5.0.6
-		theplus_core_cp_lite()->init();
-		
-		$this->include_widgets();		
-		l_theplus_widgets_include();
-		
-	}
 }
 
-function l_theplus_addon_load()
-{
+function l_theplus_addon_load(){
 	return L_Theplus_Element_Load::instance();
 }
+
 // Get l_theplus_addon_load Running
 l_theplus_addon_load();

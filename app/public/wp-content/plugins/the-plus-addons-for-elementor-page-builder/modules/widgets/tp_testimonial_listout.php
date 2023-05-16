@@ -1560,6 +1560,30 @@ class L_ThePlus_Testimonial_ListOut extends Widget_Base {
 				],
 			]
 		);
+		$this->add_control('arrow_y_space',
+            [
+                'type' => Controls_Manager::SLIDER,
+				'label' => esc_html__('Position Y', 'theplus'),
+				'size_units' => ['px','%'],
+				'range' => [
+					'px' => [
+						'min' => -100,
+						'max' => 500,
+						'step' => 1,
+					],
+				],
+				'default' => [
+					'unit' => '%',
+					'size' => '',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .slick-nav' => 'top: {{SIZE}}{{UNIT}};',					
+				],
+				'condition' => [
+					'slider_arrows' => 'yes',
+				],
+            ]
+        );
 		$this->add_control(
 			'slider_center_mode',
 			[

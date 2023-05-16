@@ -1,10 +1,10 @@
 === The Plus Addons for Elementor ===
-Contributors: posimyththemes, nirmalkavaiya, sagarpatel124
+Contributors: posimyththemes, devangvachheta, sagarpatel124
 Tags: Elementor, elementor widgets, elements, elementor addon, elementor templates, elementor widgets, extensions
 Requires at least: 5.7.0
 Tested up to: 6.2
 Requires PHP: 5.6
-Stable tag: 5.2.0
+Stable tag: 5.2.3
 License: GPLv3
 License URI: https://opensource.org/licenses/GPL-3.0
 
@@ -282,6 +282,27 @@ We have the most advanced caching architecture, Which will never bloat your site
 12. Unique 22+ Elementor Extensions
 
 == Changelog ==
+
+= 5.2.3 =
+Update : Accordion : Document Link Update
+Update : Advanced Text Block : Document Link Update
+Update : Meeting Scheduler : Document Link Update
+Update : Tabs & Tours : Document Link Update
+Update : Countdown : Add Option For Countdown Setup and Style
+Fix : Minor bug fixes & Improvements
+
+= 5.2.2 =
+Update : Heading Title : Separator Margin Controller Added 
+Update : Countdown : Days, Hour, Minutes, Seconds Disable Controller Added
+Update : Testimonials : Add Controller Position Y Option For Arrows
+Update : Team Member : Box Loop Background Padding Controller Added
+Fix : Minor bug fixes & Improvements
+
+= 5.2.1 =
+Update : Button : UI Controller Improvement
+Update : Blockquote : Drop Cap Quote Description Html Support
+Update : Countdown : Controller Improvement
+Fix : Minor bug fixes & Improvements
 
 = 5.2.0 =
 Update : Gravity Form : Radio and Check box style Controller Improvement	

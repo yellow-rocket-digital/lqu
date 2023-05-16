@@ -352,8 +352,6 @@ class L_ThePlus_Button extends Widget_Base {
 				'title' => esc_html__( 'Add your custom id WITHOUT the Pound key. e.g: my-id', 'tpebl' ),
 				'label_block' => false,
 				'description' => esc_html__( 'Please make sure the ID is unique and not used elsewhere on the page this form is displayed. This field allows <code>A-z 0-9</code> & underscore chars without spaces.', 'tpebl' ),
-				'separator' => 'before',
-
 			]
 		);
 		$this->end_controls_section();
@@ -801,7 +799,6 @@ class L_ThePlus_Button extends Widget_Base {
 				'label_on'     => esc_html__( 'Yes', 'tpebl' ),
 				'label_off'    => esc_html__( 'No', 'tpebl' ),
 				'render_type'  => 'template',
-				'separator' => 'before',
 			]
 		);
 		$this->add_control(
