@@ -1,0 +1,327 @@
+*** QuickBooks Sync for WooCommerce - by MyWorks Software ***
+
+2022-10-26 - version 2.7.0
+* Added support to sync product images between WooCommerce and QuickBooks when syncing products
+* Added support in custom field mapping to sync/attach images & files to orders synced to QuickBooks
+* Added support to control Cost of Goods, Product Category, and Vendor for a QuickBooks item in the QuickBooks tab in a WooCommerce product.
+* Improved and rebuilt session handling to mimimize reliance on core Wordpress sessions and increase performance of MyWorks pages in WP-Admin
+* Improved option to Show Invoices In WooCommerce Account menu to also support Credit Memos
+* Improved "line_subtotal" support setting to work correctly with orders with discounts
+* Confirmed PHP 8.0 and 8.1 support
+* Minor bug fixes and improvements
+
+
+2022-08-11 - version 2.6.0
+* Added support for sync statuses to load after initial page load is complete to improve load time in WooCommerce > Orders
+* Added setting to set the "Term" of an invoice in QuickBooks based on the default Term of that QuickBooks customer.
+* Added setting to control the sort order for order line items in the QuickBooks order
+* Added setting to control enabling Credit Card and/or ACH payment options in the QuickBooks invoice (both, either, none)
+* Added setting to use "QuickBooks Product Description" in the description field for order line items
+* Added setting to not sync a shipping line item if shipping is $0 in the order
+* Added logging to track when our helper plugin is enabled/disabled
+* Added the ability to set both a "Cost" and "Category" within the QuickBooks tab of a WooCommerce product, before syncing the product to QuickBooks
+* Added "Balance" field at the top of the Invoices tab shown in the WooCommerce account area (if enabled in settings)
+* Added ability to show "Credit Memos" within the WooCommerce account area, in addition to already showing invoices and sales receipts
+* Added PDF button to WooCommerce order widget to easily view a PDF of the QuickBooks order
+* Improved handling of Terms to ensure the correct Due date is populated in QuickBooks based on the Term chosen
+* Improved support for recognizing more transaction fees, including 3rd party Paypal gateways and Affirm
+* Improved support for custom field mapping, and reading more advanced custom fields within the WooCommerce order
+* Improved support for syncing pricing - including $0 prices
+* Improved support to more accurately recognize + respond to inventory management being enabled or disabled in QuickBooks
+* Improved setting to block syncing $0 orders to also apply to block syncing $0 refunds
+* Improved "Push to QuickBooks" button in the WooCommerce order widget to also sync a payment (if applicable) to QuickBooks with the order
+* Improved support for gift card / store credit handling, including in taxed orders
+* Improved support for syncing purchase orders in QuickBooks Canada and UK 
+* Improved support for correctly including bundled products in full and partial refunds
+* Improved line item subtotal setting to correctly handle orders with discounted line items
+* Improved queue sync logic to better handle cases where payments were incorrectly syncing before invoices
+* Improved shipping address handling to read WooCommerce order shipping address when only partial fields are present
+* Minor bug fixes and improvements
+
+
+2022-04-04 - version 2.5.4
+* Improved support for PHP 8.0
+* Added setting to use product Backorder Status as an option for QuickBooks Order line description
+* Improved syncing refunds to add a Payment Reference Number
+* Improved syncing orders including both discounts and negative value line items
+* Resolved issue with saving taxes in MyWorks Sync > Map > Taxes
+* Resolved issue with QuickBooks products syncing to WooCommerce when not enabled in settings
+* Minor bug fixes and improvements
+
+2022-03-15 - version 2.5.3
+* Improved support for PHP 8.0
+* Added support to map countries to QuickBooks Department/Location
+* Resolved issue with Billing Email in QuickBooks Order not containing an email address by default
+
+2022-03-10 - version 2.5.2
+* Confirmed support for PHP 8.0 
+
+2022-03-10 - version 2.5.1
+* Confirmed support for PHP 8.0 
+
+2022-03-10 - version 2.5.0
+* Confirmed support for PHP 8.0 
+* Added support to sync custom fields from the WooCommerce order as a $0 extra line item in the QuickBooks Order
+* Added "PDF" button in the WooCommerce order to show the QuickBooks order as a PDF (helpful for troubleshooting / quick access)
+* Added separate setting to sync pricing from QuickBooks > WooCommerce, separately from products
+* Added setting to sync discounts as a separate negative line item for each item in the WooCommerce Order
+* Added setting to use _line_total value in a line item instead of the default _line_subtotal (helpful for manually entered orders)
+* Added support to specify which line item meta data values are sent to QuickBooks Description - instead of all or none
+* Added setting to enable additional prevention for orders syncing multiple times to QuickBooks in cases where triggered multiple times by WooCommerce
+* Improved handling / compatibility with gift cards used in WooCommerce Orders
+* Improved compatibility with recognizing multiple emails in QuickBooks Customer's BillTo Email field
+* Improved handling of multiple currencies by syncing an order into a correct new QuickBooks customer if existing QuickBooks customer isn't correct currency
+* Improved filtering of product map/push pages to hide variable parent products by default, but allow them to be filtered if desired
+* Improved the "Sync updated inventory to QuickBooks" checkbox in WooCommerce Product Pages
+* Removed message pointing out use of the built in Legacy PayPal Gateway within WooCommerce - as now deprecated by WooCommerce itself
+* Minor bug fixes, optimization and handling improvements
+
+
+2021-09-09 - version 2.4.0
+* Added additional features to free Launch plan, including inventory sync and advanced payment syncing options
+* Added additional support for higher-volume sites where orders were being synced more than once in rare cases
+* Added additional support to recognize multiple comma separated emails in the QuickBooks customer email field
+* Added support to trim over-limit characters from the product SKU/Description field when syncing products to QuickBooks
+* Improved support for syncing custom fee line items - these will always be recognized now, and use Default for Unmatched Products unless specifically set in MyWorks Sync > Compatibility
+* Improved support for Default Shipping Product setting - if blank, shipping in an order will use the Default for Unmatched Product
+* Resolved minor bugs
+
+2021-07-08 - version 2.3.1
+* Resolved issue with Map > Payment Methods page not saving in rare cases
+
+2021-06-30 - version 2.3.0
+* Added compatibility for honoring the core Wordpress timezone, also now requires Wordpress 5.3 or above
+* Added support for PHP 7.4
+* Added additional support for QuickBooks France to help track the transaction location of the order
+* Added functionality to strip HTML tags from names/descriptions sent to QuickBooks for customers, products & orders
+* Added setting to control setting the QuickBooks Order date to a selection of different WooCommerce dates
+* Added setting to support using the QuickBooks Customer billing address for an order synced into QuickBooks
+* Added setting to control syncing Batch Deposits on a weekly basis in addition to the current daily basis option
+* Improved support for handling order fee line items - these are now automatically recognized and will use the Default product, but can be overriden to use a specific product in MyWorks Sync > Compatibility
+* Improved handling of larger volumes of orders when syncing with QuickBooks, including additional protection against orders syncing over more than once
+* Improved handling of Batch Support to function correctly when syncing orders on a Per Gateway basis
+* Improved format that the United States (US) country is sent into orders in QuickBooks - changed to "United States"
+* Improved setting to sync order notes to QuickBooks - now supporting line item, memo, or message fields
+* Resolved minor bugs and improved display of various settings/pages
+
+2021-02-08 - version 2.2.0
+* Added built-in support for all pre-build compatibility for our paid plans - available in MyWorks Sync > Compatibility menu
+* Added additional filters in Map/Push pages to filter by mapped or unmapped products
+* Added setting to control the Print Status of orders/refunds synced to QuickBooks - off by default
+* Added official support for popular WooCommerce Gift Card plugins, supporting syncing redemptions to orders in QuickBooks
+* Added setting to skip a Country field in bill/ship to addresses when syncing orders
+* Added support to sort Push > Orders page by sync status
+* Improved widget in WooCommerce admin order area to support syncing an order to QuickBooks with a button / viewing it in QuickBooks
+* Improved handling of more advanced tax scenarios when syncing full and partial refunds
+* Improved handling of refunds to support syncing shipping-only refunds
+* Improved handling to honor custom order number support when syncing refunds - instead of using WooCommerce Order ID
+* Improved handling of syncing custom fields to QuickBooks by trimming values longer than 31 characters for limited fields in QuickBooks
+* Improved handling of automatic bank deposits with additional flexibility for different timezone settings in the core Wordpress site settings
+* Improved wording of timeout error that will display on Automap pages if the automap process is timed out by the site
+* Resolved issue with "Pay" button not showing in some cases for QuickBooks invoices displayed in the WooCommerce account area
+* Resolved minor PHP warnings occuring when using PHP 7.4
+* Resolved issue where new variations may not automatically sync to QuickBooks when added in WooCommerce
+* Changed setting in MyWorks Sync > Map > Payment Methods to enable syncing refunds - now on for new installs by default
+
+2020-07-01 - version 2.1
+* Added additional filters in Map/Push pages to filter by mapped or unmapped products
+* Added support for syncing refunds with no/0 quantity
+* Added initial support for syncing transaction fees as a negative line item in the QuickBooks invoice/sales receipt
+* Added a setting to control the "Purchase Description" field for a product when syncing it into QuickBooks
+* Added a setting to have better control over sending a specific rate to QuickBooks for orders with more than 2 points after the decimal
+* Added handling to ensure an order already refunded is not subsequently voided in QuickBooks - even if cancelled in WooCommerce
+* Improved handling for multi-currency workflows, and ensuring customers are synced into QuickBooks with the correct currency
+* Improved handling of longer Transaction IDs to only sync the last 25 characters into QuickBooks
+* Improved compatibility with new 100-character limit for QuickBooks product names
+* Improved load time on admin QuickBooks section for products with many variations (and setting to disable)
+* Improved handling for inventory sync by optimizing queries used when "Ignore CDC" setting is enabled
+* Improved Pull > Inventory Level page to strip out any decimals
+* Improved support for handling partial refunded shipping
+* Improved class support to be honored when syncing transaction fees
+* Improved support for handling shipping tax when syncing shipping as a subtotal field with Automated Sales Tax
+* Resolved issue with tax for shipping not being correctly honored when syncing orders with multiple tax rates
+* Resolved issue with backorder status not being honored when syncing inventory level changes into WooCommerce
+* Resolved issue with sync status not correctly showing in Push > Orders in cases when setting to "Use Next QB #" is enabled
+* Resolved issue with sale product incorrectly syncing to QuickBooks when a product is updated in WooCommerce
+* Resolved issue with bundled products not showing correctly in our sync due to changes in the QuickBooks response
+
+2020-02-04 - version 2.0
+* Added QuickBooks tab in Products/Variations to allow control over product mapping/accounts in QuickBooks
+* Added compatibility with WooCommerce 3.9
+* Added in-plugin notices to warn if wp-cron doesn't seem to be working correctly
+* Added in-plugin notices to warn if default WooCommerce PayPal gateway is being used (results in some orders not syncing automatically)
+* Added support to automatically clear product/variation mappings if deleted in WooCommerce
+* Added support for handling orders with multiple separate tax rates
+* Added setting to choose using Order Number or Transaction ID in payment Reference Number field
+* Improved support for better handling rate/quantity/total line item calculations
+* Improved support for handling orders with bundled products in WooCommerce, QuickBooks or both
+* Improved support for syncing manual variation inventory changes to QuickBooks
+* Improved handling for incorrect math in WooCommerce line items for rate & amount
+* Improved handling for bundled product quantity and rate in line items
+* Improved logging for preventing $0 orders - not as an error message
+* Resolved compatibility issues with WooCommerce Deposits plugin
+* Resolved an issue with orders not marking as synced when pushed to QuickBooks
+* Resolved an issue with invoices not being emailed from QuickBooks once synced
+
+2019-12-18 - version 1.9.3
+* Resolved issue with rate occasionally not showing in QuickBooks orders
+* Improved handling for volume orders and ensuring duplicate orders aren't synced within the same second
+
+2019-12-14 - version 1.9.2
+* Resolved library files causing PHP errors in some sync scenarios
+
+2019-12-13 - version 1.9.1
+* Resolved issues with activation / upgrade in some scenarios
+
+2019-11-14 - version 1.8 
+* Added compatibility with WooCommerce 3.8
+* Added compatibility with v1.13 of Sequential Order Numbers Pro
+* Added setting to override rare cases where QuickBooks doesn't return the correct Inventory on/off status
+* Added setting to control order date used when including in batches - order date, paid date, completed date
+* Added setting to show only mapped products with different inventory levels in Push > Inventory
+* Added support to recognize/map 0% tax rates in orders
+* Added support to sync $0 refunds to QuickBooks (for inventory tracking purposes)
+* Added setting to improve syncing inventory in cases where QuickBooks isn't correctly updating the "Last Updated" date for a product when inventory is changed
+* Added setting to support syncing Purchase Orders into QuickBooks along with WooCommerce Orders
+* Added setting to sync orders to QuickBooks as invoices or sales receipts on a per-gateway level
+* Improved handling of variations with names longer than 50 characters
+* Improved setting to show Invoices in WooCommerce account area by also supporting showing Sales Receipts
+* Improved line-total calculations in cases where lines with discounts weren't being calculated/rounded correctly in WooCommerce
+* Improved "Inventory Start Date" functionality to read the default WooCommerce Product "published" date by default
+* Improved compatibility with being activated on multi-sites
+* Improved handling of bundled products in orders to ensure quantity is correctly reflected in QuickBooks.
+* Improved handing of orders with WooCommerce simple products mapped to QuickBooks bundle products
+* Improved "Catch Unsynced Orders" setting to check for orders by post_modified date
+* Resolved issue with PDF not being generated correctly for invoices shown in WooCommerce account area
+* Resolved issue where Refunds attempt to sync over even when Refund Syncing is off
+* Resolved issue where orders with shipping-only tax were not correctly syncing tax to QuickBooks line items
+
+2019-07-31 - version 1.7.6
+* Improved automatic inventory sync to be more reliable under certain scenarios
+* Resolved rare issue where nested functions were causing PHP notices/conflicts in some sites
+
+2019-07-25 - version 1.7.5
+* Added newly required lib file: BillEmailCc.php
+* Added newly required lib file: BillEmailBcc.php
+* Added newly required lib file: SalesEmailBcc.php
+* Added compatibility for WooCommerce custom fee line items in full/partial refunds
+* Added setting to "Use Next QuickBooks order number" instead of WooCommerce Order ID
+* Added beta setting to add customer-account facing "Invoice" area showing all invoices in their mapped QuickBooks customer account to view/pay (yes, super cool, we agree!)
+* Improved setting to map WooCommerce product title to QuickBooks Description to work both sync directions
+* Improved Push/Map pages with additional search fields supported
+* Improved support for multiple individual tax rates in multi-line WooCommerce orders
+* Improved support for partial shipping refunds - extra $0 line item will no longer show
+* Improved functionality of Settings > Taxes tab - it will now be hidden if it contains no applicable settings
+* Improved support for pulling QuickBooks Products to update WooCommerce variations
+* Improved Automap support for products with " and / in their names
+* Improved handling for sync status - supporting showing on pages up to 200 items
+* Improved sync status on Push > Orders page to be sortable
+* Resolved issue with inventory sync occasionally failing due to un-necessary TaxCodeRef being included
+* Resolved rare issue with Aes/mcrypt functionality overlap
+* Resolved issue where Batch Support couldn't be turned off correctly
+* Resolved issue where Deposit would be included without cause in Invoice updates, causing error from QuickBooks
+* Resolved issue where welcome message/banner shown when plugin is activated couldn't be permanently dismissed
+* Removed setting to select roles we should recognize as containing customers. All roles are now automatically recognized. Yay!
+
+
+2019-06-14 - version 1.7.4
+* Resolved error where variations updated to positive inventory from a 0 inventory level weren't showing correct stock status
+* Added newly required lib file: SalesEmailCc.php
+
+
+2019-06-13 - version 1.7.3
+* Added Push > Refunds area to enable better support for dealing with syncing new/historic refunds to QuickBooks
+* Added setting to control syncing orders as invoices or sales receipts on a per-role level
+* Added improved support for Partial Refunds - especially in scenarios dealing with partially refunded tax and shipping
+* Added built-in support for "Store Credit" - a feature in the WooCommerce Smart Coupons plugin
+* Added a setting to force the discount line above taxes
+* Added specific class support for additional fee line items in MyWorks Sync > Compatibility
+* Added support for Sequential Order Numbers (not Pro) plugin
+* Added setting to control syncing shipping as a line item or subtotal field
+* Added activation rule to automatically enable discount/shipping subtotal fields during initial setup
+* Added setting to use QuickBooks customer email as BillEmail instead of WooCommerce order email (default)
+* Added support for syncing a single payment in QuickBooks paying multiple orders to correctly update multiple order statuses in WooCommerce
+* Added support for syncing WooCommerce orders containing multiple items with different (separate) tax rates
+* Added support for syncing negative "fee" line items to QuickBooks as a discount
+* Added newly required lib file: SalesEmailBcc.php
+* Improved syncing product variations by adding support to ensure variation names are unique when syncing to QuickBooks
+* Improved settings/mapping dropdowns to only show relevant QuickBooks accounts
+* Improved "catch unsynced orders" setting to catch more scenarios of orders not placed with correct WooCommerce order hooks
+* Improved class support so global "default" class set in settings is used only in cases where the specific line item doesn't have an existing class mapping
+* Resolved issues where Select2 dropdown search wasn't working
+* Resolved issue when saving multiple pages of tax mappings
+* Resolved bug shown in Pull > Category Page
+* Resolved issues where products synced from QuickBooks to WooCommerce were not following category assignments, if categories existed in both platforms
+* Resolved .01 cent rounding issues when syncing orders with inclusive tax mode
+* Resolved issue with line items including discount when syncing orders with inclusive tax mode
+* Resolved issue where QuickBooks payments would not correctly update WooCommerce order status
+* Removed Inclusive/Exclusive tax setting from MyWorks Sync > Settings > Taxes - as this follows the default WooCommerce setting
+
+2019-04-23 - version 1.7.2
+* Added support for Bundled Product parent line items to show a description value in a QuickBooks order
+
+2019-03-18 - version 1.7.1
+* Improved inventory sync for multiple WooCommerce products mapped to one QuickBooks Online product
+* Added setting to override checking for email match by just checking for first/last name match
+* Added compatibility with v1.13.0 of Sequential Order Numbers Pro
+* Added compatibility to sync WooCommerce product names into QuickBooks order description for bundled product orders
+* Improved setting to send invoices to customer from QuickBooks to also enable Card/ACH payment in QuickBooks
+* Improved code standards to use $wpdb->prepare() and internal Wordpress HTTP functions for curl calls
+* Resolved bug where product pull wasn't correctly showing in Launch plans
+
+ 2019-02-26 - version 1.7.0 
+* Introduced our free forever plan - Launch!
+* Redesigned our Connection page for easier QuickBooks connection
+* Added setting to support syncing custom order meta into the QuickBooks Description field
+* Added setting to support emailing an invoice to a client from QuickBooks after we sync the order into QuickBooks
+* Added setting to support syncing discounts within original order line item, instead of separate discount line
+* Added setting to support syncing orders to existing customer with the same name in QuickBooks
+
+
+ 2019-01-30 - version 1.6.9 
+* Added additional compatibility with updated versions of Avalara Avatax
+
+ 2019-01-09 - version 1.6.8 
+* Added additional library file that QuickBooks Online now requires.
+
+ 2018-12-20 - version 1.6.7 
+* Redesigned MyWorks Sync > Connection to make the setup/connection process easier. Your QuickBooks Connection is now managed within your account with us.
+
+ 2018-12-18 - version 1.6.6 
+* Added initial beta support for automatically finding and syncing recent unsynced orders into QuickBooks (off by default)
+* Resolved issue where setup steps wouldn't show that all default settings had been correctly set
+
+ 2018-12-15 - version 1.6.5 
+* Added the administrator and subscriber role to our Mapping Settings to be automatically recognized as customers by default
+* Added support for syncing Fee line items from WooCommerce orders into QuickBooks
+* Added compatibility for select WooCommerce.com plugins directly into our core sync. See list below:
+* Sequential Order Numbers / Pro, WooCommerce COGS, WooCommerce Avalara/Taxify, WooCommerce Subscriptions
+* Added Setup Helper to make setup even easier! (in beta)
+* Added setting to set a Location in QuickBooks to assign orders to when syncing an order
+* Streamlined initial setup steps (automatically saving some default settings, automatically refreshing data, turning on shipping/discount subtotal fields in QuickBooks)
+* Improved bundle compatibility to support multiple quantities ordered in WooCommerce
+* Resolved issue where recent orders won't show in Push pages for monthly/free trial licenses
+* Improved tax handling with QuickBooks AST to support shipping tax in WooCommerce
+* Hid variable parent products from Map/Push > Products/Inventory Levels pages
+* Hid sync status badges in WooCommerce > Orders if QuickBooks is not connected
+* Removed 0% tax setting if Automated Sales Tax is enabled in QuickBooks
+* Removed settings to sync "Category" between platforms - Categories are useless in QuickBooks. This can be re-enabled by contacting support.
+
+2018-10-09 - version 1.6.2
+* Improved handling for the QTY field in WooCommerce orders
+* Optimized the Push > Payment page for quicker loading on higher-volume stores
+
+
+2018-10-09 - version 1.6.1
+* Confirmed support for WooCommerce 3.5
+* Improved handling of inventory sync from WooCommerce to QuickBooks in rare cases when inventory is synced alongside an order
+* Improved handling for syncing payments from QuickBooks to update WooCommerce order status (for full and partial payments)
+* Improved Map/Push > Customer interface to only show customers from excluded roles when setting to sync all orders to one QuickBooks customer is enabled
+* Added support for automatically syncing customer updates from WooCommerce to QuickBooks
+
+
+2018-10-09 - version 1.6.0
+* Improved Dashboard metrics and set default graph display to Month
+* Fixed bug with sales receipts not correctly voiding in QB when order is cancelled in WooCommerce
+* Added initial support for easier QuickBooks Connection process (and automatic reconnection)
+* Plugin updates will be automatically pushed from wordpress.org from this point forward
