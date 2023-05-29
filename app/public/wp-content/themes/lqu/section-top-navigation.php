@@ -38,9 +38,8 @@ $show_reupholstery = current_user_can('edit_posts') ? true : get_field('show_reu
 			</li>
 			
 			<li class="text-link desktop-link">
-				<a href="/mercado"><span>Mercado</span></a>
+				<a href="/product-category/mercado"><span>Mercado</span></a>
 			</li>
-			
 		</ul>
 
 		<div class="logo">
@@ -100,6 +99,11 @@ $show_reupholstery = current_user_can('edit_posts') ? true : get_field('show_reu
 					<?php else: ?>
 						<span>Login</span>
 					<?php endif; ?>
+				</a>
+			</li>
+			<li>
+				<a href="/request-quote">
+					<span class="dashicons dashicons-cart"></span>
 				</a>
 			</li>
 		</ul>
