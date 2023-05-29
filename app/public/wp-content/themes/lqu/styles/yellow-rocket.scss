@@ -21,4 +21,154 @@
    }
 }
 
+.woocommerce {
+   display: flex;
+   flex-direction: column;
+}
 
+.woocommerce-page .generic-page .generic-content,
+.woocommerce-js .generic-page .generic-content {
+   max-width: 14000px !important;
+   padding: 0;
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-category__title,
+.woocommerce ul.products li.product .woocommerce-loop-product__title,
+.woocommerce ul.products li.product h3 {
+   font-size: 1em;
+   text-align: center;
+}
+
+
+/* products */
+.y-product,
+.woocommerce-breadcrumb {
+   margin: 0 auto;
+   padding: 40px 0 20px;
+   max-width: 1400px;
+}
+
+.y-product {
+   .summary.entry-summary {
+      @media (min-width:$desktop) {
+         padding-left: 40px;
+      }
+   }
+
+   &__details {
+      padding-top: 40px;
+   
+      .price {
+         margin: 0;
+      }
+   
+      .quantity {
+         margin-bottom: 16px;
+      }
+   
+      .add-request-quote-button,
+      .yith-ywraq-add-to-quote {
+         display: block !important;
+      }
+   
+      .product_meta {
+         padding: 20px 0;
+      }
+   }
+}
+
+.yith-wapo-option {
+   font-size: 18px;
+   padding: 0 !important;
+}
+
+.yith-wapo-option-value {
+   font-size: 24px;
+   line-height: 28px;
+   margin-bottom: 0.25em;
+   background: transparent;
+   -webkit-appearance: none;
+   border: 0;
+   border-bottom: 1px solid $gray02;
+}
+
+.woocommerce-breadcrumb {
+   margin: 0 auto;
+   padding: 20px;
+   max-width: 1400px;
+   font-size: 16px;
+   font-style: italic;
+}
+
+.woocommerce-product-gallery {
+   position: relative;
+
+   &__trigger {
+      position: absolute;
+      z-index: 1;
+      padding: 20px;
+   }
+}
+
+.product_meta {
+   padding: 20px;
+   font-size: 16px;
+   font-style: italic;
+
+   .posted_in a {
+      font-weight: bold;
+   }
+}
+
+.yith-wapo-addon {
+   padding: 10px 0 !important;
+   border: 1px solid $tan;
+   border-width: 0 0 1px;
+}
+
+.yith-wapo-block {
+   margin-bottom: 40px;
+}
+
+.yith-wapo-block .yith-wapo-addon.wapo-toggle .wapo-addon-title:before {
+   content: '' !important;
+   display: none !important;
+}
+
+.yith-wapo-block .yith-wapo-addon.wapo-toggle .wapo-addon-title:after {
+   content: '\f347';
+   color: #aaaaaa;
+   font-size: 16px;
+   font-family: 'dashicons';
+   display: inline-block;
+}
+
+.wapo-addon-title {
+   display: flex;
+   justify-content: space-between;
+   color: $gray01;
+   font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.yith-wapo-block__container {
+   padding: 20px;
+   margin-bottom: 20px;
+   border: 1px solid $gray02;
+}
+
+.yith-wapo-block__title {
+   margin-bottom: 20px;
+}
+
+
+.yith-ywraq-add-button {
+   //width: 100%;
+}
+
+.wapo-addon-description {
+   margin-top: 0px;
+   padding-bottom: 20px;
+   font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-size: 18px;
+   color: #aaa;
+}

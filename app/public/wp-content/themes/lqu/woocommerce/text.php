@@ -24,18 +24,6 @@ $option_label  = wp_kses_post( $addon->get_option( 'label', $x ) ) . ( $required
 		</div>
 	<?php endif; ?>
 
-	<div class="label">
-		<label for="yith-wapo-<?php echo esc_attr( $addon->id ); ?>-<?php echo esc_attr( $x ); ?>">
-
-			<!-- LABEL -->
-			<?php echo ! $hide_option_label ? wp_kses_post( $option_label ) : ''; ?>
-
-			<!-- PRICE -->
-			<?php echo ! $hide_option_prices ? wp_kses_post( $addon->get_option_price_html( $x, $currency ) ) : ''; ?>
-
-		</label>
-	</div>
-
 	<!-- INPUT -->
 	<input type="text"
 		id="yith-wapo-<?php echo esc_attr( $addon->id ); ?>-<?php echo esc_attr( $x ); ?>"
@@ -63,6 +51,16 @@ $option_label  = wp_kses_post( $addon->get_option( 'label', $x ) ) . ( $required
 		<?php echo $required ? 'required' : ''; ?>
 		style="<?php echo esc_attr( $options_width_css ); ?>"
 		placeholder="<?php echo esc_attr( $addon->get_option( 'placeholder', $x ) ); ?>">
+
+    <!-- LABEL -->
+    <div class="label">
+        <label for="yith-wapo-<?php echo esc_attr( $addon->id ); ?>-<?php echo esc_attr( $x ); ?>">
+            <!-- LABEL -->
+            <?php echo ! $hide_option_label ? wp_kses_post( $option_label ) : ''; ?>
+            <!-- PRICE -->
+            <?php echo ! $hide_option_prices ? wp_kses_post( $addon->get_option_price_html( $x, $currency ) ) : ''; ?>
+        </label>
+    </div>
 
 	<!-- REQUIRED -->
 	<?php if ( $required ) : ?>

@@ -22,7 +22,8 @@ $block_classes = apply_filters( 'yith_wapo_block_classes', 'yith-wapo-block', $b
 ?>
 
 <div id="yith-wapo-block-<?php echo esc_attr( $block->id ); ?>" class="<?php echo esc_attr( $block_classes ); ?>">
-
+    <h3 class="yith-wapo-block__title"><?= $block->name; ?></h3>
+    <div class="yith-wapo-block__container">
 	<?php
 	foreach ( $addons as $key => $addon ) :
 		if ( '1' === $addon->visibility && yith_wapo_is_addon_type_available( $addon->type ) ) :
@@ -165,15 +166,15 @@ $block_classes = apply_filters( 'yith_wapo_block_classes', 'yith-wapo-block', $b
 					">
 
 				<?php if ( '' !== $addon_title ) : ?>
-					<<?php echo esc_attr( $style_addon_titles ); ?> class="wapo-addon-title <?php echo esc_attr( $toggle_status ); ?>"><?php echo apply_filters( 'yith_wapo_addon_display_title', esc_html( $addon_title ) , $addon_title ); ?>
-					<?php echo $required_addon ? '<span class="required">*</span>' : ''; ?>
+					<<?php echo esc_attr( $style_addon_titles ); ?> class="wapo-addon-title <?php echo esc_attr( $toggle_status ); ?>">
+						<div><?php echo apply_filters( 'yith_wapo_addon_display_title', esc_html( $addon_title ) , $addon_title ); ?>
+					<?php echo $required_addon ? '<span class="required">*</span>' : ''; ?></div>
 					</<?php echo esc_attr( $style_addon_titles ); ?>>
 
 					<?php if ( 'yes' === get_option( 'yith_wapo_show_blocks_in_cart', 'no' ) ) : ?>
 						<?php echo '<input type="hidden" class="wapo-addon-title-hidden" name="yith_wapo[][' . esc_attr( $addon->id ) . '-addon_title]" value="' . esc_html( $addon_title ) . '" />'; ?>
 					<?php endif; ?>
 				<?php endif; ?>
-
 				<?php
 
 				if ( 'html_heading' === $addon->type || 'html_separator' === $addon->type || 'html_text' === $addon->type ) {
@@ -323,5 +324,6 @@ $block_classes = apply_filters( 'yith_wapo_block_classes', 'yith-wapo-block', $b
 
 		<?php endif; ?>
 	<?php endforeach; ?>
+    </div>
 
 </div>
