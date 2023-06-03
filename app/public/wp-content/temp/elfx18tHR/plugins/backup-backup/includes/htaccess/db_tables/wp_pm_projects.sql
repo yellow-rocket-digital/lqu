@@ -1,7 +1,0 @@
-/* CUSTOM VARS START */
-/* REAL_TABLE_NAME: `wp_pm_projects`; */
-/* PRE_TABLE_NAME: `1668940036_wp_pm_projects`; */
-/* CUSTOM VARS END */
-
-CREATE TABLE IF NOT EXISTS `1668940036_wp_pm_projects` ( `id` int(11) unsigned NOT NULL AUTO_INCREMENT, `title` varchar(255) NOT NULL, `description` text, `status` tinyint(4) NOT NULL DEFAULT '0', `budget` double(8,2) DEFAULT NULL, `pay_rate` double(8,2) DEFAULT NULL, `est_completion_date` timestamp NULL DEFAULT NULL, `color_code` varchar(255) DEFAULT NULL, `order` tinyint(4) DEFAULT NULL, `projectable_type` varchar(255) DEFAULT NULL, `completed_at` timestamp NULL DEFAULT NULL, `created_by` int(11) unsigned DEFAULT NULL, `updated_by` int(11) unsigned DEFAULT NULL, `created_at` timestamp NULL DEFAULT NULL, `updated_at` timestamp NULL DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-INSERT INTO `1668940036_wp_pm_projects` (`id`, `title`, `description`, `status`, `budget`, `pay_rate`, `est_completion_date`, `color_code`, `order`, `projectable_type`, `completed_at`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES (1,'Custom Chair','Q1000',0,'','','','','','','',5,5,'2022-11-03 23:43:14','2022-11-04 00:14:44'),(2,'Custom Chair copy','Q1000',0,'','','','','','','',5,5,'2022-11-04 00:33:30','2022-11-04 00:33:30'),(4,'Test','',0,'','','','','','','',5,5,'2022-11-11 13:21:55','2022-11-11 13:21:55'),(5,'Project A','Lorem Ipsum',0,'','','','','','','',5,5,'2022-11-18 14:06:32','2022-11-18 14:06:32');
