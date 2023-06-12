@@ -21,14 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 do_action( 'woocommerce_before_customer_login_form' ); ?>
 
-<?php if ( 'yes' === get_option( 'woocommerce_enable_myaccount_registration' ) ) : ?>
-
-<div class="u-columns col2-set" id="customer_login">
-
-	<div class="u-column1 col-1">
-
-<?php endif; ?>
-
+<div class="row col-md-6 mx-auto">
+	<div class="p-3">
 		<h2><?php esc_html_e( 'Login', 'woocommerce' ); ?></h2>
 
 		<form class="woocommerce-form woocommerce-form-login login" method="post">
@@ -36,15 +30,19 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 			<?php do_action( 'woocommerce_login_form_start' ); ?>
 
 			<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-				<label for="username"><?php esc_html_e( 'Username or email address', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
 				<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" /><?php // @codingStandardsIgnoreLine ?>
+				<label for="username"><?php esc_html_e( 'Username or email address', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
 			</p>
 			<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-				<label for="password"><?php esc_html_e( 'Password', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
 				<input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" autocomplete="current-password" />
+				<label for="password"><?php esc_html_e( 'Password', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
 			</p>
 
 			<?php do_action( 'woocommerce_login_form' ); ?>
+			<p class="woocommerce-LostPassword lost_password">
+				<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php esc_html_e( 'Lost your password?', 'woocommerce' ); ?></a>
+			</p>
+
 
 			<p class="form-row">
 				<label class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme">
@@ -53,19 +51,16 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 				<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
 				<button type="submit" class="woocommerce-button button woocommerce-form-login__submit<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="login" value="<?php esc_attr_e( 'Log in', 'woocommerce' ); ?>"><?php esc_html_e( 'Log in', 'woocommerce' ); ?></button>
 			</p>
-			<p class="woocommerce-LostPassword lost_password">
-				<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php esc_html_e( 'Lost your password?', 'woocommerce' ); ?></a>
-			</p>
-
 			<?php do_action( 'woocommerce_login_form_end' ); ?>
 
 		</form>
-	
+	</div>
+	<div class="p-3 mb-5">
+		<h2><?php esc_html_e( "Sign Up", 'woocommerce' ); ?></h2>
+		<a href="/my-account/create-account" class="woocommerce-button button woocommerce-form-login__submit wp-element-button"><?php esc_html_e('Request Account', 'woocommerce' ); ?></a>
+	</div>
 </div>
-
-<div class="u-column2 col-2">
-	<h2><?php esc_html_e( "Don't have an account?", 'woocommerce' ); ?></h2>
-	<a href="/my-account/create-account" class="woocommerce-button button woocommerce-form-login__submit wp-element-button"><?php esc_html_e('Register', 'woocommerce' ); ?></a>
+	
 </div>
 
 <?php do_action( 'woocommerce_after_customer_login_form' ); ?>

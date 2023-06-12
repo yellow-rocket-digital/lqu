@@ -7,7 +7,7 @@ include('section-top-navigation.php');
   <div class="generic-content">
     <?php
     the_post();
-    echo '<h1>'.get_the_title().'</h1>';
+    echo '<h1 class="visually-hidden">'.get_the_title().'</h1>';
     the_content();
     ?>
   </div>

@@ -73,8 +73,7 @@ if ( post_password_required() ) {
 					?>
 				</div>
 			<?php else: ?>
-				<p>You must log in</p>
-				<a href="/my-account" class="button">Login</a>
+				<a class="button my-3" href="/my-account">Start Order</a>
 			<?php endif; ?>
 		</div>
 	</div>

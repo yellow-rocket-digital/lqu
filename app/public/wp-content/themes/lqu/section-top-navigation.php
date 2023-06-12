@@ -101,11 +101,13 @@ $show_reupholstery = current_user_can('edit_posts') ? true : get_field('show_reu
 					<?php endif; ?>
 				</a>
 			</li>
-			<li>
-				<a href="/request-quote">
-					<span class="dashicons dashicons-cart"></span>
-				</a>
-			</li>
+			<?php if (is_user_logged_in()): ?>
+				<li>
+					<a href="/request-quote">
+						<span class="dashicons dashicons-cart"></span>
+					</a>
+				</li>
+			<?php endif; ?>
 		</ul>
 
 	</nav>

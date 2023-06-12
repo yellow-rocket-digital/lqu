@@ -119,8 +119,8 @@ $accept_button_text = ( YITH_Request_Quote()->enabled_checkout() && $order->get_
 		<a href="<?php echo esc_url( YITH_YWRAQ_Frontend()->my_account->get_quotes_url() ); ?>"><?php esc_html_e( '< Back to quote list', 'yith-woocommerce-request-a-quote' ); ?></a>
 	</p>
 
-	<header>
-		<h2>
+	<header class="align-items-center">
+		<h2 class="my-5 lh-1">
 			<?php
 			// translators: Number of quote.
 			printf( esc_html__( 'Quote #%s details', 'yith-woocommerce-request-a-quote' ), esc_html( $order->get_order_number() ) );
@@ -166,19 +166,18 @@ $accept_button_text = ( YITH_Request_Quote()->enabled_checkout() && $order->get_
 	<!-- END REJECTED BLOCK -->
 
 	<!-- QUOTE DETAILS -->
-	<table class="shop_table order_details">
+	<div class="shop_table order_details">
 
-		<thead>
-		<tr>
-			<th class="product-name"
-				colspan="<?php echo esc_attr( $colspan ); ?>"><?php echo esc_html( _n( 'Product in your request', 'Products in your request', count( $order->get_items() ), 'yith-woocommerce-request-a-quote' ) ); ?></th>
+		<div class="order_details__header row col-12 py-3 mb-5">
+			<div class="product-name col-8"
+				colspan="<?php echo esc_attr( $colspan ); ?>"><?php echo esc_html( _n( 'Product in your request', 'Products', count( $order->get_items() ), 'yith-woocommerce-request-a-quote' ) ); ?>
+            </div>
 			<?php if ( $show_total_column ) : ?>
-				<th class="product-total"><?php esc_html_e( 'Quote Total', 'yith-woocommerce-request-a-quote' ); ?></th>
+				<div class="product-total col-4"><?php esc_html_e( 'Quote Total', 'yith-woocommerce-request-a-quote' ); ?></div>
 			<?php endif ?>
-		</tr>
-		</thead>
+        </div>
 
-		<tbody>
+		<div>
 		<?php
 		if ( count( $order->get_items() ) > 0 ) {
 
@@ -197,10 +196,10 @@ $accept_button_text = ( YITH_Request_Quote()->enabled_checkout() && $order->get_
 
 				if ( apply_filters( 'woocommerce_order_item_visible', true, $item ) ) :
 					?>
-					<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
-						<td class="product-name">
+					<div class="row col-12 pb-4 mb-5 <?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
+						<div class="product-name col-8 d-flex">
 							<?php if ( apply_filters( 'ywraq_item_thumbnail', true ) ) : ?>
-								<span class="product-thumbnail">
+								<span class="product-thumbnail me-5">
 									<?php
 									if ( $_product ) {
 										/**
@@ -254,17 +253,17 @@ $accept_button_text = ( YITH_Request_Quote()->enabled_checkout() && $order->get_
 							do_action( 'woocommerce_order_item_meta_end', $item_id, $item, $order, false );
 							?>
 							</span>
-						</td>
+						</div>
 						<?php if ( $show_price ) : ?>
-							<td class="product-total">
+							<div class="product-total col-4">
 								<?php
 
 								echo wp_kses_post( $order->get_formatted_line_subtotal( $item ) );
 
 								?>
-							</td>
+							</div>
 						<?php endif ?>
-					</tr>
+                        </div>
 					<?php
 
 				endif;
@@ -285,81 +284,83 @@ $accept_button_text = ( YITH_Request_Quote()->enabled_checkout() && $order->get_
 
 		do_action( 'woocommerce_order_items_table', $order );
 		?>
-		</tbody>
-		<tfoot>
-		<?php
-		$has_refund = false;
+		</div>
 
-		if ( $order->get_total_refunded() ) {
-			$has_refund = true;
-		}
+		<div class="order_details__bottom">
+            <div class="order_details__prices d-flex align-items-center mb-4">
+                <div class="d-flex">
+                    <?php
+                    $has_refund = false;
 
-		$totals = $order->get_order_item_totals(); //phpcs:ignore
+                    if ( $order->get_total_refunded() ) {
+                        $has_refund = true;
+                    }
 
-		if ( $show_total_column && $totals ) {
-			foreach ( $totals as $key => $total ) {
-				$value = $total['value'];
+                    $totals = $order->get_order_item_totals(); //phpcs:ignore
 
-				?>
-				<?php if ( $show_price ) : ?>
-					<tr>
-						<th scope="row"><?php echo esc_html( $total['label'] ); ?></th>
-						<td><?php echo wp_kses_post( $value ); ?></td>
-					</tr>
-				<?php endif ?>
-				<?php
-			}
-		}
-		?>
+                    if ( $show_total_column && $totals ) {
+                        foreach ( $totals as $key => $total ) {
+                            $value = $total['value'];
 
-		<?php
-		if ( in_array( $order->get_status(), array( 'ywraq-pending', 'ywraq-accepted', 'pending' ), true ) ) :
-			?>
-		<tr>
+                            ?>
+                            <?php if ( $show_price ) : ?>
+                                <div class="me-5">
+                                    <?php echo esc_html( $total['label'] ); ?>
+                                    <?php echo wp_kses_post( $value ); ?>
+                                </div>
+                            <?php endif ?>
+                            <?php
+                        }
+                    }
+                    ?>
+                </div>
+                <div class="ywraq-buttons d-flex">
+                    <?php
+                    if ( in_array( $order->get_status(), array( 'ywraq-pending' ), true ) ) :
+                        if ( get_option( 'ywraq_show_accept_link' ) !== 'no' ) :
+                            ?>
+                            <a class="ywraq-button ywraq-accept button me-3"
+                            href="<?php echo esc_url( ywraq_get_accepted_quote_page( $order ) ); ?>">
+                                <?php echo esc_html( $accept_button_text ); ?></a>
+                        <?php endif ?>
+                        <?php
+                        if ( get_option( 'ywraq_show_reject_link' ) !== 'no' ) :
+                            ?>
+                            <a class="ywraq-button ywraq-reject button me-3"
+                            href="#"><?php esc_html( ywraq_get_label( 'reject', true ) ); ?></a>
+                        <?php endif ?>
+                    <?php endif ?>
+                    <?php if ( in_array( $order->get_status(), array( 'ywraq-accepted', 'pending' ) ) ) : ?>
+                        <?php if ( get_option( 'ywraq_show_accept_link' ) !== 'no' && YITH_Request_Quote()->enabled_checkout() ) : ?>
+                            <a class="ywraq-button ywraq-accept button" href="
+                                <?php
+                                echo esc_url(
+                                    add_query_arg(
+                                        array(
+                                            'request_quote' => $order_id,
+                                            'status'        => 'accepted',
+                                            'raq_nonce'     => ywraq_get_token( 'accept-request-quote', $order_id, $user_email ),
+                                            'lang'          => get_post_meta( $order_id, 'wpml_language', true ),
+                                        ),
+                                        YITH_Request_Quote()->get_raq_page_url()
+                                    )
+                                )
+                                ?>
+                            "><?php echo esc_html( $accept_button_text ); ?></a>
+                        <?php endif ?>
+                    <?php endif ?>
+                </div>
+            </div>
 
-			<td colspan="2">
-				<p class="ywraq-buttons">
-					<?php
-					if ( in_array( $order->get_status(), array( 'ywraq-pending' ), true ) ) :
-						if ( get_option( 'ywraq_show_accept_link' ) !== 'no' ) :
-							?>
-							<a class="ywraq-button ywraq-accept button"
-							   href="<?php echo esc_url( ywraq_get_accepted_quote_page( $order ) ); ?>">
-								<?php echo esc_html( $accept_button_text ); ?></a>
-						<?php endif ?>
-						<?php
-						if ( get_option( 'ywraq_show_reject_link' ) !== 'no' ) :
-							?>
-							<a class="ywraq-button ywraq-reject button"
-							   href="#"><?php esc_html( ywraq_get_label( 'reject', true ) ); ?></a>
-						<?php endif ?>
-					<?php endif ?>
-					<?php if ( in_array( $order->get_status(), array( 'ywraq-accepted', 'pending' ) ) ) : ?>
-						<?php if ( get_option( 'ywraq_show_accept_link' ) !== 'no' && YITH_Request_Quote()->enabled_checkout() ) : ?>
-							<a class="ywraq-button ywraq-accept button" href="
-							<?php
-							echo esc_url(
-								add_query_arg(
-									array(
-										'request_quote' => $order_id,
-										'status'        => 'accepted',
-										'raq_nonce'     => ywraq_get_token( 'accept-request-quote', $order_id, $user_email ),
-										'lang'          => get_post_meta( $order_id, 'wpml_language', true ),
-									),
-									YITH_Request_Quote()->get_raq_page_url()
-								)
-							)
-							?>
-			"><?php echo esc_html( $accept_button_text ); ?>
-							</a>
-						<?php endif ?>
-					<?php endif ?>
-				</p>
-			</td>
-		<tr>
+		    <?php if ( in_array( $order->get_status(), array( 'ywraq-pending', 'ywraq-accepted', 'pending' ), true ) ) : ?>
+		    <div>
+                <div>
+                    
+                </div>
+		    <div>
 			<?php endif ?>
-		</tfoot>
-	</table>
+        </div>
+    </div>
 	<!-- END QUOTE DETAILS -->
 
 

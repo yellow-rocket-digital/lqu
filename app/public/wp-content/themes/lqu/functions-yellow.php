@@ -26,6 +26,28 @@ function remove_woo_styles( $enqueue_styles ) {
 	return $enqueue_styles;
 }
 
+// Remove account links
+add_filter('woocommerce_account_menu_items', 'remove_my_account_links');
+function remove_my_account_links($menu_links) {
+	unset($menu_links['downloads']);
+	unset($menu_links['edit-address']);
+	unset($menu_links['dashboard']);
+
+	return $menu_links;
+}
+
+// user redirects
+add_action('template_redirect', 'redirection_function');
+function redirection_function(){
+	global $wp;
+
+	$request = explode('/', $wp->request);
+	if (end($request) == 'my-account') {
+		wp_safe_redirect(home_url('/my-account/quotes'));
+		exit;
+	}
+}
+
 ?>
 
 
