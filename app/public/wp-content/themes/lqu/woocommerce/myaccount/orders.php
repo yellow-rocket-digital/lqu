@@ -23,63 +23,51 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 
 <?php if ( $has_orders ) : ?>
 
-	<table class="woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table">
-		<thead>
-			<tr>
-				<?php foreach ( wc_get_account_orders_columns() as $column_id => $column_name ) : ?>
-					<th class="woocommerce-orders-table__header woocommerce-orders-table__header-<?php echo esc_attr( $column_id ); ?>"><span class="nobr"><?php echo esc_html( $column_name ); ?></span></th>
-				<?php endforeach; ?>
-			</tr>
-		</thead>
+    <h1 class="mt-0">Orders</h1>
 
-		<tbody>
+	<div class="woocommerce-orders-table woocommerce-MyAccount-orders">
+		<div class="row row-cols-1 row-cols-xl-3 g-4">
 			<?php
 			foreach ( $customer_orders->orders as $customer_order ) {
 				$order      = wc_get_order( $customer_order ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 				$item_count = $order->get_item_count() - $order->get_item_count_refunded();
 				?>
-				<tr class="woocommerce-orders-table__row woocommerce-orders-table__row--status-<?php echo esc_attr( $order->get_status() ); ?> order">
-					<?php foreach ( wc_get_account_orders_columns() as $column_id => $column_name ) : ?>
-						<td class="woocommerce-orders-table__cell woocommerce-orders-table__cell-<?php echo esc_attr( $column_id ); ?>" data-title="<?php echo esc_attr( $column_name ); ?>">
-							<?php if ( has_action( 'woocommerce_my_account_my_orders_column_' . $column_id ) ) : ?>
-								<?php do_action( 'woocommerce_my_account_my_orders_column_' . $column_id, $order ); ?>
+                <div class="col">
+                    <div class="quotes p-4">
+                        <?php foreach ( wc_get_account_orders_columns() as $column_id => $column_name ) : ?>
+                            <div class="order__<?php echo esc_attr( $column_id ); ?>" data-title="<?php echo esc_attr( $column_name ); ?>">
+                                <?php if ( has_action( 'woocommerce_my_account_my_orders_column_' . $column_id ) ) : ?>
+                                    <?php do_action( 'woocommerce_my_account_my_orders_column_' . $column_id, $order ); ?>
 
-							<?php elseif ( 'order-number' === $column_id ) : ?>
-								<a href="<?php echo esc_url( $order->get_view_order_url() ); ?>">
-									<?php echo esc_html( _x( '#', 'hash before order number', 'woocommerce' ) . $order->get_order_number() ); ?>
-								</a>
+                                <?php elseif ( 'order-number' === $column_id ) : ?>
+                                    <div class="quotes-number mb-2">
+                                        <a href="<?php echo esc_url( $order->get_view_order_url() ); ?>">Order Number: <?php echo esc_html( _x( '#', 'hash before order number', 'woocommerce' ) . $order->get_order_number() ); ?></a>
+                                    </div>
 
-							<?php elseif ( 'order-date' === $column_id ) : ?>
-								<time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>"><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></time>
+                                <?php elseif ( 'order-date' === $column_id ) : ?>
+                                    <div class="quotes-date mb-2">
+                                        Date: <time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>"><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></time>
+                                    </div>
+                                <?php elseif ( 'order-status' === $column_id ) : ?>
+                                    <div class="quotes-status mb-2"> Status: <span class="raq_status <?php if ($order->get_status() == 'pending') { echo 'pending';} ?>"><?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?></span></div>
 
-							<?php elseif ( 'order-status' === $column_id ) : ?>
-								<?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?>
-
-							<?php elseif ( 'order-total' === $column_id ) : ?>
-								<?php
-								/* translators: 1: formatted order total 2: total order items */
-								echo wp_kses_post( sprintf( _n( '%1$s for %2$s item', '%1$s for %2$s items', $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ) );
-								?>
-
-							<?php elseif ( 'order-actions' === $column_id ) : ?>
-								<?php
-								$actions = wc_get_account_orders_actions( $order );
-
-								if ( ! empty( $actions ) ) {
-									foreach ( $actions as $key => $action ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-										echo '<a href="' . esc_url( $action['url'] ) . '" class="woocommerce-button' . esc_attr( $wp_button_class ) . ' button ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
-									}
-								}
-								?>
-							<?php endif; ?>
-						</td>
-					<?php endforeach; ?>
-				</tr>
+                                <?php elseif ( 'order-total' === $column_id ) : ?>
+                                    <div class="quotes-total mb-2">
+                                        Total: <?php
+                                        /* translators: 1: formatted order total 2: total order items */
+                                        echo wp_kses_post( sprintf( _n( '%1$s for %2$s item', '%1$s for %2$s items', $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ) );
+                                        ?>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
 				<?php
 			}
 			?>
-		</tbody>
-	</table>
+		</div>
+    </div>
 
 	<?php do_action( 'woocommerce_before_account_orders_pagination' ); ?>
 

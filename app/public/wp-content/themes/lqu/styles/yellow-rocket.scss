@@ -21,14 +21,26 @@
    }
 }
 
-.woocommerce {
+.text-button {
+   font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-size: 18px;
+   text-transform: uppercase;
+}
+
+section .woocommerce {
    display: flex;
    flex-direction: column;
+   padding-left: 30px;
+   padding-right: 30px;
 }
 
 .woocommerce-page .generic-page .generic-content,
 .woocommerce-js .generic-page .generic-content {
    max-width: 14000px !important;
+   padding: 0;
+}
+
+.woocommerce ul.products {
    padding: 0;
 }
 
@@ -83,7 +95,10 @@
 }
 
 .yith-wapo-option-value,
-.woocommerce-Input--text {
+.woocommerce-Input--text,
+.woocommerce-Input--email,
+.woocommerce-Input--password {
+   padding: 8px 0 !important;
    font-size: 24px;
    line-height: 28px;
    margin-bottom: 0.25em;
@@ -91,6 +106,10 @@
    -webkit-appearance: none;
    border: 0;
    border-bottom: 1px solid $gray02;
+}
+
+select.yith-wapo-option-value {
+   font-size: 16px;
 }
 
 .woocommerce-breadcrumb {
@@ -109,6 +128,10 @@
       z-index: 1;
       padding: 20px;
    }
+}
+
+.woocommerce-ordering {
+   margin-bottom: 30px;
 }
 
 .product_meta {
@@ -138,7 +161,6 @@
 
 .yith-wapo-block .yith-wapo-addon.wapo-toggle .wapo-addon-title:after {
    content: '\f347';
-   color: #aaaaaa;
    font-size: 16px;
    font-family: 'dashicons';
    display: inline-block;
@@ -147,7 +169,10 @@
 .wapo-addon-title {
    display: flex;
    justify-content: space-between;
-   color: $gray01;
+   color: $blue01;
+   font-size: 16px;
+   letter-spacing: 0.12em;
+   text-transform: uppercase;
    font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -156,7 +181,7 @@
 .cart_item {
    padding: 20px;
    margin-bottom: 20px;
-   border: 1px solid $gray02;
+   border: 1px solid $blue01;
 }
 
 .yith-wapo-block__title {
@@ -166,6 +191,7 @@
 .wapo-addon-description {
    margin-top: 0px;
    padding-bottom: 20px;
+   margin-bottom: 0;
    font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
    font-size: 18px;
    color: #aaa;
@@ -226,13 +252,24 @@ form {
    }
 
    p {
-      margin-bottom: 30px;
+      margin-bottom: 40px;
    }
 
    input {
       @include font-family-BaskervilleURW;
       font-size: 24px;
       line-height: 28px;
+   }
+
+   select {
+      padding: 8px 0;
+      margin: 8px 0;
+      font-size: 14px;
+      line-height: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: transparent;
+      border-width: 0 0 1px 0;
    }
 }
 

@@ -46,12 +46,12 @@ if ( post_password_required() ) {
 		<div class="summary entry-summary">
 			<h1><?= $product->get_title(); ?></h1>
 
-			<h3>Dimensions</h3>
+			<h3 class="mb-3">Dimensions</h3>
 			<p><?= wc_format_dimensions($product->get_dimensions(false)); ?></p>
 
 			<p>All pieces are made to order, frame to fabric so the dimensions may be determined by the customer.</p>
 
-			<h3>Fabric</h3>
+			<h3 class="mb-3">Fabric</h3>
 			<p>All fabrics are supplied by the customer. Yardage requirements are supplied in estimates once the design is specified.</p>
 
 			<?php if (is_user_logged_in()): ?>
