@@ -30,6 +30,16 @@ do_action( 'woocommerce_before_account_navigation' );
 			</li>
 		<?php endforeach; ?>
 	</ul>
+	<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
+		<ul class="admin-tools">
+			<li class="admin-tools__heading">Admin</li>
+			<li class="admin-tools__link"><a href="<?= get_admin_url(); ?>edit.php?post_status=wc-ywraq-new&post_type=shop_order">New Quotes</a></li>
+			<li class="admin-tools__link"><a href="<?= get_admin_url(); ?>edit.php?post_status=wc-ywraq-pending&post_type=shop_order">Pending Quotes</a></li>
+			<li class="admin-tools__link"><a href="<?= get_admin_url(); ?>edit.php?post_type=shop_order">Orders</a></li>
+			<li class="admin-tools__link"><a href="<?= get_admin_url(); ?>users.php">Users</a></li>
+			<li class="admin-tools__link"><a href="<?= get_admin_url(); ?>admin.php?page=new-user-approve-admin">Account Requests</a></li>
+		</ul>
+	<?php } ?>
 </nav>
 
 <?php do_action( 'woocommerce_after_account_navigation' ); ?>
