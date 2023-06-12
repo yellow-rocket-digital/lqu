@@ -97,7 +97,9 @@ section .woocommerce {
 .yith-wapo-option-value,
 .woocommerce-Input--text,
 .woocommerce-Input--email,
-.woocommerce-Input--password {
+.woocommerce-Input--password,
+.register-form input[type="text"],
+.register-form input[type="email"] {
    padding: 8px 0 !important;
    font-size: 24px;
    line-height: 28px;
@@ -106,6 +108,69 @@ section .woocommerce {
    -webkit-appearance: none;
    border: 0;
    border-bottom: 1px solid $gray02;
+
+   &:focus,
+   &:focus-visible {
+      border-bottom: 2px solid $blue01;
+      outline: none;
+   }
+}
+
+.register-form {
+   input, select {
+      margin-bottom: 0 !important;
+      width: 100%;
+   }
+
+   input[type="radio"],
+   input[type="checkbox"] {
+      display: inline-block;
+      width: auto;
+      margin-right: 8px;
+      vertical-align: middle;
+   }
+
+   h2 { display: none; }
+
+   .acf-field {
+      display: flex;
+      flex-direction: column-reverse;
+      margin-bottom: 20px;
+   }
+
+   .acf-field-group,
+   .acf-field-radio,
+   .acf-field-range,
+   .acf-field-checkbox,
+   .acf-field-message {
+      flex-direction: column;
+   }
+
+   .acf-fields .acf-field-group {
+      padding: 20px 0;
+
+      .acf-label label {
+         @include font-family-BaskervilleURW;
+         text-transform: none !important;
+         font-size: 22px;
+         font-style: italic;
+         color: $blue01;
+         letter-spacing: normal;
+      }
+      .acf-fields .acf-label label {
+         font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+         font-style: normal;
+         color: $gray02;
+         font-size: 14px;
+         line-height: 14px;
+      }
+   }
+
+   .acf-radio-list,
+   .acf-checkbox-list {
+      list-style: none;
+      padding: 0;
+   }
 }
 
 select.yith-wapo-option-value {
@@ -332,7 +397,8 @@ h2 { color: $blue01; }
       }
    }
 
-   .woocommerce-MyAccount-navigation-link {
+   .woocommerce-MyAccount-navigation-link,
+   .admin-tools__link {
       margin-bottom: 10px;
    }
 
@@ -386,3 +452,22 @@ h2 { color: $blue01; }
 .order_details__prices {
    justify-content: space-between;
 }
+
+.admin-tools {
+   padding-top: 20px;
+
+   &__heading {
+      @include font-family-BaskervilleURW;
+      margin-bottom: 8px;
+      text-transform: none;
+      font-size: 20px;
+      color: $blue01;
+      font-weight: bold;
+      font-style: italic;
+   }
+}
+
+h1, h2, h3, h4, h5 {
+   margin: 60px 0px 30px 0px;
+   line-height: 1.25;
+ }
