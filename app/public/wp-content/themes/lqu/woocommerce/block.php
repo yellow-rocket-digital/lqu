@@ -166,10 +166,10 @@ $block_classes = apply_filters( 'yith_wapo_block_classes', 'yith-wapo-block', $b
 					">
 
 				<?php if ( '' !== $addon_title ) : ?>
-					<<?php echo esc_attr( $style_addon_titles ); ?> class="wapo-addon-title <?php echo esc_attr( $toggle_status ); ?>">
+					<div class="wapo-addon-title <?php echo esc_attr( $toggle_status ); ?>">
 						<div><?php echo apply_filters( 'yith_wapo_addon_display_title', esc_html( $addon_title ) , $addon_title ); ?>
 					<?php echo $required_addon ? '<span class="required">*</span>' : ''; ?></div>
-					</<?php echo esc_attr( $style_addon_titles ); ?>>
+					</div>
 
 					<?php if ( 'yes' === get_option( 'yith_wapo_show_blocks_in_cart', 'no' ) ) : ?>
 						<?php echo '<input type="hidden" class="wapo-addon-title-hidden" name="yith_wapo[][' . esc_attr( $addon->id ) . '-addon_title]" value="' . esc_html( $addon_title ) . '" />'; ?>

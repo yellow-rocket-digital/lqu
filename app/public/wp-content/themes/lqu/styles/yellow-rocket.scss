@@ -7,7 +7,8 @@
 /* buttons */
 .button,
 .woocommerce .button,
-.woocommerce a.button {
+.woocommerce a.button,
+#wp-submit {
    @include cta-button;
 }
 
@@ -68,7 +69,6 @@ section .woocommerce {
    }
 
    &__details {
-      padding-top: 40px;
    
       .price {
          margin: 0;
@@ -99,7 +99,9 @@ section .woocommerce {
 .woocommerce-Input--email,
 .woocommerce-Input--password,
 .register-form input[type="text"],
-.register-form input[type="email"] {
+.register-form input[type="email"],
+#registerform input[type="text"],
+#registerform input[type="email"] {
    padding: 8px 0 !important;
    font-size: 24px;
    line-height: 28px;
@@ -116,7 +118,8 @@ section .woocommerce {
    }
 }
 
-.register-form {
+.register-form,
+#registerform {
    input, select {
       margin-bottom: 0 !important;
       width: 100%;
@@ -160,9 +163,11 @@ section .woocommerce {
       .acf-fields .acf-label label {
          font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
          font-style: normal;
+         text-transform: uppercase !important;
+         letter-spacing: 0.12em;
          color: $gray02;
          font-size: 14px;
-         line-height: 14px;
+         line-height: 18px;
       }
    }
 
@@ -306,7 +311,8 @@ select.yith-wapo-option-value {
    }
 }
 
-form {
+form,
+#registerform {
    font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
    label {
@@ -320,7 +326,7 @@ form {
       margin-bottom: 40px;
    }
 
-   input {
+   input:not([type='submit']) {
       @include font-family-BaskervilleURW;
       font-size: 24px;
       line-height: 28px;
@@ -416,7 +422,8 @@ h2 { color: $blue01; }
       font-style: italic;
    }
 
-   .raq_status {
+   .raq_status,
+   .ywraq-status {
       display: initial;
       color: inherit;
       font-size: inherit;
@@ -446,11 +453,20 @@ h2 { color: $blue01; }
 }
 
 .order_item {
-   border-bottom: 1px solid $tan;
+   border: 1px solid $blue01;
 }
 
 .order_details__prices {
    justify-content: space-between;
+}
+
+.order_details {
+   .product-name {
+      font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      text-transform: uppercase;
+      font-size: 16px;
+      letter-spacing: 0.12em;
+   }
 }
 
 .admin-tools {
@@ -471,3 +487,116 @@ h1, h2, h3, h4, h5 {
    margin: 60px 0px 30px 0px;
    line-height: 1.25;
  }
+
+
+// wp-login.php
+.login-action-register {
+   background: $tan;
+
+   #login {
+      width: auto;
+      max-width: 690px;
+   }
+
+   #registerform {
+      padding: 0;
+      box-shadow: none;
+      background: transparent;
+      border: 0;
+
+      p {
+         display: flex;
+         flex-direction: column-reverse;
+         margin-bottom: 20px;
+      }
+
+      input {
+         margin-bottom: 4px;
+         border-radius: 0;
+      }
+
+      .acf-fields.-border {
+         background: transparent;
+         border: 0;
+      }
+
+      .acf-fields > .acf-field {
+         padding: 0;
+      }
+   }
+
+   #nav {
+      @include font-family-BaskervilleURW;
+      padding: 0 !important;
+      font-weight: bold;
+      font-style: italic;
+      font-size: 20px !important;
+
+      a {
+         color: $blue01 !important;
+      }
+   }
+
+   .privacy-policy-page-link {
+      padding-bottom: 20px !important;
+      text-align: left !important;
+   }
+
+   .privacy-policy-link {
+      color: $blue01 !important;
+   }
+ }
+
+.login .message,
+.message {
+   background: transparent !important;
+   border: 1px solid $blue01;
+   border-left: 4px solid $blue01 !important;
+   font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-size: 14px;
+   letter-spacing: 0.12em;
+   text-transform: uppercase;
+
+
+}
+
+.ywraq-additional-information {
+   flex-direction: column;
+}
+
+.ywraq-customer-information {
+   border: 1px solid $blue01 !important;
+   border-radius: 0 !important;
+}
+
+.ywraq-admin-message {
+   margin-top: 20px;
+   background: $blue01 !important;
+   color: $tan !important;
+   border-radius: 0 !important;
+   width: 100% !important;
+}
+
+.ywraq-view-quote-wrapper p {
+   margin: 10px 0 !important;
+}
+
+.ywraq-buttons a.ywraq-button.ywraq-reject,
+.ywraq-buttons a.ywraq-button.ywraq-accept {
+   border-radius: 0 !important;
+
+   &:hover {
+      background: $white !important;
+      color: $blue01 !important;
+   }
+}
+
+.woocommerce-notices-wrapper ul {
+   border: 1px solid $blue01;
+   padding: 8px;
+   font-size: 16px;
+   font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+   text-transform: uppercase;
+   letter-spacing: 0.12em;
+   list-style: none;
+}

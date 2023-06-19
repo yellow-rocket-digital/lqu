@@ -44,7 +44,7 @@ if ( post_password_required() ) {
 		?>
 
 		<div class="summary entry-summary">
-			<h1><?= $product->get_title(); ?></h1>
+			<h1 class="mt-0"><?= $product->get_title(); ?></h1>
 
 			<h3 class="mb-3">Dimensions</h3>
 			<p><?= wc_format_dimensions($product->get_dimensions(false)); ?></p>

@@ -137,13 +137,13 @@ $accept_button_text = ( YITH_Request_Quote()->enabled_checkout() && $order->get_
 	</header>
 
 	<!-- ORDER DATE -->
-	<p>
+	<p class="mx-0">
 		<strong><?php esc_html_e( 'Request date:', 'yith-woocommerce-request-a-quote' ); ?></strong> <?php echo esc_html( date_i18n( wc_date_format(), $order_date ) ); ?>
 	</p>
 	<!-- END ORDER DATE -->
 
 	<!-- ORDER STATUS BLOCK -->
-	<p class="ywraq-view-quote__order-status">
+	<p class="m-0 ywraq-view-quote__order-status">
 		<strong><?php echo esc_html__( 'Status:', 'yith-woocommerce-request-a-quote' ); ?></strong>
 		<span class="ywraq-status <?php echo esc_attr( $order->get_status() ); ?>"><?php echo esc_html( $status_label ); ?></span>
 	</p>
@@ -168,13 +168,10 @@ $accept_button_text = ( YITH_Request_Quote()->enabled_checkout() && $order->get_
 	<!-- QUOTE DETAILS -->
 	<div class="shop_table order_details">
 
-		<div class="order_details__header row col-12 py-3 mb-5">
+		<div class="order_details__header row col-12 py-3 gx-0">
 			<div class="product-name col-8"
-				colspan="<?php echo esc_attr( $colspan ); ?>"><?php echo esc_html( _n( 'Product in your request', 'Products', count( $order->get_items() ), 'yith-woocommerce-request-a-quote' ) ); ?>
+				colspan="<?php echo esc_attr( $colspan ); ?>"><?php echo esc_html( _n( 'Item', 'Items', count( $order->get_items() ), 'yith-woocommerce-request-a-quote' ) ); ?>
             </div>
-			<?php if ( $show_total_column ) : ?>
-				<div class="product-total col-4"><?php esc_html_e( 'Quote Total', 'yith-woocommerce-request-a-quote' ); ?></div>
-			<?php endif ?>
         </div>
 
 		<div>
@@ -196,7 +193,7 @@ $accept_button_text = ( YITH_Request_Quote()->enabled_checkout() && $order->get_
 
 				if ( apply_filters( 'woocommerce_order_item_visible', true, $item ) ) :
 					?>
-					<div class="row col-12 pb-4 mb-5 <?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
+					<div class="order__item d-flex col-12 p-4 mb-5 <?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
 						<div class="product-name col-8 d-flex">
 							<?php if ( apply_filters( 'ywraq_item_thumbnail', true ) ) : ?>
 								<span class="product-thumbnail me-5">
@@ -392,9 +389,9 @@ $accept_button_text = ( YITH_Request_Quote()->enabled_checkout() && $order->get_
 	<?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>
 
 	<div class="ywraq-additional-information">
-		<div class="ywraq-customer-information">
+		<div class="ywraq-customer-information w-100 m-0 p-4">
 			<header>
-				<h3><?php esc_html_e( 'Customer\'s details', 'yith-woocommerce-request-a-quote' ); ?></h3>
+				<h3 class="my-3"><?php esc_html_e( 'Your Information', 'yith-woocommerce-request-a-quote' ); ?></h3>
 			</header>
 
 

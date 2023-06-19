@@ -20,7 +20,7 @@ include('section-top-navigation.php');
 					<form name="registerform" id="registerform" class="register-form"
 						action="<?php echo esc_url( site_url( 'wp-login.php?action=register', 'login_post' ) ); ?>" method="post"
 						novalidate="novalidate">
-						<p class="visually-hidden">
+						<p>
 							<input type="text" name="user_login" id="user_login" class="input"
 								value="<?php echo esc_attr( wp_unslash( $user_login ) ); ?>" size="20" autocapitalize="off"
 								autocomplete="username" />
