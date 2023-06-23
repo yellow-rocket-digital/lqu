@@ -91,6 +91,35 @@ add_filter('woocommerce_account_menu_items', function($items) {
 	return $items;
 });
 
+add_action('login_form_register', 'ui_set_registration_username');
+ 
+function ui_set_registration_username(){
+  //if there is anything set for user email
+  if( isset($_POST['user_email']) && ! empty( $_POST['user_email'] ) ){
+    //replace login with user email
+    $_POST['user_login'] = $_POST['user_email'];
+  }
+}
+
+ 
+function ui_registration_errors($wp_error, $sanitized_user_login, $user_email){
+	if(isset($wp_error->errors['empty_username'])){
+	  unset($wp_error->errors['empty_username']);
+	}
+   
+	return $wp_error;
+  }
+
+  add_filter('gettext', 'ui_custom_string', 20, 3);
+function ui_custom_string( $translated_text, $text, $domain ) {
+  if($translated_text == 'Username or Email Address'){
+    //you can add any string you want here, as a case
+    return 'Email Address';
+  }
+ 
+  return $translated_text;
+}
+
 ?>
 
 

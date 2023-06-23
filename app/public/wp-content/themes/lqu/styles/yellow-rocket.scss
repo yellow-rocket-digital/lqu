@@ -389,6 +389,10 @@ form,
       font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-size: 14px;
    }
+
+   label[for="user_login"], input#user_login {
+      display: none; // hides username field
+   }
 }
 
 .woocommerce-form-login__rememberme {
