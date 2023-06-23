@@ -73,6 +73,24 @@ function my_login_logo_url_title() {
 }
 add_filter( 'login_headertext', 'login_logo_url_title' );
 
+
+// documents account section
+add_action('init', function() {
+	add_rewrite_endpoint('documents', EP_PAGES);
+});
+
+add_action('woocommerce_account_documents_endpoint', function() {
+	wc_get_template('myaccount/documents.php');
+});
+
+add_filter('woocommerce_account_menu_items', function($items) {
+	$logout = $items['customer-logout'];
+	unset($items['customer-logout']);
+	$items['documents'] = __('Documents', 'txtdomain');
+	$items['customer-logout'] = $logout;
+	return $items;
+});
+
 ?>
 
 
