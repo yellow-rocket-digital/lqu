@@ -44,11 +44,22 @@ if ( post_password_required() ) {
 		?>
 
 		<div class="summary entry-summary">
-			<h1 class="mt-0"><?= $product->get_title(); ?></h1>
+			<h1 class="mt-0"><?= $product->get_title(); ?></h1>			
+			<div class="y-product__dimensions mb-3">
+				<?php if ($product->has_dimensions()) :?>
+					<h3 class="mb-3">Dimensions</h3>
 
-			<h3 class="mb-3">Dimensions</h3>
-			<p><?= wc_format_dimensions($product->get_dimensions(false)); ?></p>
-
+					<?php if ( ! empty( $product->get_length() ) ): ?>
+						<span class="product_dimensions"><?php echo $product->get_length(); ?>d</span>
+					<?php endif; ?>
+					<?php if ( ! empty( $product->get_width() ) ): ?>
+						<span class="product_dimensions"><?php echo $product->get_width(); ?>w</span>
+					<?php endif; ?>
+					<?php if ( ! empty( $product->get_height() ) ): ?>
+						<span class="product_dimensions"><?php echo $product->get_height(); ?>h</span>
+					<?php endif; ?>
+				<?php endif; ?>
+			</div>
 			<p>All pieces are made to order, frame to fabric so the dimensions may be determined by the customer.</p>
 
 			<h3 class="mb-3">Fabric</h3>
