@@ -600,3 +600,32 @@ h1, h2, h3, h4, h5 {
    letter-spacing: 0.12em;
    list-style: none;
 }
+
+.woocommerce .product-thumbnail img {
+   max-width: 250px;
+}
+
+.order__meta {
+   .wc-item-meta {
+      padding: 0;
+      list-style: none;
+   }
+
+   .wc-item-meta-label {
+      display: none;
+   }
+
+   li {
+      margin-bottom: 8px;
+      
+      p {
+         margin: 0;
+      }
+   }
+}
+
+.woocommerce-customer-details {
+   display: none;
+}
+
+
