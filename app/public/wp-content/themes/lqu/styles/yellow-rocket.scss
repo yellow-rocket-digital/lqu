@@ -145,7 +145,8 @@ section .woocommerce {
    .acf-field-radio,
    .acf-field-range,
    .acf-field-checkbox,
-   .acf-field-message {
+   .acf-field-message,
+   .acf-field-file {
       flex-direction: column;
    }
 
@@ -175,6 +176,28 @@ section .woocommerce {
    .acf-checkbox-list {
       list-style: none;
       padding: 0;
+   }
+
+   .acf-radio-list li {
+      margin-bottom: 4px;
+   }
+
+   .acf-field-file {
+      margin: 30px 0;
+   }
+
+   .acf-file-uploader {
+      .file-info p {
+         margin: 0;
+      }
+
+      strong {
+         font-weight: normal;
+         text-transform: uppercase;
+         color: $blue01;
+         font-size: 14px;
+         letter-spacing: 0.12em;
+      }
    }
 }
 
@@ -326,7 +349,8 @@ form,
       margin-bottom: 40px;
    }
 
-   input:not([type='submit']) {
+   input:not([type='submit']),
+   input:not([type='file']) {
       @include font-family-BaskervilleURW;
       font-size: 24px;
       line-height: 28px;
@@ -341,6 +365,29 @@ form,
       text-transform: uppercase;
       background: transparent;
       border-width: 0 0 1px 0;
+   }
+
+   input[type='file'] {
+      margin: 10px 0;
+      font-size: 20px;
+   }
+
+   input::file-selector-button {
+      background: $blue01;
+      color: $tan;
+      padding: 20px;
+      font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 14px;
+      border: 0;
+      margin-right: 20px;
+      font-weight: bold;
+   }
+
+   .submit #wp-submit {
+      font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
    }
 }
 
@@ -627,5 +674,72 @@ h1, h2, h3, h4, h5 {
 .woocommerce-customer-details {
    display: none;
 }
+
+:root {
+   --form-control-color: $blue01;
+}
+
+/* Radio Buttons */
+
+input[type="radio"] {
+   /* ...existing styles */
+   display: grid;
+   place-content: center;
+ }
+
+ 
+ input[type="radio"]::before {
+   content: "";
+   width: 0.65em;
+   height: 0.65em;
+   border-radius: 50%;
+   transform: scale(0);
+   transition: 120ms transform ease-in-out;
+   box-shadow: inset 1em 1em var(--form-control-color);
+ }
+ 
+ input[type="radio"] {
+   /* Add if not using autoprefixer */
+   -webkit-appearance: none;
+   /* Remove most all native input styles */
+   appearance: none;
+   /* For iOS < 15 */
+   background-color: var(--form-background);
+   /* Not removed via appearance */
+   margin: 0;
+   margin-right: 16px !important;
+ 
+   font: inherit;
+   color: $blue01;
+   width: 16px !important;
+   height: 16px !important;
+   border: 0.15em solid currentColor;
+   border-radius: 50%;
+   transform: translateY(-0.075em);
+ 
+   display: grid;
+   place-content: center;
+ }
+ 
+ input[type="radio"]::before {
+   content: "";
+   width: 0.65em;
+   height: 0.65em;
+   border-radius: 50%;
+   transform: scale(0);
+   transition: 120ms transform ease-in-out;
+   box-shadow: inset 1em 1em var(--form-control-color);
+   /* Windows High Contrast Mode */
+   background-color: CanvasText;
+ }
+ 
+ input[type="radio"]:checked::before {
+   transform: scale(1);
+ }
+ 
+ input[type="radio"]:focus {
+   outline: max(2px, 0.15em) solid currentColor;
+   outline-offset: max(2px, 0.15em);
+ }
 
 
