@@ -26,13 +26,19 @@
    font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
    font-size: 18px;
    text-transform: uppercase;
+   background: transparent;
+   border: none;
+
+   &.button-ghost {
+      background: transparent;
+      border: none;
+   }
 }
 
 section .woocommerce {
    display: flex;
    flex-direction: column;
-   padding-left: 30px;
-   padding-right: 30px;
+   padding: 55px;
 }
 
 .woocommerce-page .generic-page .generic-content,
@@ -54,8 +60,7 @@ section .woocommerce {
 
 
 /* products */
-.y-product,
-.woocommerce-breadcrumb {
+.y-product {
    margin: 0 auto;
    padding: 40px 0 20px;
    max-width: 1400px;
@@ -178,6 +183,11 @@ section .woocommerce {
       padding: 0;
    }
 
+   .acf-checkbox-list label {
+      display: flex;
+      margin: 16px 0;
+   }
+
    .acf-radio-list li {
       margin-bottom: 4px;
    }
@@ -207,7 +217,7 @@ select.yith-wapo-option-value {
 
 .woocommerce-breadcrumb {
    margin: 0 auto;
-   padding: 20px;
+   padding: 55px 20px 20px;
    max-width: 1400px;
    font-size: 16px;
    font-style: italic;
@@ -396,8 +406,15 @@ form,
 }
 
 .woocommerce-form-login__rememberme {
+   display: flex !important;
+   align-items: center;
    margin-bottom: 20px;
+
+   .woocommerce-form__input-checkbox {
+      margin-right: 8px;
+   }
 }
+
 
 h2 { color: $blue01; }
 
@@ -418,7 +435,8 @@ h2 { color: $blue01; }
    }
 }
 
-.woocommerce-page section.generic-page {
+.woocommerce-account section.generic-page,
+.yith-request-a-quote-page section.generic-page {
    background: $tan;
 }
 
@@ -683,67 +701,79 @@ h1, h2, h3, h4, h5 {
    --form-control-color: $blue01;
 }
 
-/* Radio Buttons */
-
-input[type="radio"] {
-   /* ...existing styles */
-   display: grid;
+// Radio Buttons
+input[type="checkbox"] {
+   display: grid !important;
    place-content: center;
- }
-
- 
- input[type="radio"]::before {
-   content: "";
-   width: 0.65em;
-   height: 0.65em;
-   border-radius: 50%;
-   transform: scale(0);
-   transition: 120ms transform ease-in-out;
-   box-shadow: inset 1em 1em var(--form-control-color);
- }
- 
- input[type="radio"] {
-   /* Add if not using autoprefixer */
    -webkit-appearance: none;
-   /* Remove most all native input styles */
    appearance: none;
-   /* For iOS < 15 */
-   background-color: var(--form-background);
-   /* Not removed via appearance */
+   background-color: $white;
    margin: 0;
-   margin-right: 16px !important;
- 
-   font: inherit;
-   color: $blue01;
-   width: 16px !important;
-   height: 16px !important;
-   border: 0.15em solid currentColor;
-   border-radius: 50%;
+   border: 1px solid $blue01;
+   font-family: inherit;
+   font-size: 20px !important;
+   line-height: 20px !important;
+   border-radius: 20px;
    transform: translateY(-0.075em);
- 
-   display: grid;
-   place-content: center;
+   width: 20px !important;
+   height: 20px;
  }
- 
- input[type="radio"]::before {
-   content: "";
-   width: 0.65em;
-   height: 0.65em;
-   border-radius: 50%;
-   transform: scale(0);
-   transition: 120ms transform ease-in-out;
-   box-shadow: inset 1em 1em var(--form-control-color);
-   /* Windows High Contrast Mode */
-   background-color: CanvasText;
- }
- 
- input[type="radio"]:checked::before {
+
+ input[type="checkbox"]::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+}
+
+input[type="checkbox"]:checked {
+   background: $blue01;
+}
+
+input[type="checkbox"]:checked::before {
    transform: scale(1);
- }
- 
- input[type="radio"]:focus {
-   outline: max(2px, 0.15em) solid currentColor;
-   outline-offset: max(2px, 0.15em);
- }
+   background-image: url('https://lqustaging.local/wp-content/plugins/yith-woocommerce-advanced-product-options-premium//assets/img/check.svg') !important;
+   background-size: 50%;
+   background-position: center center;
+   background-repeat: no-repeat;
+}
 
 
+
+ .select2-container--default .select2-selection--single {
+   padding: 8px 0;
+   margin: 8px 0 !important;
+   font-size: 14px;
+   line-height: 14px;
+   height: inherit !important;
+   letter-spacing: 0.12em;
+   text-transform: uppercase;
+   background-color: transparent !important;
+   border-width: 0 0 1px 0;
+}
+
+.cart_item {
+   .product-quantity {
+      padding: 0;
+   }
+
+   .input-text.qty {
+      padding: 4px;
+      width: 40px;
+      background: transparent;
+      border: 1px solid $blue01;
+   }
+}
+
+.yith-request-a-quote-page {
+   background: $tan;
+}
+
+.woocommerce-result-count {
+   color: $blue01;
+   font-size: 18px;
+   font-weight: bold;
+   font-style: italic;
+}
