@@ -19,12 +19,12 @@ $show_reupholstery = current_user_can('edit_posts') ? true : get_field('show_reu
 					<span>Custom</span> <span>Order</span>
 				</span>
 				<ul>
-					<li><a href="/product-category/custom-order/beds/">Beds</a></li>
+					<li><a href="/product-category/custom-order/headboards-beds/">Beds</a></li>
 					<li><a href="/product-category/custom-order/chairs/">Chairs</a></li>
 					<li><a href="/product-category/custom-order/chaises/">Chaises</a></li>
 					<li><a href="/product-category/custom-order/dining-chairs/">Dining Chairs</a></li>
 					<li><a href="/product-category/custom-order/draperies/">Draperies</a></li>
-					<li><a href="/product-category/custom-order/headboards/">Headboards</a></li>
+					<li><a href="/product-category/custom-order/headboards-beds/">Headboards</a></li>
 					<li><a href="/product-category/custom-order/ottomans/">Ottomans</a></li>
 					<li><a href="/product-category/custom-order/pillows/">Pillows</a></li>
 					<li><a href="/product-category/custom-order/slipper-chairs/">Slipper Chairs</a></li>
