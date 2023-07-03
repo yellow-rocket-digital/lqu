@@ -468,19 +468,19 @@ $total_tax        = 0;
 
 
 				if ( $show_pdf_button || $show_update_list_button || $show_clear_list ) : ?>
-					<div class="update-list-wrapper" style="<?php echo esc_attr( $style ); ?>">
+					<div class="update-list-wrapper d-flex" style="<?php echo esc_attr( $style ); ?>">
 						<div class="after-table-right">
 							<?php if ( $show_clear_list ): ?>
 								<?php $clear_list_btn_label = get_option( 'ywraq_clear_list_label', esc_html__( 'Clear List', 'yith-woocommerce-request-a-quote' ) ); ?>
-								<button class="button ywraq_clean_list"> <?php echo apply_filters( 'ywraq_clear_list_label', $clear_list_btn_label ); ?> </button>
+								<button class="text-button ywraq_clean_list"> <?php echo apply_filters( 'ywraq_clear_list_label', $clear_list_btn_label ); ?> </button>
 							<?php endif; ?>
 							<?php if ( $show_pdf_button ): ?>
-								<button id="ywraq-list-to-pdf" class="button button-ghost" data-nonce="<?php echo esc_attr( wp_create_nonce( 'ywraq-list-to-pdf' ) ); ?>">
+								<button id="ywraq-list-to-pdf" class="text-button button-ghost" data-nonce="<?php echo esc_attr( wp_create_nonce( 'ywraq-list-to-pdf' ) ); ?>">
 									<?php echo esc_html( get_option( 'ywraq_show_download_pdf_on_request_label', _x( 'PDF', 'Admin option label for button to make a PDF on Request a quote page', 'yith-woocommerce-request-a-quote' ) ) ); ?></button>
 							<?php endif; ?>
 						</div>
 						<?php if ( $show_update_list_button ): ?>
-							<input type="submit" class="button" name="update_raq" value="<?php echo esc_attr( get_option( 'ywraq_update_list_label' ) ); ?>">
+							<input type="submit" class="text-button" name="update_raq" value="<?php echo esc_attr( get_option( 'ywraq_update_list_label' ) ); ?>">
 							<input type="hidden" id="update_raq_wpnonce" name="update_raq_wpnonce"
 								   value="<?php echo esc_attr( wp_create_nonce( 'update-request-quote-quantity' ) ); ?>">
 						<?php endif; ?>
