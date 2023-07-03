@@ -50,13 +50,13 @@ if ( post_password_required() ) {
 					<h3 class="mb-3">Dimensions</h3>
 
 					<?php if ( ! empty( $product->get_length() ) ): ?>
-						<span class="product_dimensions"><?php echo $product->get_length(); ?>d</span>
+						<span class="product_dimensions"><?php echo $product->get_length(); ?>D</span>
 					<?php endif; ?>
 					<?php if ( ! empty( $product->get_width() ) ): ?>
-						<span class="product_dimensions"><?php echo $product->get_width(); ?>w</span>
+						<span class="product_dimensions"><?php echo $product->get_width(); ?>W</span>
 					<?php endif; ?>
 					<?php if ( ! empty( $product->get_height() ) ): ?>
-						<span class="product_dimensions"><?php echo $product->get_height(); ?>h</span>
+						<span class="product_dimensions"><?php echo $product->get_height(); ?>H</span>
 					<?php endif; ?>
 				<?php endif; ?>
 			</div>
