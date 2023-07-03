@@ -15,7 +15,7 @@ $show_reupholstery = current_user_can('edit_posts') ? true : get_field('show_reu
 			</li>
 
 			<li class="text-link desktop-link">
-				<span>
+				<span class="disabled pe-none">
 					<span>Custom</span> <span>Order</span>
 				</span>
 				<ul>
