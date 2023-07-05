@@ -22,23 +22,22 @@
    }
 }
 
-.text-button {
-   font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
-   font-size: 18px;
-   text-transform: uppercase;
+.button#ywraq-list-to-pdf {
    background: transparent;
-   border: none;
-
-   &.button-ghost {
-      background: transparent;
-      border: none;
-   }
+   color: $blue01;
+   border-color: $blue01;
 }
 
-section .woocommerce {
-   display: flex;
-   flex-direction: column;
-   padding: 55px;
+section {
+   .woocommerce {
+      display: flex;
+      flex-direction: column;
+      padding: 55px;
+
+      &.ywraq-wrapper {
+         padding: 55px 0;
+      }
+   }
 }
 
 .woocommerce-page .generic-page .generic-content,
@@ -213,6 +212,7 @@ section .woocommerce {
 
 select.yith-wapo-option-value {
    font-size: 16px;
+   width: 100%;
 }
 
 .woocommerce-breadcrumb {
@@ -302,12 +302,11 @@ select.yith-wapo-option-value {
 
 .yith-ywraq-mail-form-wrapper {
    label {
-      font-size: 16px;
+      font-size: 14px;
+      line-height: 28px;
    }
 
    .input-text {
-      font-size: 16px;
-      line-height: 20px;
       margin-bottom: 0.25em;
       background: transparent;
       -webkit-appearance: none;
@@ -339,7 +338,7 @@ select.yith-wapo-option-value {
    }
 
    .product-quantity {
-      padding: 0;
+      padding: 8px !important;;
       
    }
 }
@@ -529,11 +528,12 @@ h2 { color: $blue01; }
    justify-content: space-between;
 }
 
-.order_details {
+.order_details,
+.cart_item {
    .product-name {
       font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
       text-transform: uppercase;
-      font-size: 16px;
+      font-size: 20px;
       letter-spacing: 0.12em;
    }
 }
@@ -740,9 +740,26 @@ input[type="checkbox"]:checked::before {
    background-repeat: no-repeat;
 }
 
+// Overrides select2
+.select2-selection {
+   display: flex !important;
+   justify-content: space-between;
 
+   .select2-selection__rendered {
+      padding: 0 !important;
+   }
 
- .select2-container--default .select2-selection--single {
+   .select2-selection__arrow {
+      position: initial !important;
+
+      b {
+         left: auto !important;
+      }
+   }
+}
+
+// Overrides select2
+.select2-container--default .select2-selection--single {
    padding: 8px 0;
    margin: 8px 0 !important;
    font-size: 14px;
@@ -750,8 +767,10 @@ input[type="checkbox"]:checked::before {
    height: inherit !important;
    letter-spacing: 0.12em;
    text-transform: uppercase;
+   border-color: $gray02 !important;
    background-color: transparent !important;
-   border-width: 0 0 1px 0;
+   border-width: 0 0 1px 0 !important;
+   border-radius: 0 !important;
 }
 
 .cart_item {
@@ -776,4 +795,51 @@ input[type="checkbox"]:checked::before {
    font-size: 18px;
    font-weight: bold;
    font-style: italic;
+}
+
+.woocommerce-MyAccount-content .ywraq-view-quote-wrapper ul.wc-item-meta,
+.cart_item ul.wc-item-meta {
+   @include font-family-BaskervilleURW;
+   text-transform: none;
+   letter-spacing: initial;
+   color: $gray02;
+
+   li {
+      display: flex;
+      margin-top: 16px !important;
+      flex-direction: column;
+      font-size: 20px !important;
+      line-height: 24px;
+
+      p {
+         margin: 4px 0 !important;
+      }
+   }
+
+   strong {
+      font-weight: normal;
+   }
+}
+
+.product-name-item {
+   font-size: 20px;
+}
+
+.product-total {
+   display: flex;
+   justify-content: end;
+}
+
+.yith-ywraq-item-remove {
+   display: block !important;
+   margin-top: 8px;
+   font-size: 14px;
+   line-height: 16px;
+   letter-spacing: 0.12em;
+   text-transform: uppercase;
+}
+
+#yith-ywraq-default-form .form-row {
+   display: flex;
+   flex-direction: column-reverse;
 }

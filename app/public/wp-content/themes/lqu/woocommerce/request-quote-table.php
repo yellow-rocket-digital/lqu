@@ -132,55 +132,57 @@ $total_tax        = 0;
 							<div class="pizza <?php echo esc_attr( apply_filters( 'yith_ywraq_item_class', 'cart_item', $raq_content, $key ) ); ?>"
 								data-wapo_parent_key="<?php echo esc_attr( $raq['yith_wapo_parent_key'] ); ?>" <?php echo esc_attr( apply_filters( 'yith_ywraq_item_attributes', '', $raq_content, $key ) ); ?>>
 
-								<?php if ( $show_thumbnail ) : ?>
-									<div class="product-thumbnail"></div>
-								<?php endif; ?>
-
-								<div class="product-name"
-									data-title="<?php esc_attr_e( 'Product', 'yith-woocommerce-request-a-quote' ); ?>">
-									<?php
-									// Meta data.
-									$item_data = array();
-
-									foreach ( $raq['yith_wapo_options'] as $individual_item ) {
-										$individual_wapo_item_price = '';
-										if ( $show_price && $individual_item['price'] > 0 && 'yes' === get_option( 'ywraq_hide_price' ) ) {
-											$individual_wapo_item_price = ' ( +' . wp_strip_all_tags( wc_price( $individual_item['price'] ) ) . ' ) ';
-										}
-
-										if ( class_exists( 'YITH_WAPO_WPML' ) ) {
-											$key = YITH_WAPO_WPML::string_translate( $individual_item['name'] );
-											if ( strpos( $individual_item['value'], 'Attached file' ) ) {
-												$array = new SimpleXMLElement( $individual_item['value'] );
-												$link  = $array['href']; //phpcs:ignore
-												$value = '<a href="' . esc_url( $link ) . '" target="_blank">' . esc_html_x( 'Attached file', 'Integration: product add-ons attachment', 'yith-woocommerce-request-a-quote' ) . '</a>';
-											} else {
-												$value = YITH_WAPO_WPML::string_translate( $individual_item['value'] );
-											}
-										} else {
-											$key   = $individual_item['name'];
-											$value = $individual_item['value'];
-										}
-
-										$item_data[] = array(
-											'key'   => $key . $individual_wapo_item_price,
-											'value' => urldecode( $value ),
-										);
-									}
-
-									// Output flat or in list format.
-									if ( count( $item_data ) > 0 ) {
-										echo '<ul>';
-										foreach ( $item_data as $data ) {
-											echo '<li><strong>' . esc_html( $data['key'] ) . '</strong>: ' . wp_kses_post( $data['value'] ) . '</li><br>';
-										}
-										echo '</ul>';
-									}
-									?>
-									<?php if ( $show_line_total || $show_single_price ) : ?>
-										<span
-											class="mobile-price"><?php echo wp_kses_post( $show_single_price ? $price : $subtotal ); ?></span>
+								<div class="product-name col-8 d-flex">
+									<?php if ( $show_thumbnail ) : ?>
+										<div class="product-thumbnail me-5"></div>
 									<?php endif; ?>
+
+									<div class="product-name-item"
+										data-title="<?php esc_attr_e( 'Product', 'yith-woocommerce-request-a-quote' ); ?>">
+										<?php
+										// Meta data.
+										$item_data = array();
+
+										foreach ( $raq['yith_wapo_options'] as $individual_item ) {
+											$individual_wapo_item_price = '';
+											if ( $show_price && $individual_item['price'] > 0 && 'yes' === get_option( 'ywraq_hide_price' ) ) {
+												$individual_wapo_item_price = ' ( +' . wp_strip_all_tags( wc_price( $individual_item['price'] ) ) . ' ) ';
+											}
+
+											if ( class_exists( 'YITH_WAPO_WPML' ) ) {
+												$key = YITH_WAPO_WPML::string_translate( $individual_item['name'] );
+												if ( strpos( $individual_item['value'], 'Attached file' ) ) {
+													$array = new SimpleXMLElement( $individual_item['value'] );
+													$link  = $array['href']; //phpcs:ignore
+													$value = '<a href="' . esc_url( $link ) . '" target="_blank">' . esc_html_x( 'Attached file', 'Integration: product add-ons attachment', 'yith-woocommerce-request-a-quote' ) . '</a>';
+												} else {
+													$value = YITH_WAPO_WPML::string_translate( $individual_item['value'] );
+												}
+											} else {
+												$key   = $individual_item['name'];
+												$value = $individual_item['value'];
+											}
+
+											$item_data[] = array(
+												'key'   => $key . $individual_wapo_item_price,
+												'value' => urldecode( $value ),
+											);
+										}
+
+										// Output flat or in list format.
+										if ( count( $item_data ) > 0 ) {
+											echo '<ul class="wc-item-meta">';
+											foreach ( $item_data as $data ) {
+												echo '<li><strong>' . esc_html( $data['key'] ) . ':</strong> ' . wp_kses_post( $data['value'] ) . '</li><br>';
+											}
+											echo '</ul>';
+										}
+										?>
+										<?php if ( $show_line_total || $show_single_price ) : ?>
+											<span
+												class="mobile-price"><?php echo wp_kses_post( $show_single_price ? $price : $subtotal ); ?></span>
+										<?php endif; ?>
+									</div>
 								</div>
 								<?php if ( $show_single_price ) : ?>
 									<div class="product-price"
@@ -257,114 +259,116 @@ $total_tax        = 0;
 
 							?>
 							<div class="<?php echo esc_attr( apply_filters( 'yith_ywraq_item_class', 'cart_item', $raq_content, $key ) ); ?>" <?php echo esc_attr( apply_filters( 'yith_ywraq_item_attributes', '', $raq_content, $key ) ); ?>>
-								<?php if ( $show_thumbnail ) : ?>
-									<div class="product-thumbnail">
-										<?php
-										/**
-										 * APPLY_FILTERS:ywraq_product_image
-										 *
-										 * Filter the image of product.
-										 *
-										 * @param   string  $product_image  Product image.
-										 * @param   array   $raq            Quote request content.
-										 *
-										 * @return array
-										 */
-										$thumbnail = apply_filters( 'ywraq_product_image', $_product->get_image(), $raq );
+								<div class="product-name col-8 d-flex">
+									<?php if ( $show_thumbnail ) : ?>
+										<div class="product-thumbnail me-5">
+											<?php
+											/**
+											 * APPLY_FILTERS:ywraq_product_image
+											 *
+											 * Filter the image of product.
+											 *
+											 * @param   string  $product_image  Product image.
+											 * @param   array   $raq            Quote request content.
+											 *
+											 * @return array
+											 */
+											$thumbnail = apply_filters( 'ywraq_product_image', $_product->get_image(), $raq );
 
-										if ( ! $_product->is_visible() || ! apply_filters( 'ywraq_list_show_product_permalinks', true, 'quote-view' ) ) {
-											echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-										} else {
-											printf( '<a href="%s">%s</a>', esc_url( $_product->get_permalink() ), $thumbnail ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-										}
-										?>
-									</div>
-								<?php endif; ?>
-
-								<div class="product-name"
-									data-title="<?php esc_attr_e( 'Product', 'yith-woocommerce-request-a-quote' ); ?>">
-									<?php
-									$title = $_product->get_title(); //phpcs:ignore
-
-									if ( '' !== $_product->get_sku() && $show_sku ) {
-										$sku_label = apply_filters( 'ywraq_sku_label', __( ' SKU:', 'yith-woocommerce-request-a-quote' ) );
-										$sku       = sprintf( '<br><small>%s %s</small>', $sku_label, $_product->get_sku() );
-										$title     .= apply_filters( 'ywraq_sku_label_html', $sku, $_product ); //phpcs:ignore
-									}
-
-									if ( ! $_product->is_visible() || ! apply_filters( 'ywraq_list_show_product_permalinks', true, 'quote-view' ) ) :
-										?>
-										<?php echo wp_kses_post( apply_filters( 'ywraq_quote_item_name', $title, $raq, $key ) ); ?>
-									<?php else : ?>
-										<a href="<?php echo esc_url( $_product->get_permalink() ); ?>"><?php echo wp_kses_post( apply_filters( 'ywraq_quote_item_name', $title, $raq, $key ) ); ?></a>
-									<?php endif ?>
-
-									<?php
-									// Meta data.
-									$item_data = array();
-
-									// Variation data.
-									if ( ! empty( $raq['variation_id'] ) && is_array( $raq['variations'] ) ) {
-
-										foreach ( $raq['variations'] as $name => $value ) {
-											$label = '';
-
-											if ( '' === $value || is_a( $value, 'WC_Product_Attribute' ) ) {
-												continue;
-											}
-
-											$taxonomy = wc_attribute_taxonomy_name( str_replace( 'attribute_pa_', '', urldecode( $name ) ) ); //phpcs:ignore
-
-											// If this is a term slug, get the term's nice name.
-											if ( taxonomy_exists( $taxonomy ) ) {
-												$term = get_term_by( 'slug', $value, $taxonomy ); //phpcs:ignore
-												if ( ! is_wp_error( $term ) && $term && $term->name ) {
-													$value = $term->name;
-												}
-												$label = wc_attribute_label( $taxonomy );
-
+											if ( ! $_product->is_visible() || ! apply_filters( 'ywraq_list_show_product_permalinks', true, 'quote-view' ) ) {
+												echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 											} else {
+												printf( '<a href="%s">%s</a>', esc_url( $_product->get_permalink() ), $thumbnail ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+											}
+											?>
+										</div>
+									<?php endif; ?>
 
-												if ( strpos( $name, 'attribute_' ) !== false ) {
-													$custom_att = str_replace( 'attribute_', '', $name );
+									<div class="product-name-item"
+										data-title="<?php esc_attr_e( 'Product', 'yith-woocommerce-request-a-quote' ); ?>">
+										<?php
+										$title = $_product->get_title(); //phpcs:ignore
 
-													if ( '' !== $custom_att ) {
-														$label = wc_attribute_label( $custom_att, $_product );
-													} else {
-														$label = $name;
+										if ( '' !== $_product->get_sku() && $show_sku ) {
+											$sku_label = apply_filters( 'ywraq_sku_label', __( ' SKU:', 'yith-woocommerce-request-a-quote' ) );
+											$sku       = sprintf( '<br><small>%s %s</small>', $sku_label, $_product->get_sku() );
+											$title     .= apply_filters( 'ywraq_sku_label_html', $sku, $_product ); //phpcs:ignore
+										}
+
+										if ( ! $_product->is_visible() || ! apply_filters( 'ywraq_list_show_product_permalinks', true, 'quote-view' ) ) :
+											?>
+											<?php echo wp_kses_post( apply_filters( 'ywraq_quote_item_name', $title, $raq, $key ) ); ?>
+										<?php else : ?>
+											<a href="<?php echo esc_url( $_product->get_permalink() ); ?>"><?php echo wp_kses_post( apply_filters( 'ywraq_quote_item_name', $title, $raq, $key ) ); ?></a>
+										<?php endif ?>
+
+										<?php
+										// Meta data.
+										$item_data = array();
+
+										// Variation data.
+										if ( ! empty( $raq['variation_id'] ) && is_array( $raq['variations'] ) ) {
+
+											foreach ( $raq['variations'] as $name => $value ) {
+												$label = '';
+
+												if ( '' === $value || is_a( $value, 'WC_Product_Attribute' ) ) {
+													continue;
+												}
+
+												$taxonomy = wc_attribute_taxonomy_name( str_replace( 'attribute_pa_', '', urldecode( $name ) ) ); //phpcs:ignore
+
+												// If this is a term slug, get the term's nice name.
+												if ( taxonomy_exists( $taxonomy ) ) {
+													$term = get_term_by( 'slug', $value, $taxonomy ); //phpcs:ignore
+													if ( ! is_wp_error( $term ) && $term && $term->name ) {
+														$value = $term->name;
+													}
+													$label = wc_attribute_label( $taxonomy );
+
+												} else {
+
+													if ( strpos( $name, 'attribute_' ) !== false ) {
+														$custom_att = str_replace( 'attribute_', '', $name );
+
+														if ( '' !== $custom_att ) {
+															$label = wc_attribute_label( $custom_att, $_product );
+														} else {
+															$label = $name;
+														}
 													}
 												}
+
+												$item_data[] = array(
+													'key'   => $label,
+													'value' => $value,
+												);
 											}
-
-											$item_data[] = array(
-												'key'   => $label,
-												'value' => $value,
-											);
 										}
-									}
 
-									$item_data = apply_filters( 'ywraq_request_quote_view_item_data', $item_data, $raq, $_product, $show_price );
+										$item_data = apply_filters( 'ywraq_request_quote_view_item_data', $item_data, $raq, $_product, $show_price );
 
 
-									// Output flat or in list format.
-									if ( count( $item_data ) > 0 ) {
-										echo '<br><ul>';
-										foreach ( $item_data as $data ) {
-											echo '<li><strong>' . esc_html( $data['key'] ) . '</strong>: ' . wp_kses_post( $data['value'] ) . '</li><br>';
+										// Output flat or in list format.
+										if ( count( $item_data ) > 0 ) {
+											echo '<br><ul class="wc-item-meta">';
+											foreach ( $item_data as $data ) {
+												echo '<li><strong>' . esc_html( $data['key'] ) . ':</strong> ' . wp_kses_post( str_replace('%2F', '/', $data['value']) ) . '</li><br>';
+											}
+											echo '</ul>';
 										}
-										echo '</ul>';
-									}
 
-									?>
-									<?php if ( $show_line_total || $show_single_price ) : ?>
-										<span class="mobile-price">
-											<?php
-											$mobile_price = ( $show_single_price ? $price : $subtotal );
-											echo wp_kses_post( apply_filters( 'yith_ywraq_hide_price_template', $mobile_price, $product_id, $raq ) );
-											?>
-											</span>
+										?>
+										<?php if ( $show_line_total || $show_single_price ) : ?>
+											<span class="mobile-price">
+												<?php
+												$mobile_price = ( $show_single_price ? $price : $subtotal );
+												echo wp_kses_post( apply_filters( 'yith_ywraq_hide_price_template', $mobile_price, $product_id, $raq ) );
+												?>
+												</span>
 
-									<?php endif; ?>
+										<?php endif; ?>
+									</div>
 								</div>
 
 								<?php if ( $show_single_price ) : ?>
@@ -469,18 +473,18 @@ $total_tax        = 0;
 
 				if ( $show_pdf_button || $show_update_list_button || $show_clear_list ) : ?>
 					<div class="update-list-wrapper d-flex" style="<?php echo esc_attr( $style ); ?>">
-						<div class="after-table-right">
+						<div class="after-table-right d-flex">
 							<?php if ( $show_clear_list ): ?>
 								<?php $clear_list_btn_label = get_option( 'ywraq_clear_list_label', esc_html__( 'Clear List', 'yith-woocommerce-request-a-quote' ) ); ?>
-								<button class="text-button ywraq_clean_list"> <?php echo apply_filters( 'ywraq_clear_list_label', $clear_list_btn_label ); ?> </button>
+								<button class="ywraq_clean_list button me-3"> <?php echo apply_filters( 'ywraq_clear_list_label', $clear_list_btn_label ); ?> </button>
 							<?php endif; ?>
 							<?php if ( $show_pdf_button ): ?>
-								<button id="ywraq-list-to-pdf" class="text-button button-ghost" data-nonce="<?php echo esc_attr( wp_create_nonce( 'ywraq-list-to-pdf' ) ); ?>">
+								<button id="ywraq-list-to-pdf" class="button button-ghost" data-nonce="<?php echo esc_attr( wp_create_nonce( 'ywraq-list-to-pdf' ) ); ?>">
 									<?php echo esc_html( get_option( 'ywraq_show_download_pdf_on_request_label', _x( 'PDF', 'Admin option label for button to make a PDF on Request a quote page', 'yith-woocommerce-request-a-quote' ) ) ); ?></button>
 							<?php endif; ?>
 						</div>
 						<?php if ( $show_update_list_button ): ?>
-							<input type="submit" class="text-button" name="update_raq" value="<?php echo esc_attr( get_option( 'ywraq_update_list_label' ) ); ?>">
+							<input type="submit" class="button" name="update_raq" value="<?php echo esc_attr( get_option( 'ywraq_update_list_label' ) ); ?>">
 							<input type="hidden" id="update_raq_wpnonce" name="update_raq_wpnonce"
 								   value="<?php echo esc_attr( wp_create_nonce( 'update-request-quote-quantity' ) ); ?>">
 						<?php endif; ?>

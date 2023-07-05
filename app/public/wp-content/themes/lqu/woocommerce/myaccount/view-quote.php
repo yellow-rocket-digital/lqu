@@ -327,25 +327,6 @@ $accept_button_text = ( YITH_Request_Quote()->enabled_checkout() && $order->get_
                             href="#"><?php esc_html( ywraq_get_label( 'reject', true ) ); ?></a>
                         <?php endif ?>
                     <?php endif ?>
-                    <?php if ( in_array( $order->get_status(), array( 'ywraq-accepted', 'pending' ) ) ) : ?>
-                        <?php if ( get_option( 'ywraq_show_accept_link' ) !== 'no' && YITH_Request_Quote()->enabled_checkout() ) : ?>
-                            <a class="ywraq-button ywraq-accept button" href="
-                                <?php
-                                echo esc_url(
-                                    add_query_arg(
-                                        array(
-                                            'request_quote' => $order_id,
-                                            'status'        => 'accepted',
-                                            'raq_nonce'     => ywraq_get_token( 'accept-request-quote', $order_id, $user_email ),
-                                            'lang'          => get_post_meta( $order_id, 'wpml_language', true ),
-                                        ),
-                                        YITH_Request_Quote()->get_raq_page_url()
-                                    )
-                                )
-                                ?>
-                            "><?php echo esc_html( $accept_button_text ); ?></a>
-                        <?php endif ?>
-                    <?php endif ?>
                 </div>
             </div>
 
