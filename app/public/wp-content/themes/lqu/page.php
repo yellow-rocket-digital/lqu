@@ -1,5 +1,12 @@
 <?php
 get_header();
+
+if (is_account_page()) {
+  $top_navigation_color_theme = 'tan';
+} else {
+$top_navigation_color_theme = 'white';
+}
+
 include('section-top-navigation.php');
 ?>
 <section class="generic-page"><div>

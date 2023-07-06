@@ -7,7 +7,7 @@
 <?php
 the_post();
 get_header();
-$top_navigation_color_theme = 'tan';
+$top_navigation_color_theme = 'white';
 include('section-top-navigation.php');
 ?>
 

@@ -19,4 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+$top_navigation_color_theme = 'white';
+
 wc_get_template( 'archive-product.php' );

@@ -7,6 +7,7 @@ if ( rtrim($_SERVER['REQUEST_URI'],'/') == '/sofas/the-process' ) { header('loca
 if ( rtrim($_SERVER['REQUEST_URI'],'/') == '/case/amanda-nisbet-design-inc' ) { header('location: https://lqupholstery.com/about'); die(); }
 
 get_header();
+$top_navigation_color_theme = 'white';
 include('section-top-navigation.php');
 ?>
 <section class="generic-page"><div>
