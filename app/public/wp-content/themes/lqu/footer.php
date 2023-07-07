@@ -34,10 +34,8 @@ function the_social_links() {
                       <li><a href="/product-category/custom-order/chairs/">Chairs</a></li>
 					  <li><a href="/product-category/custom-order/chaises/">Chaises</a></li>          
 					  <li><a href="/product-category/custom-order/dining-chairs/">Dining Chairs</a></li>
-			          <li><a href="/product-category/custom-order/draperies/">Draperies</a></li>
                       <li><a href="/product-category/custom-order/headboards-beds/">Headboards</a></li>
                       <li><a href="/product-category/custom-order/ottomans/">Ottomans</a></li>
-			          <li><a href="/product-category/custom-order/pillows/">Pillows</a></li>
                       <li><a href="/product-category/custom-order/slipper-chairs/">Slipper Chairs</a></li>
                       <li><a href="/product-category/custom-order/sofas/">Sofas</a></li>
                     <li><a href="/product-category/custom-order/samples">Samples</a></li>
