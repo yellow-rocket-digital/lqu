@@ -23,6 +23,7 @@ $main_wrapper_class  .= $show_form ? ' ywraq-with-form' : '';
 
 $shop_url             = ywraq_get_return_to_shop_url();
 $label_return_to_shop = apply_filters( 'yith_ywraq_return_to_shop_label', get_option( 'ywraq_return_to_shop_label' ) );
+$top_navigation_color_theme = 'white';
 ?>
 <h1>Your Quote Request</h1>
 

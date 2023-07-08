@@ -23,7 +23,7 @@ do_action( 'woocommerce_before_account_navigation' );
 ?>
 
 <nav class="woocommerce-MyAccount-navigation py-5">
-	<ul>
+	<ul class="ps-4">
 		<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
 			<li class="<?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo esc_html( $label ); ?></a>
@@ -31,7 +31,7 @@ do_action( 'woocommerce_before_account_navigation' );
 		<?php endforeach; ?>
 	</ul>
 	<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
-		<ul class="admin-tools">
+		<ul class="admin-tools ps-4">
 			<li class="admin-tools__heading">Admin</li>
 			<li class="admin-tools__link"><a href="<?= get_admin_url(); ?>edit.php?post_status=wc-ywraq-new&post_type=shop_order">New Quotes</a></li>
 			<li class="admin-tools__link"><a href="<?= get_admin_url(); ?>edit.php?post_status=wc-ywraq-pending&post_type=shop_order">Pending Quotes</a></li>

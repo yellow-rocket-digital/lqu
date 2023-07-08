@@ -169,7 +169,7 @@ $accept_button_text = ( YITH_Request_Quote()->enabled_checkout() && $order->get_
 	<div class="shop_table order_details">
 
 		<div class="order_details__header row col-12 py-3 gx-0">
-			<div class="product-name col-8"
+			<div class="product-name col-md-10 flex-column flex-md-row"
 				colspan="<?php echo esc_attr( $colspan ); ?>"><?php echo esc_html( _n( 'Item', 'Items', count( $order->get_items() ), 'yith-woocommerce-request-a-quote' ) ); ?>
             </div>
         </div>
@@ -193,10 +193,10 @@ $accept_button_text = ( YITH_Request_Quote()->enabled_checkout() && $order->get_
 
 				if ( apply_filters( 'woocommerce_order_item_visible', true, $item ) ) :
 					?>
-					<div class="order__item d-flex col-12 p-4 mb-5 <?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
-						<div class="product-name col-8 d-flex">
+					<div class="order__item d-flex flex-column flex-md-row col-12 p-4 mb-4 <?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
+						<div class="product-name col-md-10 d-flex flex-column flex-md-row">
 							<?php if ( apply_filters( 'ywraq_item_thumbnail', true ) ) : ?>
-								<span class="product-thumbnail me-5">
+								<span class="product-thumbnail me-md-5">
 									<?php
 									if ( $_product ) {
 										/**
@@ -221,7 +221,7 @@ $accept_button_text = ( YITH_Request_Quote()->enabled_checkout() && $order->get_
 									?>
 								</span>
 							<?php endif; ?>
-							<span class="product-name-item">
+							<span class="product-name-item mt-4 mt-md-0">
 							<?php
 							if ( ! $_product || ( $_product && ! $_product->is_visible() ) || ! apply_filters( 'ywraq_list_show_product_permalinks', true, 'view_quote' ) ) {
 								echo wp_kses_post( apply_filters( 'woocommerce_order_item_name', $title, $item, false ) );
@@ -252,7 +252,7 @@ $accept_button_text = ( YITH_Request_Quote()->enabled_checkout() && $order->get_
 							</span>
 						</div>
 						<?php if ( $show_price ) : ?>
-							<div class="product-total col-4">
+							<div class="product-total col-2">
 								<?php
 
 								echo wp_kses_post( $order->get_formatted_line_subtotal( $item ) );
@@ -284,7 +284,7 @@ $accept_button_text = ( YITH_Request_Quote()->enabled_checkout() && $order->get_
 		</div>
 
 		<div class="order_details__bottom">
-            <div class="order_details__prices d-flex align-items-center mb-4">
+            <div class="order_details__prices d-flex align-items-center mb-4 flex-column flex-md-row">
                 <div class="d-flex">
                     <?php
                     $has_refund = false;
@@ -311,19 +311,19 @@ $accept_button_text = ( YITH_Request_Quote()->enabled_checkout() && $order->get_
                     }
                     ?>
                 </div>
-                <div class="ywraq-buttons d-flex">
+                <div class="ywraq-buttons d-flex flex-column flex-md-row align-items-center mt-4 mt-md-0">
                     <?php
                     if ( in_array( $order->get_status(), array( 'ywraq-pending' ), true ) ) :
                         if ( get_option( 'ywraq_show_accept_link' ) !== 'no' ) :
                             ?>
-                            <a class="ywraq-button ywraq-accept button me-3"
+                            <a class="ywraq-button ywraq-accept button me-md-3"
                             href="<?php echo esc_url( ywraq_get_accepted_quote_page( $order ) ); ?>">
                                 <?php echo esc_html( $accept_button_text ); ?></a>
                         <?php endif ?>
                         <?php
                         if ( get_option( 'ywraq_show_reject_link' ) !== 'no' ) :
                             ?>
-                            <a class="ywraq-button ywraq-reject button me-3"
+                            <a class="ywraq-button ywraq-reject button"
                             href="#"><?php esc_html( ywraq_get_label( 'reject', true ) ); ?></a>
                         <?php endif ?>
                     <?php endif ?>
@@ -501,4 +501,8 @@ $accept_button_text = ( YITH_Request_Quote()->enabled_checkout() && $order->get_
 		<?php endif; ?>
 	</div>
 
+	<div>
+		<h3>Additional Documents</h3>
+		<?= do_shortcode('[forminator_form id="2617"]'); ?>
+	</div>
 </div>

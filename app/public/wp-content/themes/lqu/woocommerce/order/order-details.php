@@ -69,27 +69,26 @@ if ( $show_downloads ) {
 			?>
 		</div>
 
-		<div>
+		<div class="d-flex">
 			<?php
 			foreach ( $order->get_order_item_totals() as $key => $total ) {
 				?>
-					<div class="col-6 d-flex mb-2">
-						<div class="col-3"><?php echo esc_html( $total['label'] ); ?></div>
-						<div class="col-3"><?php echo ( 'payment_method' === $key ) ? esc_html( $total['value'] ) : wp_kses_post( $total['value'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+					<div class="d-flex">
+						<div class="me-5"><?php echo esc_html( $total['label'] ); ?> <?php echo ( 'payment_method' === $key ) ? esc_html( $total['value'] ) : wp_kses_post( $total['value'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
 					</div>
 					<?php
 			}
 			?>
 			<?php if ( $order->get_customer_note() ) : ?>
-				<div>
+				<div class="mt-3">
 					<div><?php esc_html_e( 'Note:', 'woocommerce' ); ?></div>
 					<div><?php echo wp_kses_post( nl2br( wptexturize( $order->get_customer_note() ) ) ); ?></div>
 			</div>
 			<?php endif; ?>
 		</div>
 	</div>
-
-	<?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>
+	
+	<div class="mt-5"><?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?></div>
 </section>
 
 <?php

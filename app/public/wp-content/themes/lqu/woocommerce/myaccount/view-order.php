@@ -54,3 +54,8 @@ printf(
 <?php endif; ?>
 
 <?php do_action( 'woocommerce_view_order', $order_id ); ?>
+
+<div>
+	<h3>Additional Documents</h3>
+	<?= do_shortcode('[forminator_form id="2617"]'); ?>
+</div>

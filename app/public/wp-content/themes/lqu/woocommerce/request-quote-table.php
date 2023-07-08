@@ -57,22 +57,10 @@ $total_tax        = 0;
 	elseif ( count( $raq_content ) === 0 ) :
 		if ( empty( $notices ) || 0 === $notices ) {
 			echo wp_kses_post( ywraq_get_list_empty_message() );
-		} else {
-			?>
-			<a class="button "
-			   href="<?php echo esc_url( $shop_url_after_sent_email ); ?>"><?php echo esc_html( $label_return_to_shop_after_sent_email ); ?></a>
-			<?php
 		}
 		echo '</div>';
 	else :
 		?>
-
-		<?php if ( $show_back_to_shop ) : ?>
-		<a class="button return_to_shop_url"
-		   href="<?php echo esc_url( $shop_url ); ?>"><?php echo esc_html( $label_return_to_shop ); ?></a>
-	<?php endif; ?>
-
-
 		<?php
 
 		if ( count( $raq_content ) !== 0 ) :
@@ -132,12 +120,12 @@ $total_tax        = 0;
 							<div class="pizza <?php echo esc_attr( apply_filters( 'yith_ywraq_item_class', 'cart_item', $raq_content, $key ) ); ?>"
 								data-wapo_parent_key="<?php echo esc_attr( $raq['yith_wapo_parent_key'] ); ?>" <?php echo esc_attr( apply_filters( 'yith_ywraq_item_attributes', '', $raq_content, $key ) ); ?>>
 
-								<div class="product-name col-8 d-flex">
+								<div class="product-name col-md-10 d-flex flex-column flex-md-row">
 									<?php if ( $show_thumbnail ) : ?>
-										<div class="product-thumbnail me-5"></div>
+										<div class="product-thumbnail me-md-5"></div>
 									<?php endif; ?>
 
-									<div class="product-name-item"
+									<div class="product-name-item mt-4 mt-md-0"
 										data-title="<?php esc_attr_e( 'Product', 'yith-woocommerce-request-a-quote' ); ?>">
 										<?php
 										// Meta data.
@@ -171,17 +159,13 @@ $total_tax        = 0;
 
 										// Output flat or in list format.
 										if ( count( $item_data ) > 0 ) {
-											echo '<ul class="wc-item-meta">';
+											echo '<ul class="wc-item-meta mt-4">';
 											foreach ( $item_data as $data ) {
 												echo '<li><strong>' . esc_html( $data['key'] ) . ':</strong> ' . wp_kses_post( $data['value'] ) . '</li><br>';
 											}
 											echo '</ul>';
 										}
 										?>
-										<?php if ( $show_line_total || $show_single_price ) : ?>
-											<span
-												class="mobile-price"><?php echo wp_kses_post( $show_single_price ? $price : $subtotal ); ?></span>
-										<?php endif; ?>
 									</div>
 								</div>
 								<?php if ( $show_single_price ) : ?>
@@ -196,14 +180,6 @@ $total_tax        = 0;
 									<div class="product-quantity"
 										data-title="<?php esc_attr_e( 'Quantity', 'yith-woocommerce-request-a-quote' ); ?>">
 										<?php echo esc_html( $raq['quantity'] ); ?>
-									</div>
-								<?php endif; ?>
-								<?php if ( $show_line_total ) : ?>
-									<div class="product-subtotal"
-										data-title="<?php esc_attr_e( 'Subtotal', 'yith-woocommerce-request-a-quote' ); ?>">
-										<?php
-										echo wp_kses_post( apply_filters( 'yith_ywraq_hide_price_template', $subtotal, $product_id, $raq ) );
-										?>
 									</div>
 								<?php endif; ?>
 								<div class="product-remove"></div>
@@ -259,9 +235,9 @@ $total_tax        = 0;
 
 							?>
 							<div class="<?php echo esc_attr( apply_filters( 'yith_ywraq_item_class', 'cart_item', $raq_content, $key ) ); ?>" <?php echo esc_attr( apply_filters( 'yith_ywraq_item_attributes', '', $raq_content, $key ) ); ?>>
-								<div class="product-name col-8 d-flex">
+								<div class="product-name col-md-10 d-flex flex-column flex-md-row">
 									<?php if ( $show_thumbnail ) : ?>
-										<div class="product-thumbnail me-5">
+										<div class="product-thumbnail me-md-5">
 											<?php
 											/**
 											 * APPLY_FILTERS:ywraq_product_image
@@ -284,7 +260,7 @@ $total_tax        = 0;
 										</div>
 									<?php endif; ?>
 
-									<div class="product-name-item"
+									<div class="product-name-item mt-4 mt-md-0"
 										data-title="<?php esc_attr_e( 'Product', 'yith-woocommerce-request-a-quote' ); ?>">
 										<?php
 										$title = $_product->get_title(); //phpcs:ignore
@@ -359,15 +335,6 @@ $total_tax        = 0;
 										}
 
 										?>
-										<?php if ( $show_line_total || $show_single_price ) : ?>
-											<span class="mobile-price">
-												<?php
-												$mobile_price = ( $show_single_price ? $price : $subtotal );
-												echo wp_kses_post( apply_filters( 'yith_ywraq_hide_price_template', $mobile_price, $product_id, $raq ) );
-												?>
-												</span>
-
-										<?php endif; ?>
 									</div>
 								</div>
 
@@ -407,14 +374,6 @@ $total_tax        = 0;
 										?>
 									</div>
 								<?php endif; ?>
-
-								<?php if ( $show_line_total ) : ?>
-									<div class="product-subtotal"
-										data-title="<?php esc_attr_e( 'Price', 'yith-woocommerce-request-a-quote' ); ?>">
-										<?php echo wp_kses_post( apply_filters( 'yith_ywraq_hide_price_template', $subtotal, $product_id, $raq ) ); ?>
-									</div>
-								<?php endif ?>
-
 								<div class="product-remove">
 									<?php
 									echo apply_filters( 'yith_ywraq_item_remove_link', sprintf( '<a href="#"  data-remove-item="%s" data-wp_nonce="%s"  data-product_id="%d" class="yith-ywraq-item-remove remove" title="%s">Remove</a>', esc_attr( $key ), esc_attr( wp_create_nonce( 'remove-request-quote-' . $product_id ) ), esc_attr( $product_id ), esc_attr__( 'Remove this item', 'yith-woocommerce-request-a-quote' ) ), $key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -426,41 +385,6 @@ $total_tax        = 0;
 						<?php do_action( 'ywraq_after_request_quote_view_item', $raq_content, $key ); ?>
 
 					<?php endforeach ?>
-					<?php if ( $show_totals ) : ?>
-						<?php
-						if ( $total_tax > 0 && 'incl' !== $tax_display_list && ywraq_show_taxes_on_quote_list() ) :
-							$total += $total_tax;
-							?>
-							<div>
-								<div class="raq-totals-row" colspan="<?php echo esc_attr( $colspan ); ?>"
-									data-colspan-mobile="<?php echo esc_attr( $mobile_colspan ); ?>"></div>
-								<div class="raq-totals-label">
-									<?php echo esc_html( WC()->countries->tax_or_vat() ); ?>
-								</div>
-								<div class="raq-totals">
-									<?php echo wp_kses_post( wc_price( $total_tax ) ); ?>
-								</div>
-							</div>
-						<?php endif; ?>
-						<div>
-							<div colspan="<?php echo esc_attr( $colspan ); ?>"
-								data-colspan-mobile="<?php echo esc_attr( $mobile_colspan ); ?>"
-								data-colspan="<?php echo esc_attr( $colspan ); ?>"
-								class="raq-totals-row"></div>
-							<div class="raq-totals-label">
-								<?php esc_html_e( 'Total:', 'yith-woocommerce-request-a-quote' ); ?>
-							</div>
-							<div class="raq-totals"
-								data-title="<?php esc_attr_e( 'Total', 'yith-woocommerce-request-a-quote' ); ?>">
-								<?php
-								echo wp_kses_post( wc_price( $total ) );
-								if ( $total_tax > 0 && 'incl' === $tax_display_list && ywraq_show_taxes_on_quote_list() ) {
-									echo wp_kses_post( '<br><small class="includes_tax">' . sprintf( '%1$s %2$s %3$s', __( 'includes', 'yith-woocommerce-request-a-quote' ), wp_kses_post( wc_price( $total_tax ) ), wp_kses_post( WC()->countries->tax_or_vat() ) ) . '</small>' );
-								}
-								?>
-							</div>
-						</div>
-					<?php endif; ?>
 
 				</div>
 				</div>
@@ -472,8 +396,8 @@ $total_tax        = 0;
 
 
 				if ( $show_pdf_button || $show_update_list_button || $show_clear_list ) : ?>
-					<div class="update-list-wrapper d-flex" style="<?php echo esc_attr( $style ); ?>">
-						<div class="after-table-right d-flex">
+					<div class="update-list-wrapper d-flex flex-column flex-md-row" style="<?php echo esc_attr( $style ); ?>">
+						<div class="after-table-right d-flex mb-3 mb-md-0">
 							<?php if ( $show_clear_list ): ?>
 								<?php $clear_list_btn_label = get_option( 'ywraq_clear_list_label', esc_html__( 'Clear List', 'yith-woocommerce-request-a-quote' ) ); ?>
 								<button class="ywraq_clean_list button me-3"> <?php echo apply_filters( 'ywraq_clear_list_label', $clear_list_btn_label ); ?> </button>

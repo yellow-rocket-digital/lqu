@@ -55,55 +55,57 @@ $hide_price = get_option( 'ywraq_hide_price', 'no' );
         <div class="row row-cols-1 row-cols-xl-3 g-4">
         <?php
             foreach ( $customer_quotes as $customer_order ) {
+                if (!in_array($customer_order->get_status(), ['processing', 'completed'])) {
 
-                $order_id   = $customer_order->get_id();
-                $order      = $customer_order; //phpcs:ignore
-                $item_count = $order->get_item_count();
+                    $order_id   = $customer_order->get_id();
+                    $order      = $customer_order; //phpcs:ignore
+                    $item_count = $order->get_item_count();
 
-                $is_a_quote = true;
-                if ( ! $is_a_quote || 0 === $item_count ) {
-                    continue;
-                }
+                    $is_a_quote = true;
+                    if ( ! $is_a_quote || 0 === $item_count ) {
+                        continue;
+                    }
 
 
-                $order_date = $customer_order->get_date_created();
-                $order_lang = $order->get_meta( 'wpml_language' );
+                    $order_date = $customer_order->get_date_created();
+                    $order_lang = $order->get_meta( 'wpml_language' );
 
-                $show_price = 'ywraq-new' !== $order->get_status();
-                $action_menu = ywraq_get_actions_menu( $order );
-                ?>
-                <div class="col">
-                    <div class="quotes justify-content-between p-4" data-url="<?php echo esc_url( YITH_YWRAQ_Order_Request()->get_view_order_url( $order_id ) ); ?>">
-                        <div class="quotes-number mb-2" data-title="<?php esc_attr_e( 'Order Number', 'yith-woocommerce-request-a-quote' ); ?>">
-                            <a href="<?php echo esc_url( YITH_YWRAQ_Order_Request()->get_view_order_url( $order_id ) ); ?>">
-                                Quote Number: #<?php echo esc_html( $order->get_order_number() ); ?>
-                            </a>
-                        </div>
-                        <div class="quotes-date mb-2" data-title="<?php esc_attr_e( 'Date', 'yith-woocommerce-request-a-quote' ); ?>">
-                            <time datetime="<?php echo esc_attr( gmdate( 'Y-m-d', strtotime( $order_date ) ) ); ?>"
-                                title="<?php echo esc_attr( strtotime( $order_date ) ); ?>">Submitted: <?php echo wp_kses_post( date_i18n( get_option( 'date_format' ), strtotime( $order_date ) ) ); ?></time>
-                        </div>
-                        <div class="quotes-total mb-2" data-title="<?php esc_html_e( 'Total', 'yith-woocommerce-request-a-quote' ); ?>">
-                            Estimated Cost: <?php
-                            if ( $show_price ) {
-                                $totals = $order->get_total(); //phpcs:ignore
-                                echo wp_kses_post( wc_price( $totals, array( 'currency' => $order->get_currency() ) ) );
-                            } else {
-                                echo '-';
-                            }
-                            ?>
-                        </div>
-                        <div class="quotes-status mb-2" style="text-align:<?php echo esc_attr( $text_align ); ?>; white-space:nowrap;" data-title="<?php esc_html_e( 'Status', 'yith-woocommerce-request-a-quote' ); ?>">
-                            Status: <?php ywraq_get_order_status_tag( $order->get_status() ); ?>
-                        </div>
-                        <div class="quotes-actions">
-                            <?php foreach ( $action_menu as $menu_item ): ?>
-                                <!--<a class="button" href="<?php echo esc_url( $menu_item['url'] ); ?>"><?php echo esc_html( $menu_item['label'] ); ?></a>-->
-                            <?php endforeach; ?>
+                    $show_price = 'ywraq-new' !== $order->get_status();
+                    $action_menu = ywraq_get_actions_menu( $order );
+                    ?>
+                    <div class="col">
+                        <div class="quotes justify-content-between p-4" data-url="<?php echo esc_url( YITH_YWRAQ_Order_Request()->get_view_order_url( $order_id ) ); ?>">
+                            <div class="quotes-number mb-2" data-title="<?php esc_attr_e( 'Order Number', 'yith-woocommerce-request-a-quote' ); ?>">
+                                <a href="<?php echo esc_url( YITH_YWRAQ_Order_Request()->get_view_order_url( $order_id ) ) . "?id=" . $order->get_order_number(); ?>">
+                                    Quote Number: #<?php echo esc_html( $order->get_order_number() ); ?>
+                                </a>
+                            </div>
+                            <div class="quotes-date mb-2" data-title="<?php esc_attr_e( 'Date', 'yith-woocommerce-request-a-quote' ); ?>">
+                                <time datetime="<?php echo esc_attr( gmdate( 'Y-m-d', strtotime( $order_date ) ) ); ?>"
+                                    title="<?php echo esc_attr( strtotime( $order_date ) ); ?>">Submitted: <?php echo wp_kses_post( date_i18n( get_option( 'date_format' ), strtotime( $order_date ) ) ); ?></time>
+                            </div>
+                            <div class="quotes-total mb-2" data-title="<?php esc_html_e( 'Total', 'yith-woocommerce-request-a-quote' ); ?>">
+                                Estimated Cost: <?php
+                                if ( $show_price ) {
+                                    $totals = $order->get_total(); //phpcs:ignore
+                                    echo wp_kses_post( wc_price( $totals, array( 'currency' => $order->get_currency() ) ) );
+                                } else {
+                                    echo '-';
+                                }
+                                ?>
+                            </div>
+                            <div class="quotes-status mb-2" style="text-align:<?php echo esc_attr( $text_align ); ?>; white-space:nowrap;" data-title="<?php esc_html_e( 'Status', 'yith-woocommerce-request-a-quote' ); ?>">
+                                Status: <?php ywraq_get_order_status_tag( $order->get_status() ); ?>
+                            </div>
+                            <div class="quotes-actions">
+                                <?php foreach ( $action_menu as $menu_item ): ?>
+                                    <!--<a class="button" href="<?php echo esc_url( $menu_item['url'] ); ?>"><?php echo esc_html( $menu_item['label'] ); ?></a>-->
+                                <?php endforeach; ?>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <?php
+                    <?php
+                }
             }
             ?>
         </div>

@@ -24,7 +24,7 @@ if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 }
 ?>
 <div class="row">
-	<div class="order__item d-flex col-12 p-4 mb-5 order_item justify-content-between">
+	<div class="order__item d-flex flex-column flex-md-row col-12 p-4 mb-4 order_item justify-content-between">
 
 	<?php if ( apply_filters( 'ywraq_item_thumbnail', true ) ) : ?>
 		<span class="product-thumbnail col-md-4">
@@ -33,7 +33,7 @@ if ( ! apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 	<?php endif; ?>
 
 		<div class="col-md-6 d-flex flex-column">
-			<div class="product-name">
+			<div class="product-name mt-4 mt-md-0">
 				<?php
 				$is_visible        = $product && $product->is_visible();
 				$product_permalink = apply_filters( 'woocommerce_order_item_permalink', $is_visible ? $product->get_permalink( $item ) : '', $item, $order );

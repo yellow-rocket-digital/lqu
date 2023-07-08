@@ -37,8 +37,8 @@ function remove_my_account_links($menu_links) {
 }
 
 // user redirects
-add_action('template_redirect', 'redirection_function');
-function redirection_function(){
+add_action('template_redirect', 'redirect_account_dashboard');
+function redirect_account_dashboard(){
 	global $wp;
 
 	$request = explode('/', $wp->request);
@@ -46,6 +46,12 @@ function redirection_function(){
 		wp_safe_redirect(home_url('/my-account/quotes'));
 		exit;
 	}
+}
+
+add_action( 'woocommerce_login_form_end', 'redirect_from_login' );
+function redirect_from_login() {
+   if ( ! wc_get_raw_referer() ) return;
+   echo '<input type="hidden" name="redirect" value="' . wp_validate_redirect( wc_get_raw_referer(), wc_get_page_permalink( 'myaccount' ) ) . '" />';
 }
 
 // wp login
@@ -97,7 +103,7 @@ function ui_set_registration_username(){
   //if there is anything set for user email
   if( isset($_POST['user_email']) && ! empty( $_POST['user_email'] ) ){
     //replace login with user email
-    $_POST['user_login'] = $_POST['user_email'];
+    $_POST['user_login'] = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $_POST['user_email']);
   }
 }
 
@@ -120,6 +126,16 @@ function ui_custom_string( $translated_text, $text, $domain ) {
   return $translated_text;
 }
 
+// Please edit the address and name below.
+// Change the From address.
+add_filter( 'wp_mail_from', function ( $original_email_address ) {
+    return 'info@lqupholstery.com';
+} );
+ 
+// Change the From name.
+add_filter( 'wp_mail_from_name', function ( $original_email_from ) {
+    return 'Luther Quintana Upholstery';
+} );
 ?>
 
 

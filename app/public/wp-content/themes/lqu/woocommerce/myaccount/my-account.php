@@ -24,10 +24,10 @@ defined( 'ABSPATH' ) || exit;
  */
 ?>
 
-<div class="row">
+<div class="row gx-0">
 <?php do_action( 'woocommerce_account_navigation' ); ?>
 
-<div class="woocommerce-MyAccount-content p-5">
+<div class="woocommerce-MyAccount-content p-4 p-md-5">
 	<?php
 		/**
 		 * My Account content.

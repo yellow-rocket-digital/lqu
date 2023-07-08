@@ -29,41 +29,44 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 		<div class="row row-cols-1 row-cols-xl-3 g-4">
 			<?php
 			foreach ( $customer_orders->orders as $customer_order ) {
-				$order      = wc_get_order( $customer_order ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-				$item_count = $order->get_item_count() - $order->get_item_count_refunded();
-				?>
-                <div class="col">
-                    <div class="quotes p-4">
-                        <?php foreach ( wc_get_account_orders_columns() as $column_id => $column_name ) : ?>
-                            <div class="order__<?php echo esc_attr( $column_id ); ?>" data-title="<?php echo esc_attr( $column_name ); ?>">
-                                <?php if ( has_action( 'woocommerce_my_account_my_orders_column_' . $column_id ) ) : ?>
-                                    <?php do_action( 'woocommerce_my_account_my_orders_column_' . $column_id, $order ); ?>
+                if (in_array($customer_order->get_status(), ['processing', 'completed', 'cancelled, refunded'])) {
 
-                                <?php elseif ( 'order-number' === $column_id ) : ?>
-                                    <div class="quotes-number mb-2">
-                                        <a href="<?php echo esc_url( $order->get_view_order_url() ); ?>">Order Number: <?php echo esc_html( _x( '#', 'hash before order number', 'woocommerce' ) . $order->get_order_number() ); ?></a>
-                                    </div>
+                    $order      = wc_get_order( $customer_order ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+                    $item_count = $order->get_item_count() - $order->get_item_count_refunded();
+                    ?>
+                    <div class="col">
+                        <div class="quotes p-4">
+                            <?php foreach ( wc_get_account_orders_columns() as $column_id => $column_name ) : ?>
+                                <div class="order__<?php echo esc_attr( $column_id ); ?>" data-title="<?php echo esc_attr( $column_name ); ?>">
+                                    <?php if ( has_action( 'woocommerce_my_account_my_orders_column_' . $column_id ) ) : ?>
+                                        <?php do_action( 'woocommerce_my_account_my_orders_column_' . $column_id, $order ); ?>
 
-                                <?php elseif ( 'order-date' === $column_id ) : ?>
-                                    <div class="quotes-date mb-2">
-                                        Date: <time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>"><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></time>
-                                    </div>
-                                <?php elseif ( 'order-status' === $column_id ) : ?>
-                                    <div class="quotes-status mb-2"> Status: <span class="raq_status <?php if ($order->get_status() == 'pending') { echo 'pending';} ?>"><?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?></span></div>
+                                    <?php elseif ( 'order-number' === $column_id ) : ?>
+                                        <div class="quotes-number mb-2">
+                                            <a href="<?php echo esc_url( $order->get_view_order_url() ) . "?id=" . $order->get_order_number(); ?>">Order Number: <?php echo esc_html( _x( '#', 'hash before order number', 'woocommerce' ) . $order->get_order_number() ); ?></a>
+                                        </div>
 
-                                <?php elseif ( 'order-total' === $column_id ) : ?>
-                                    <div class="quotes-total mb-2">
-                                        Total: <?php
-                                        /* translators: 1: formatted order total 2: total order items */
-                                        echo wp_kses_post( sprintf( _n( '%1$s for %2$s item', '%1$s for %2$s items', $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ) );
-                                        ?>
-                                    </div>
-                                <?php endif; ?>
-                            </div>
-                        <?php endforeach; ?>
+                                    <?php elseif ( 'order-date' === $column_id ) : ?>
+                                        <div class="quotes-date mb-2">
+                                            Date: <time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>"><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></time>
+                                        </div>
+                                    <?php elseif ( 'order-status' === $column_id ) : ?>
+                                        <div class="quotes-status mb-2"> Status: <span class="raq_status <?php if ($order->get_status() == 'pending') { echo 'pending';} ?>"><?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?></span></div>
+
+                                    <?php elseif ( 'order-total' === $column_id ) : ?>
+                                        <div class="quotes-total mb-2">
+                                            Total: <?php
+                                            /* translators: 1: formatted order total 2: total order items */
+                                            echo wp_kses_post( sprintf( _n( '%1$s for %2$s item', '%1$s for %2$s items', $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ) );
+                                            ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
-                </div>
-				<?php
+                    <?php
+                }
 			}
 			?>
 		</div>

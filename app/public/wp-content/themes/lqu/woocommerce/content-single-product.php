@@ -43,27 +43,35 @@ if ( post_password_required() ) {
 		do_action( 'woocommerce_before_single_product_summary' );
 		?>
 
-		<div class="summary entry-summary">
-			<h1 class="mt-0"><?= $product->get_title(); ?></h1>			
-			<div class="y-product__dimensions mb-3">
-				<?php if ($product->has_dimensions()) :?>
-					<h3 class="mb-3">Dimensions</h3>
+		<div class="summary entry-summary mt-5 mt-md-0">
+			<h1 class="y-product__title mt-0"><?= $product->get_title(); ?></h1>
+			<?php if ($product->get_description()): ?>
+				<h3 class="mb-3 mt-5">Description</h3>
+				<div class="mb-4"><?= $product->get_description(); ?></div>	
+			<?php endif; ?>
+		
+			<?php if ($product->has_dimensions()): ?>
+				<div class="y-product__dimensions mb-3 mt-5">
+					<h3 class="mb-3 mt-0">Dimensions</h3>
 
-					<?php if ( ! empty( $product->get_length() ) ): ?>
-						<span class="product_dimensions"><?php echo $product->get_length(); ?>D</span>
-					<?php endif; ?>
 					<?php if ( ! empty( $product->get_width() ) ): ?>
-						<span class="product_dimensions"><?php echo $product->get_width(); ?>W</span>
+						<span class="product_dimensions"><?php echo $product->get_width(); ?>"W</span>
+					<?php endif; ?>
+					<?php if ( ! empty( $product->get_length() ) ): ?>
+						<span class="product_dimensions"><?php echo $product->get_length(); ?>"D</span>
 					<?php endif; ?>
 					<?php if ( ! empty( $product->get_height() ) ): ?>
-						<span class="product_dimensions"><?php echo $product->get_height(); ?>H</span>
+						<span class="product_dimensions"><?php echo $product->get_height(); ?>"H</span>
 					<?php endif; ?>
-				<?php endif; ?>
-			</div>
+				</div>
+			<?php endif; ?>
+
+			<?php if (!has_term('mercado', 'product_cat', $product->get_ID())): ?>
 			<p>All pieces are made to order, frame to fabric so the dimensions may be determined by the customer.</p>
 
 			<h3 class="mb-3">Fabric</h3>
 			<p>All fabrics are supplied by the customer. Yardage requirements are supplied in estimates once the design is specified.</p>
+			<?php endif; ?>
 
 			<?php if (is_user_logged_in()): ?>
 				<div class="y-product__details">

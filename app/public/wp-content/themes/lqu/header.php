@@ -65,7 +65,7 @@
 
 <?php
 $post_type = get_post_type( get_the_ID() );
-if ($post_type == 'product') require('section-top-navigation.php');
+if ($post_type == 'product') { $top_navigation_color_theme = 'white'; require('section-top-navigation.php');  }
 ?>
 <?php
 /*
