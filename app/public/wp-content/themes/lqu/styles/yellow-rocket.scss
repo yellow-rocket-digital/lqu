@@ -1,6 +1,22 @@
+.woocommerce div.summary,
+.woocommerce div.images {
+   float: none !important;
+   width: 100% !important;
+
+   @media (min-width:$desktop) {
+      width: 48% !important;
+   }
+}
+
 .type-product,
 .product-type-simple {
    display: flex;
+   justify-content: space-between;
+   flex-direction: column;
+
+   @media (min-width:$desktop) {
+      flex-direction: row;
+   }
 }
 
 
@@ -32,10 +48,22 @@ section {
    .woocommerce {
       display: flex;
       flex-direction: column;
-      padding: 55px;
+      padding: 40px 24px;
+
+      @media (min-width:$desktop) {
+         padding: 40px;
+      }
 
       &.ywraq-wrapper {
-         padding: 55px 0;
+         padding: 10px 0;
+
+         @media (min-width:$desktop) {
+            padding: 40px 0;
+         }
+
+         .ywraq-before-form {
+            border: 1px solid $blue01;
+         }
       }
    }
 }
@@ -61,8 +89,16 @@ section {
 /* products */
 .y-product {
    margin: 0 auto;
-   padding: 40px 0 20px;
+   padding: 40px 24px 20px;
    max-width: 1400px;
+
+   &__title {
+      font-size: 30px;
+
+      @media (min-width:$desktop) {
+         font-size: 50px;
+      }
+   }
 }
 
 .y-product {
@@ -145,6 +181,13 @@ section {
       margin-bottom: 20px;
    }
 
+   .description {
+      font-size: 18px;
+      font-family: initial;
+      font-style: italic;
+      color: $blue01;
+   }
+
    .acf-field-group,
    .acf-field-radio,
    .acf-field-range,
@@ -166,7 +209,7 @@ section {
          letter-spacing: normal;
       }
       .acf-fields .acf-label label {
-         font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+         @include font-family-EngraversGothic;
          font-style: normal;
          text-transform: uppercase !important;
          letter-spacing: 0.12em;
@@ -196,6 +239,14 @@ section {
    }
 
    .acf-file-uploader {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+
+      .file-wrap {
+         display: none;
+      }
+
       .file-info p {
          margin: 0;
       }
@@ -217,7 +268,7 @@ select.yith-wapo-option-value {
 
 .woocommerce-breadcrumb {
    margin: 0 auto;
-   padding: 55px 20px 20px;
+   padding: 40px 20px 20px;
    max-width: 1400px;
    font-size: 16px;
    font-style: italic;
@@ -255,6 +306,12 @@ select.yith-wapo-option-value {
 
 .yith-wapo-block {
    margin-bottom: 40px;
+
+   .min-error {
+      @include font-family-BaskervilleURW;
+      font-size: 18px;
+      font-style: italic;
+   }
 }
 
 .yith-wapo-block .yith-wapo-addon.wapo-toggle .wapo-addon-title:before {
@@ -270,13 +327,13 @@ select.yith-wapo-option-value {
 }
 
 .wapo-addon-title {
+   @include font-family-EngraversGothic;
    display: flex;
    justify-content: space-between;
    color: $blue01;
    font-size: 16px;
    letter-spacing: 0.12em;
    text-transform: uppercase;
-   font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .yith-wapo-block__container,
@@ -285,6 +342,10 @@ select.yith-wapo-option-value {
    padding: 20px;
    margin-bottom: 20px;
    border: 1px solid $blue01;
+
+   .form-row {
+      padding: 15px 0 0 0;
+   }
 }
 
 .yith-wapo-block__title {
@@ -292,10 +353,10 @@ select.yith-wapo-option-value {
 }
 
 .wapo-addon-description {
+   @include font-family-EngraversGothic;
    margin-top: 0px;
    padding-bottom: 20px;
    margin-bottom: 0;
-   font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
    font-size: 18px;
    color: #aaa;
 }
@@ -316,19 +377,30 @@ select.yith-wapo-option-value {
 }
 
 .ywraq_error {
-   font-size: 16px;
+   font-size: 14px !important;
+   letter-spacing: 0.12em;
+   text-transform: uppercase;
 }
 
 .cart_item {
    display: flex;
    justify-content: space-between;
+   flex-direction: column;
+
+   @media (min-width:$desktop) {
+      flex-direction: row;
+   }
 
    .product-remove {
       width: auto;
    }
 
    .product-name {
-      min-width: 250px;
+      font-weight: normal !important;
+
+      @media (min-width:$desktop) {
+         min-width: 250px;
+      }
       
       ul {
          margin: 20px 0;
@@ -338,14 +410,29 @@ select.yith-wapo-option-value {
    }
 
    .product-quantity {
-      padding: 8px !important;;
-      
+      padding: 8px 0 !important;
+      text-align: left !important;
+
+      @media (min-width:$desktop) {
+         padding: 8px !important;
+      }
+   }
+
+   .product-subtotal {
+      display: none;
+   }
+
+   .input-text.qty {
+      padding: 4px;
+      width: 40px;
+      background: transparent;
+      border: 1px solid $blue01;
    }
 }
 
 form,
 #registerform {
-   font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+   @include font-family-EngraversGothic;
 
    label {
       font-size: 14px;
@@ -382,10 +469,10 @@ form,
    }
 
    input::file-selector-button {
+      @include font-family-EngraversGothic;
       background: $blue01;
       color: $tan;
       padding: 20px;
-      font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       font-size: 14px;
@@ -395,7 +482,7 @@ form,
    }
 
    .submit #wp-submit {
-      font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      @include font-family-EngraversGothic;
       font-size: 14px;
    }
 
@@ -434,8 +521,7 @@ h2 { color: $blue01; }
    }
 }
 
-.woocommerce-account section.generic-page,
-.yith-request-a-quote-page section.generic-page {
+.woocommerce-account section.generic-page {
    background: $tan;
 }
 
@@ -449,11 +535,11 @@ h2 { color: $blue01; }
       @media (min-width:$desktop) {
          width: 80% !important;
       }
-
-      //background: $white;
    }
 
    .woocommerce-MyAccount-navigation {
+      @include font-family-EngraversGothic;
+
       @media (max-width:$desktop) {
          border-bottom: 1px solid $blue01;
       }
@@ -461,8 +547,6 @@ h2 { color: $blue01; }
       @media (min-width:$desktop) {
          width: 20% !important;
       }
-
-      font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
       ul {
          font-size: 16px;
@@ -493,26 +577,19 @@ h2 { color: $blue01; }
    .raq_status,
    .ywraq-status {
       display: initial;
-      color: inherit;
+      color: $blue01;
       font-size: inherit;
+      font-style: italic;
       padding: 0;
       border-radius: 0;
       min-width: none;
       text-transform: capitalize;
       background: transparent !important;
 
+      &.new,
       &.pending {
-         font-style: italic;
-         color: #a24545;
+         color: $blue01 !important;
       }
-
-      &.new {
-         color: inherit !important;
-      }
-   }
-
-   .product-thumbnail {
-      max-width: 250px;
    }
 }
 
@@ -531,7 +608,7 @@ h2 { color: $blue01; }
 .order_details,
 .cart_item {
    .product-name {
-      font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      @include font-family-EngraversGothic;
       text-transform: uppercase;
       font-size: 20px;
       letter-spacing: 0.12em;
@@ -560,7 +637,6 @@ h1, h2, h3, h4, h5 {
 
 // wp-login.php
 .login-action-register {
-   background: $tan;
 
    #login {
       width: auto;
@@ -618,10 +694,10 @@ h1, h2, h3, h4, h5 {
 
 .login .message,
 .message {
+   @include font-family-EngraversGothic;
    background: transparent !important;
    border: 1px solid $blue01;
    border-left: 4px solid $blue01 !important;
-   font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
    font-size: 14px;
    letter-spacing: 0.12em;
    text-transform: uppercase;
@@ -650,28 +726,38 @@ h1, h2, h3, h4, h5 {
    margin: 10px 0 !important;
 }
 
-.ywraq-buttons a.ywraq-button.ywraq-reject,
-.ywraq-buttons a.ywraq-button.ywraq-accept {
-   border-radius: 0 !important;
+.ywraq-buttons {
+   width: 100%;
 
-   &:hover {
-      background: $white !important;
-      color: $blue01 !important;
+   @media (min-width:$desktop) {
+      width: auto;
+   }
+
+   .ywraq-button.ywraq-reject,
+   .ywraq-button.ywraq-accept {
+      border-radius: 0 !important;
+
+      &:hover {
+         background: $white !important;
+         color: $blue01 !important;
+      }  
    }
 }
 
 .woocommerce-notices-wrapper ul {
+   @include font-family-EngraversGothic;
    border: 1px solid $blue01;
    padding: 8px;
    font-size: 16px;
-   font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
    text-transform: uppercase;
    letter-spacing: 0.12em;
    list-style: none;
 }
 
-.woocommerce .product-thumbnail img {
-   max-width: 250px;
+.woocommerce .product-thumbnail {
+   @media (min-width:$desktop) {
+      max-width: 250px;
+   }
 }
 
 .order__meta {
@@ -771,23 +857,14 @@ input[type="checkbox"]:checked::before {
    background-color: transparent !important;
    border-width: 0 0 1px 0 !important;
    border-radius: 0 !important;
-}
 
-.cart_item {
-   .product-quantity {
-      padding: 0;
-   }
-
-   .input-text.qty {
-      padding: 4px;
-      width: 40px;
-      background: transparent;
-      border: 1px solid $blue01;
+   .select2-selection__placeholder {
+      color: inherit !important;
    }
 }
 
 .yith-request-a-quote-page {
-   background: $tan;
+   padding: 24px;
 }
 
 .woocommerce-result-count {
@@ -806,10 +883,16 @@ input[type="checkbox"]:checked::before {
 
    li {
       display: flex;
-      margin-top: 16px !important;
+      font-size: 18px !important;
       flex-direction: column;
-      font-size: 20px !important;
-      line-height: 24px;
+      margin-bottom: 12px !important;
+
+      @media (min-width:$desktop) {
+         align-items: center;
+         flex-direction: row;
+         margin-bottom: auto !important;
+         font-size: 24px !important;
+      }
 
       p {
          margin: 4px 0 !important;
@@ -818,16 +901,24 @@ input[type="checkbox"]:checked::before {
 
    strong {
       font-weight: normal;
+      margin-right: 8px;
    }
 }
 
 .product-name-item {
    font-size: 20px;
+
+   .wc-item-meta {
+      margin-top: 24px;
+   }
 }
 
 .product-total {
    display: flex;
-   justify-content: end;
+
+   @media (min-width:$desktop) {
+      justify-content: end;
+   }
 }
 
 .yith-ywraq-item-remove {
@@ -842,4 +933,100 @@ input[type="checkbox"]:checked::before {
 #yith-ywraq-default-form .form-row {
    display: flex;
    flex-direction: column-reverse;
+}
+
+.woocommerce-message {
+   font-size: 14px;
+   text-transform: uppercase;
+   padding: 8px;
+   letter-spacing: 0.12em;
+}
+
+.forminator-ui.forminator-custom-form {
+   .forminator-multi-upload,
+   .forminator-textarea {
+      background: transparent !important;
+      border: 1px solid $blue01 !important;
+
+      &:hover {
+         border-color: $blue01 !important;
+      }
+   }
+
+   .forminator-label {
+      color: $gray02 !important;
+      font-size: initial !important;
+      font-weight: normal !important;
+      letter-spacing: 0.12em;
+   }
+
+   .forminator-textarea {
+      font-family: BaskervilleURW, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif !important;
+      font-size: 20px !important;
+   }
+
+   .forminator-multi-upload-message p {
+      font-size: inherit !important;
+   }
+}
+
+#ui-datepicker-div,
+.select2-results__options {
+   font-size: 18px !important;
+}
+
+.select2-results__option--highlighted {
+   background-color: $blue01 !important;
+
+   &[data-select=true] {
+      color: $tan;
+   }
+}
+
+.select2-results__option[data-selected=true] {
+   color: $gray02 !important;
+   background-color: $tan !important;
+}
+
+.ui-datepicker-today {
+   .ui-state-highlight {
+      background: $tan !important;
+      border-color: $tan !important;
+      color: $gray02 !important;
+   }
+}
+
+.ui-datepicker-current-day {
+   .ui-state-active {
+      border: 1px solid $blue01 !important;
+      background: $blue01 !important;
+      color: $tan !important;
+   }
+}
+
+// hide prices on all but mercado products
+.y-product__details,
+.woocommerce-loop-product__link {
+   .price {
+      display: none;
+   }
+}
+
+.y-product__details {
+   .product_cat-mercado & {
+      .price {
+         display: block;
+      }
+   }
+}
+
+.yith_ywraq_add_item_response_message,
+.yith_ywraq_add_item_product_message {
+   font-size: 18px;
+   font-style: italic;
+   color: $blue01;
+}
+
+.return-to-shop {
+   display: none;
 }
