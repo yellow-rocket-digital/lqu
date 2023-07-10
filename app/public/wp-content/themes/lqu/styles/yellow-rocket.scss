@@ -485,7 +485,9 @@ form,
       @include font-family-EngraversGothic;
       font-size: 14px;
    }
+}
 
+#registerform {
    label[for="user_login"], input#user_login {
       display: none; // hides username field
    }
@@ -1029,4 +1031,12 @@ input[type="checkbox"]:checked::before {
 
 .return-to-shop {
    display: none;
+}
+
+// loading gif
+.ywraq-loader {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 80px;
 }

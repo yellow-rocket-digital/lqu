@@ -4919,9 +4919,8 @@ form .submit #wp-submit,
   font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
 }
-form label[for=user_login], form input#user_login,
-#registerform label[for=user_login],
-#registerform input#user_login {
+
+#registerform label[for=user_login], #registerform input#user_login {
   display: none;
 }
 
@@ -5407,6 +5406,13 @@ input[type=checkbox]:checked::before {
 
 .return-to-shop {
   display: none;
+}
+
+.ywraq-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
 }
 
 /*# sourceMappingURL=style.css.map */
