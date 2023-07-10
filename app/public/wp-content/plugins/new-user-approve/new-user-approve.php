@@ -535,6 +535,9 @@ class pw_new_user_approve
     /**
      * Send email to admin requesting approval.
      *
+     * Edited: Yellow Rocket, 7/10/23
+     * $to = apply_filters( 'new_user_approve_email_admins', array( get_option( 'admin_email') ) );
+     *
      * @param $user_login username
      * @param $user_email email address of the user
      */
@@ -558,7 +561,7 @@ class pw_new_user_approve
         );
         $subject = sprintf( __( '[%s] User Approval', 'new-user-approve' ), wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES ) );
         $subject = apply_filters( 'new_user_approve_request_approval_subject', $subject );
-        $to = apply_filters( 'new_user_approve_email_admins', array( get_option( 'admin_email' ) ) );
+        $to = apply_filters( 'new_user_approve_email_admins', array( 'info@lqupholstery.com' ) );
         $to = array_unique( $to );
         // send the mail
         wp_mail(

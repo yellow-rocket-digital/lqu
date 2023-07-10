@@ -87,7 +87,7 @@ function nua_default_welcome_message() {
  * @return string
  */
 function nua_default_notification_message() {
-	$message = __( '{user_email} has requested a username at {sitename}', 'new-user-approve' ) . "\n\n";
+	$message = __( '{user_email} has requested an account at {sitename}', 'new-user-approve' ) . "\n\n";
 	$message .= "{site_url}\n\n";
 	$message .= __( 'To approve or deny this user access to {sitename} go to', 'new-user-approve' ) . "\n\n";
 	$message .= "{admin_approve_url}\n\n";
