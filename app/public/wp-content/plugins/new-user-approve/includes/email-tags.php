@@ -344,25 +344,31 @@ function nua_email_tag_siteurl( $attributes ) {
 /**
  * Email template tag: admin_approve_url
  * Your site URL
+ * 
+ * Edited: Yellow Rocket, 7/10/23
  *
  * @param array $attributes
  *
  * @return string admin approval URL
  */
 function nua_email_tag_adminurl( $attributes ) {
-	return $attributes['admin_url'];
+	//return $attributes['admin_url'];
+	return home_url() . '/wp-admin/admin.php?page=new-user-approve-admin&tab=pending_users';
 }
 
 /**
  * Email template tag: login_url
  * Your site URL
+ * 
+ * Edited: Yellow Rocket, 7/10/23
  *
  * @param array $attributes
  *
  * @return string admin approval URL
  */
 function nua_email_tag_loginurl( $attributes ) {
-	return wp_login_url();
+	// return wp_login_url();
+	return home_url() . '/my-account';
 }
 
 /**

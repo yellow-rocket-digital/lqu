@@ -2,12 +2,15 @@
 
 /**
  * The default email message that will be sent to users as they are approved.
- *
+ * Edited: Yellow Rocket, 7/10/23
  * @return string
  */
+// $message .= "{username}\r\n\r\n"; - removed
+// $message .= __( 'To access your account, visit:', 'new-user-approve' ) . "\r\n\r\n"; - added
+
 function nua_default_approve_user_message() {
 	$message = __( 'You have been approved to access {sitename}', 'new-user-approve' ) . "\r\n\r\n";
-	$message .= "{username}\r\n\r\n";
+	$message .= __( 'To access your account, visit:', 'new-user-approve' ) . "\r\n\r\n";
 	$message .= "{login_url}\r\n\r\n";
     $message .= __( 'To set or reset your password, visit the following address:', 'new-user-approve' ) . "\r\n\r\n";
     $message .= "{reset_password_url}";
@@ -79,10 +82,12 @@ function nua_default_welcome_message() {
 /**
  * The default notification message that is sent to site admin when requesting approval.
  *
+ * Edited: Yellow Rocket, 7/10/23
+ * $message = __( '{username} ({user_email}) has requested a username at {sitename}', 'new-user-approve' ) . "\n\n";
  * @return string
  */
 function nua_default_notification_message() {
-	$message = __( '{username} ({user_email}) has requested a username at {sitename}', 'new-user-approve' ) . "\n\n";
+	$message = __( '{user_email} has requested a username at {sitename}', 'new-user-approve' ) . "\n\n";
 	$message .= "{site_url}\n\n";
 	$message .= __( 'To approve or deny this user access to {sitename} go to', 'new-user-approve' ) . "\n\n";
 	$message .= "{admin_approve_url}\n\n";
