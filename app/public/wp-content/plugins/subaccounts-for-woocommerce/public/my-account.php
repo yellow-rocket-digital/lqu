@@ -428,7 +428,7 @@ function sfwc_action_woocommerce_account_dashboard() {
 				if ( ( $sfwc_option_display_name == 'full_name' ) && ( $current_user->user_firstname || $current_user->user_lastname ) ) {
 
 					// Echo 'Full Name + Email' (if either First Name or Last Name has been set)
-					echo '<p style="color:' . esc_attr( $sfwc_switcher_pane_text_color ) . ';"><strong>' . esc_html__( 'Full Name: ', 'subaccounts-for-woocommerce' ) . '</strong>' . esc_html( $current_user->user_firstname ) . ' ' . esc_html( $current_user->user_lastname ) . ' (' . esc_html( $current_user->user_email ) . ')</p>';
+					echo '<p style="color:' . esc_attr( $sfwc_switcher_pane_text_color ) . ';">' . esc_html( $current_user->user_firstname ) . ' ' . esc_html( $current_user->user_lastname ) . ' (' . esc_html( $current_user->user_email ) . ')</p>';
 
 				} elseif ( ( $sfwc_option_display_name == 'company_name' ) && ( $current_user->billing_company ) ) {
 
@@ -438,7 +438,7 @@ function sfwc_action_woocommerce_account_dashboard() {
 				} else {
 
 					// Otherwise echo 'Username + Email'
-					echo '<p style="color:' . esc_attr( $sfwc_switcher_pane_text_color ) . ';"><strong>' . esc_html__( 'Username: ', 'subaccounts-for-woocommerce' ) . '</strong>' . esc_html( $current_user->user_login ) . ' (' . esc_html( $current_user->user_email ) . ')</p>';
+					echo '<p style="color:' . esc_attr( $sfwc_switcher_pane_text_color ) . ';">' . esc_html( $current_user->user_email ) . '</p>';
 				}
 				
 				$class_selectize = empty( $user_query_manager->get_results() ) ? 'class="sfwc_frontend_children_selectize"' : '';
@@ -446,7 +446,7 @@ function sfwc_action_woocommerce_account_dashboard() {
 
 				<form method="post">
 					<select id="sfwc_frontend_children" <?php echo $class_selectize; ?> name="sfwc_frontend_children" onchange="this.form.submit();" style="background-color:<?php echo esc_attr( $sfwc_switcher_pane_select_bg_color ); ?>; color:<?php echo esc_attr( $sfwc_switcher_pane_select_text_color ); ?>;">
-						<option value="" selected="selected" disabled><?php echo esc_html__( 'Select Account', 'subaccounts-for-woocommerce' ); ?>&nbsp; &#8644;</option>
+						<option value="" selected="selected" disabled><?php echo esc_html__( 'Select Account', 'subaccounts-for-woocommerce' ); ?></option>
 
 						<?php
 						if ( empty( $existing_children_ids ) ) {
