@@ -329,7 +329,9 @@ $total_tax        = 0;
 										if ( count( $item_data ) > 0 ) {
 											echo '<br><ul class="wc-item-meta">';
 											foreach ( $item_data as $data ) {
-												echo '<li><strong>' . esc_html( $data['key'] ) . ':</strong> ' . wp_kses_post( str_replace('%2F', '/', $data['value']) ) . '</li><br>';
+												if (!str_contains($data['value'], 'I understand')) {
+													echo '<li><strong>' . esc_html( $data['key'] ) . ':</strong> ' . wp_kses_post( str_replace('%2F', '/', $data['value']) ) . '</li><br>';
+												}
 											}
 											echo '</ul>';
 										}
