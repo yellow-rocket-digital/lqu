@@ -50,8 +50,8 @@ if ( post_password_required() ) {
 				<div class="mb-4"><?= $product->get_description(); ?></div>	
 			<?php endif; ?>
 		
-			<?php if ($product->has_dimensions()): ?>
-				<div class="y-product__dimensions mb-3 mt-5">
+			<?php if ($product->has_dimensions() && is_user_logged_in()): ?>
+				<div class="y-product__dimensions mt-5">
 					<h3 class="mb-3 mt-0">Dimensions</h3>
 
 					<?php if ( ! empty( $product->get_width() ) ): ?>
@@ -67,7 +67,7 @@ if ( post_password_required() ) {
 			<?php endif; ?>
 
 			<?php if (!has_term('mercado', 'product_cat', $product->get_ID())): ?>
-			<p>All pieces are made to order, frame to fabric so the dimensions may be determined by the customer.</p>
+			<p class="mt-5">All pieces are made to order, frame to fabric so the dimensions may be determined by the customer.</p>
 
 			<h3 class="mb-3">Fabric</h3>
 			<p>All fabrics are supplied by the customer. Yardage requirements are supplied in estimates once the design is specified.</p>
