@@ -938,6 +938,7 @@ input[type="checkbox"]:checked::before {
 }
 
 .woocommerce-message {
+   @include font-family-EngraversGothic;
    font-size: 14px;
    text-transform: uppercase;
    padding: 8px;
@@ -965,6 +966,10 @@ input[type="checkbox"]:checked::before {
    .forminator-textarea {
       font-family: BaskervilleURW, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif !important;
       font-size: 20px !important;
+   }
+
+   .forminator-multi-upload-message {
+      @include font-family-BaskervilleURW;
    }
 
    .forminator-multi-upload-message p {
@@ -1039,4 +1044,280 @@ input[type="checkbox"]:checked::before {
    align-items: center;
    justify-content: center;
    width: 80px;
+}
+
+// YITH disclaimer block
+#yith-wapo-addon-460 {
+   .wapo-addon-title {
+      margin-bottom: 20px;
+   }
+
+   label[for="yith-wapo-460-0"] {
+      margin-left: 0;
+   }
+
+   span.checkboxbutton {
+      margin-right: 4px;
+
+      &:before {
+         border-radius: 0;
+      }
+   }
+}
+
+// quote form payment option
+#payment_option_field {
+   margin-bottom: 0;
+}
+
+.payment-note {
+   @include font-family-BaskervilleURW;
+   margin: 4px 0 32px 0 !important;
+   padding: 0 !important;
+   color: $blue01;
+   font-size: 16px;
+   font-style: italic;
+   text-transform: none;
+   letter-spacing: normal;
+}
+
+// remember me checkbox
+.woocommerce-form-login__rememberme {
+   .woocommerce-form__input-checkbox {
+      border-radius: 0;
+      background: transparent;
+   }
+}
+
+// sub accounts
+#sfwc-user-switcher-pane {
+   border: 1px solid $blue01;
+
+   h3 {
+      font-weight: normal !important;
+   }
+
+   p {
+      font-size: 24px !important;
+   }
+
+    .selectize-input {
+      background: $blue01;
+      border-radius: 0;
+    }
+
+   input[type="text"] {
+      text-transform: uppercase;
+      font-size: 16px;
+      letter-spacing: 0.12em;
+
+      &:after {
+         border-color: $tan !important;
+      }
+   }
+
+   .selectize-input {
+      padding: 16px !important;
+
+      &.input-active {
+         background: $blue01 !important;
+      }
+
+      input {
+         @include font-family-EngraversGothic;
+      }
+   }
+
+   .selectize-dropdown {
+      @include font-family-BaskervilleURW;
+      color: $gray02 !important;
+      font-size: 16px;
+
+      .option {
+         padding: 16px;
+      }
+   }
+}
+
+#sfwc_form_add_subaccount_frontend,
+#frontend_manage_subaccounts_edit_subaccount {
+   .user_login,
+   .email,
+   .first_name,
+   .last_name,
+   .password,
+   .company {
+      display: flex;
+      flex-direction: column-reverse;
+
+      input {
+         margin-bottom: 8px;
+         background: transparent;
+         border-width: 0 0 1px 0;
+      }
+
+      label {
+         @include font-family-EngraversGothic;
+         font-size: 14px;
+         line-height: 14px;
+         letter-spacing: 0.12em;
+         text-transform: uppercase;
+      }
+
+      input[type="submit"] {
+         @include cta-button;
+      }
+   }
+
+   input[value="Add Subaccount"] {
+      @include cta-button;
+      padding: 34px !important; // from cta-button
+   }
+
+   p {
+      @include font-family-BaskervilleURW;
+      padding: 16px 0 !important;
+      border: 0 !important;
+      background: transparent !important;
+      font-style: italic;
+      font-size: 20px;
+      color: $blue01;
+
+      span {
+         padding: 0 !important;
+      }
+   }
+}
+
+li.sfwc_my_account_tab {
+   background: transparent !important;
+   color: $blue01;
+   border-color: $blue01 !important;
+   border-radius: 0 !important;
+
+   a {
+      @include font-family-EngraversGothic;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-shadow: none;
+      text-transform: uppercase;
+   }
+
+   &.selected {
+      background: $blue01 !important;
+
+      a {
+         color: $tan !important;
+      }
+   }
+}
+
+.sfwc_my_account_tabrow {
+   margin-bottom: 40px !important;
+   line-height: 30px !important;
+   height: 32px !important;
+
+   &:before {
+      border-bottom: 1px solid $blue01 !important;
+   }
+}
+
+#frontend_manage_subaccounts tr td:first-child {
+   display: table-cell !important;
+}
+
+table.sfwc_table {
+   th {
+      @include font-family-EngraversGothic;
+      padding: 20px 0 !important;
+      font-size: 16px;
+      font-weight: normal !important;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+   }
+
+   td {
+      padding: 0 !important;
+   }
+
+   th, td {
+      background-color: transparent !important;
+   }
+
+   img.avatar {
+      display: none !important;
+   }
+}
+
+#sfwc-select-subaccount-orders-form-wrap {
+   background: transparent !important;
+
+   label {
+      font-weight: normal !important;
+   }
+
+   .selectize-input {
+      margin: 10px 0;
+      background: transparent;
+   }
+
+   .selectize-plugin-select_remove_all_options-btn-grp {
+      display: none;
+   }
+
+   input[type="submit"] {
+      @include cta-button;
+      margin-left: 16px;
+      width: 200px !important;
+   }
+}
+
+#sfwc-select-subaccount-orders-form-wrap {
+   padding: 30px 0 !important;
+
+   .selectize-dropdown {
+      @include font-family-BaskervilleURW;
+      color: $gray02 !important;
+      font-size: 16px;
+
+      .option {
+         padding: 16px;
+      }
+   }
+
+   .selectize-input {
+      box-shadow: none;
+      border: 1px solid $blue01;
+      border-radius: 0;
+      border-width: 0 0 1px;
+      padding: 10px 0;
+
+      .item {
+         padding: 10px;
+         font-size: 14px;
+         text-transform: uppercase;
+         letter-spacing: 0.12em;
+         background: $white;
+      }
+   }
+}
+
+#frontend_manage_subaccounts_edit_subaccount {
+   display: flex;
+   flex-direction: column;
+
+   .ui-accordion-header {
+      display: none;
+   }
+
+   .ui-accordion-content {
+      padding: 20px 0;
+      background: transparent;
+   }
+}
+
+#sfwc_form_edit_subaccount_frontend {
+   input[type="submit"] {
+      @include cta-button;
+   }
 }

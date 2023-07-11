@@ -5330,6 +5330,7 @@ input[type=checkbox]:checked::before {
 }
 
 .woocommerce-message {
+  font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   text-transform: uppercase;
   padding: 8px;
@@ -5354,6 +5355,9 @@ input[type=checkbox]:checked::before {
 .forminator-ui.forminator-custom-form .forminator-textarea {
   font-family: BaskervilleURW, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif !important;
   font-size: 20px !important;
+}
+.forminator-ui.forminator-custom-form .forminator-multi-upload-message {
+  font-family: BaskervilleURW, Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
 }
 .forminator-ui.forminator-custom-form .forminator-multi-upload-message p {
   font-size: inherit !important;
@@ -5413,6 +5417,389 @@ input[type=checkbox]:checked::before {
   align-items: center;
   justify-content: center;
   width: 80px;
+}
+
+#yith-wapo-addon-460 .wapo-addon-title {
+  margin-bottom: 20px;
+}
+#yith-wapo-addon-460 label[for=yith-wapo-460-0] {
+  margin-left: 0;
+}
+#yith-wapo-addon-460 span.checkboxbutton {
+  margin-right: 4px;
+}
+#yith-wapo-addon-460 span.checkboxbutton:before {
+  border-radius: 0;
+}
+
+#payment_option_field {
+  margin-bottom: 0;
+}
+
+.payment-note {
+  font-family: BaskervilleURW, Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+  margin: 4px 0 32px 0 !important;
+  padding: 0 !important;
+  color: #232960;
+  font-size: 16px;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.woocommerce-form-login__rememberme .woocommerce-form__input-checkbox {
+  border-radius: 0;
+  background: transparent;
+}
+
+#sfwc-user-switcher-pane {
+  border: 1px solid #232960;
+}
+#sfwc-user-switcher-pane h3 {
+  font-weight: normal !important;
+}
+#sfwc-user-switcher-pane p {
+  font-size: 24px !important;
+}
+#sfwc-user-switcher-pane .selectize-input {
+  background: #232960;
+  border-radius: 0;
+}
+#sfwc-user-switcher-pane input[type=text] {
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+}
+#sfwc-user-switcher-pane input[type=text]:after {
+  border-color: #e1d8c2 !important;
+}
+#sfwc-user-switcher-pane .selectize-input {
+  padding: 16px !important;
+}
+#sfwc-user-switcher-pane .selectize-input.input-active {
+  background: #232960 !important;
+}
+#sfwc-user-switcher-pane .selectize-input input {
+  font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#sfwc-user-switcher-pane .selectize-dropdown {
+  font-family: BaskervilleURW, Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+  color: #2c2c2c !important;
+  font-size: 16px;
+}
+#sfwc-user-switcher-pane .selectize-dropdown .option {
+  padding: 16px;
+}
+
+#sfwc_form_add_subaccount_frontend .user_login,
+#sfwc_form_add_subaccount_frontend .email,
+#sfwc_form_add_subaccount_frontend .first_name,
+#sfwc_form_add_subaccount_frontend .last_name,
+#sfwc_form_add_subaccount_frontend .password,
+#sfwc_form_add_subaccount_frontend .company,
+#frontend_manage_subaccounts_edit_subaccount .user_login,
+#frontend_manage_subaccounts_edit_subaccount .email,
+#frontend_manage_subaccounts_edit_subaccount .first_name,
+#frontend_manage_subaccounts_edit_subaccount .last_name,
+#frontend_manage_subaccounts_edit_subaccount .password,
+#frontend_manage_subaccounts_edit_subaccount .company {
+  display: flex;
+  flex-direction: column-reverse;
+}
+#sfwc_form_add_subaccount_frontend .user_login input,
+#sfwc_form_add_subaccount_frontend .email input,
+#sfwc_form_add_subaccount_frontend .first_name input,
+#sfwc_form_add_subaccount_frontend .last_name input,
+#sfwc_form_add_subaccount_frontend .password input,
+#sfwc_form_add_subaccount_frontend .company input,
+#frontend_manage_subaccounts_edit_subaccount .user_login input,
+#frontend_manage_subaccounts_edit_subaccount .email input,
+#frontend_manage_subaccounts_edit_subaccount .first_name input,
+#frontend_manage_subaccounts_edit_subaccount .last_name input,
+#frontend_manage_subaccounts_edit_subaccount .password input,
+#frontend_manage_subaccounts_edit_subaccount .company input {
+  margin-bottom: 8px;
+  background: transparent;
+  border-width: 0 0 1px 0;
+}
+#sfwc_form_add_subaccount_frontend .user_login label,
+#sfwc_form_add_subaccount_frontend .email label,
+#sfwc_form_add_subaccount_frontend .first_name label,
+#sfwc_form_add_subaccount_frontend .last_name label,
+#sfwc_form_add_subaccount_frontend .password label,
+#sfwc_form_add_subaccount_frontend .company label,
+#frontend_manage_subaccounts_edit_subaccount .user_login label,
+#frontend_manage_subaccounts_edit_subaccount .email label,
+#frontend_manage_subaccounts_edit_subaccount .first_name label,
+#frontend_manage_subaccounts_edit_subaccount .last_name label,
+#frontend_manage_subaccounts_edit_subaccount .password label,
+#frontend_manage_subaccounts_edit_subaccount .company label {
+  font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+#sfwc_form_add_subaccount_frontend .user_login input[type=submit],
+#sfwc_form_add_subaccount_frontend .email input[type=submit],
+#sfwc_form_add_subaccount_frontend .first_name input[type=submit],
+#sfwc_form_add_subaccount_frontend .last_name input[type=submit],
+#sfwc_form_add_subaccount_frontend .password input[type=submit],
+#sfwc_form_add_subaccount_frontend .company input[type=submit],
+#frontend_manage_subaccounts_edit_subaccount .user_login input[type=submit],
+#frontend_manage_subaccounts_edit_subaccount .email input[type=submit],
+#frontend_manage_subaccounts_edit_subaccount .first_name input[type=submit],
+#frontend_manage_subaccounts_edit_subaccount .last_name input[type=submit],
+#frontend_manage_subaccounts_edit_subaccount .password input[type=submit],
+#frontend_manage_subaccounts_edit_subaccount .company input[type=submit] {
+  font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.16em;
+  color: #e1d8c2;
+  background-color: #232960;
+  letter-spacing: 0.16em;
+  display: block;
+  padding: 34px;
+  text-align: center;
+  border: 2px solid #232960;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+@media (min-width: 840px) {
+  #sfwc_form_add_subaccount_frontend .user_login input[type=submit],
+  #sfwc_form_add_subaccount_frontend .email input[type=submit],
+  #sfwc_form_add_subaccount_frontend .first_name input[type=submit],
+  #sfwc_form_add_subaccount_frontend .last_name input[type=submit],
+  #sfwc_form_add_subaccount_frontend .password input[type=submit],
+  #sfwc_form_add_subaccount_frontend .company input[type=submit],
+  #frontend_manage_subaccounts_edit_subaccount .user_login input[type=submit],
+  #frontend_manage_subaccounts_edit_subaccount .email input[type=submit],
+  #frontend_manage_subaccounts_edit_subaccount .first_name input[type=submit],
+  #frontend_manage_subaccounts_edit_subaccount .last_name input[type=submit],
+  #frontend_manage_subaccounts_edit_subaccount .password input[type=submit],
+  #frontend_manage_subaccounts_edit_subaccount .company input[type=submit] {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+#sfwc_form_add_subaccount_frontend .user_login input[type=submit]:hover,
+#sfwc_form_add_subaccount_frontend .email input[type=submit]:hover,
+#sfwc_form_add_subaccount_frontend .first_name input[type=submit]:hover,
+#sfwc_form_add_subaccount_frontend .last_name input[type=submit]:hover,
+#sfwc_form_add_subaccount_frontend .password input[type=submit]:hover,
+#sfwc_form_add_subaccount_frontend .company input[type=submit]:hover,
+#frontend_manage_subaccounts_edit_subaccount .user_login input[type=submit]:hover,
+#frontend_manage_subaccounts_edit_subaccount .email input[type=submit]:hover,
+#frontend_manage_subaccounts_edit_subaccount .first_name input[type=submit]:hover,
+#frontend_manage_subaccounts_edit_subaccount .last_name input[type=submit]:hover,
+#frontend_manage_subaccounts_edit_subaccount .password input[type=submit]:hover,
+#frontend_manage_subaccounts_edit_subaccount .company input[type=submit]:hover {
+  background-color: #ffffff;
+  color: #232960;
+}
+#sfwc_form_add_subaccount_frontend input[value="Add Subaccount"],
+#frontend_manage_subaccounts_edit_subaccount input[value="Add Subaccount"] {
+  font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.16em;
+  color: #e1d8c2;
+  background-color: #232960;
+  letter-spacing: 0.16em;
+  display: block;
+  padding: 34px;
+  text-align: center;
+  border: 2px solid #232960;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 34px !important;
+}
+@media (min-width: 840px) {
+  #sfwc_form_add_subaccount_frontend input[value="Add Subaccount"],
+  #frontend_manage_subaccounts_edit_subaccount input[value="Add Subaccount"] {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+#sfwc_form_add_subaccount_frontend input[value="Add Subaccount"]:hover,
+#frontend_manage_subaccounts_edit_subaccount input[value="Add Subaccount"]:hover {
+  background-color: #ffffff;
+  color: #232960;
+}
+#sfwc_form_add_subaccount_frontend p,
+#frontend_manage_subaccounts_edit_subaccount p {
+  font-family: BaskervilleURW, Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+  padding: 16px 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  font-style: italic;
+  font-size: 20px;
+  color: #232960;
+}
+#sfwc_form_add_subaccount_frontend p span,
+#frontend_manage_subaccounts_edit_subaccount p span {
+  padding: 0 !important;
+}
+
+li.sfwc_my_account_tab {
+  background: transparent !important;
+  color: #232960;
+  border-color: #232960 !important;
+  border-radius: 0 !important;
+}
+li.sfwc_my_account_tab a {
+  font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-shadow: none;
+  text-transform: uppercase;
+}
+li.sfwc_my_account_tab.selected {
+  background: #232960 !important;
+}
+li.sfwc_my_account_tab.selected a {
+  color: #e1d8c2 !important;
+}
+
+.sfwc_my_account_tabrow {
+  margin-bottom: 40px !important;
+  line-height: 30px !important;
+  height: 32px !important;
+}
+.sfwc_my_account_tabrow:before {
+  border-bottom: 1px solid #232960 !important;
+}
+
+#frontend_manage_subaccounts tr td:first-child {
+  display: table-cell !important;
+}
+
+table.sfwc_table th {
+  font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 20px 0 !important;
+  font-size: 16px;
+  font-weight: normal !important;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+table.sfwc_table td {
+  padding: 0 !important;
+}
+table.sfwc_table th, table.sfwc_table td {
+  background-color: transparent !important;
+}
+table.sfwc_table img.avatar {
+  display: none !important;
+}
+
+#sfwc-select-subaccount-orders-form-wrap {
+  background: transparent !important;
+}
+#sfwc-select-subaccount-orders-form-wrap label {
+  font-weight: normal !important;
+}
+#sfwc-select-subaccount-orders-form-wrap .selectize-input {
+  margin: 10px 0;
+  background: transparent;
+}
+#sfwc-select-subaccount-orders-form-wrap .selectize-plugin-select_remove_all_options-btn-grp {
+  display: none;
+}
+#sfwc-select-subaccount-orders-form-wrap input[type=submit] {
+  font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.16em;
+  color: #e1d8c2;
+  background-color: #232960;
+  letter-spacing: 0.16em;
+  display: block;
+  padding: 34px;
+  text-align: center;
+  border: 2px solid #232960;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-left: 16px;
+  width: 200px !important;
+}
+@media (min-width: 840px) {
+  #sfwc-select-subaccount-orders-form-wrap input[type=submit] {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+#sfwc-select-subaccount-orders-form-wrap input[type=submit]:hover {
+  background-color: #ffffff;
+  color: #232960;
+}
+
+#sfwc-select-subaccount-orders-form-wrap {
+  padding: 30px 0 !important;
+}
+#sfwc-select-subaccount-orders-form-wrap .selectize-dropdown {
+  font-family: BaskervilleURW, Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+  color: #2c2c2c !important;
+  font-size: 16px;
+}
+#sfwc-select-subaccount-orders-form-wrap .selectize-dropdown .option {
+  padding: 16px;
+}
+#sfwc-select-subaccount-orders-form-wrap .selectize-input {
+  box-shadow: none;
+  border: 1px solid #232960;
+  border-radius: 0;
+  border-width: 0 0 1px;
+  padding: 10px 0;
+}
+#sfwc-select-subaccount-orders-form-wrap .selectize-input .item {
+  padding: 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  background: #ffffff;
+}
+
+#frontend_manage_subaccounts_edit_subaccount {
+  display: flex;
+  flex-direction: column;
+}
+#frontend_manage_subaccounts_edit_subaccount .ui-accordion-header {
+  display: none;
+}
+#frontend_manage_subaccounts_edit_subaccount .ui-accordion-content {
+  padding: 20px 0;
+  background: transparent;
+}
+
+#sfwc_form_edit_subaccount_frontend input[type=submit] {
+  font-family: EngraversGothic, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.16em;
+  color: #e1d8c2;
+  background-color: #232960;
+  letter-spacing: 0.16em;
+  display: block;
+  padding: 34px;
+  text-align: center;
+  border: 2px solid #232960;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+@media (min-width: 840px) {
+  #sfwc_form_edit_subaccount_frontend input[type=submit] {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+#sfwc_form_edit_subaccount_frontend input[type=submit]:hover {
+  background-color: #ffffff;
+  color: #232960;
 }
 
 /*# sourceMappingURL=style.css.map */
