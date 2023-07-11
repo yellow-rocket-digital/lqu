@@ -1,0 +1,352 @@
+/**
+ * Frontend Switcher Pane
+ */
+#sfwc-user-switcher-pane {
+	margin: 10px 0 50px;
+	padding: 20px;
+	background-color: #def6ff;
+}
+
+#sfwc-user-switcher-pane h3 {
+	margin: 10px 0;
+	font-size: 17px;
+	font-weight: bold;
+	color:#0088cc;
+}
+
+#sfwc-user-switcher-pane p {
+	margin: 0;
+	font-size: 16px;
+	color: #3b3b3b;
+	line-height: 24px;
+}
+
+#sfwc-user-switcher-pane form {
+	margin: 20px auto 0 auto;
+}
+
+#sfwc-user-switcher-pane form select {
+	padding: 8px;
+	font-size: 15px;
+	font-weight: bold;
+	background-color: #0088cc;
+	color: #fff;
+	border: none;
+	width: 100%;
+	max-width: 250px;
+	border-radius: 3px;
+	
+	/* Hide default arrow down */
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background: transparent;
+  
+	/* Add custom arrow down */
+	background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+	background-repeat: no-repeat;
+	background-position: center right;
+	
+	/* For browsers that support it, move the arrow slightly to the left */
+	background-origin: border-box;
+	background-position-x: 98%;
+	background-position-y: center;
+}
+
+#sfwc-user-switcher-pane form select:focus {
+	outline-color: #d8d8d8;
+}
+
+#sfwc-user-switcher-pane form select option:first-of-type {
+	display: none;
+	/*
+	color:#32373c;
+	background-color: #d2d2d2;
+	cursor: default;
+	*/
+}
+
+#sfwc-user-switcher-pane form select option {
+	background-color: #fff;
+	color: #7b858a;
+}
+
+#sfwc-user-switcher-pane .selectize-control.single .selectize-input {
+	padding: 8px !important;
+	background-color: #0088cc;
+	border: none;
+	max-width: 250px;
+	border-radius: 3px;
+}
+
+#sfwc-user-switcher-pane .selectize-control.single .selectize-input.input-active {
+	background-color: #ffffff;
+	max-width: none;
+}
+
+#sfwc-user-switcher-pane .selectize-control.single .selectize-input input,
+#sfwc-user-switcher-pane .selectize-control.single .selectize-input .item {
+	width: auto !important;
+	height: 25px;
+}
+
+#sfwc-user-switcher-pane .selectize-control.single .selectize-input input::placeholder,
+#sfwc-user-switcher-pane .selectize-control.single .selectize-input .item {
+	color: #fff;
+	font-weight: bold;
+	font-size: 15px;
+	width: auto !important;
+}
+
+#sfwc-user-switcher-pane .selectize-control.single .selectize-input:after {
+	border-color: white rgba(0,0,0,0) rgba(0,0,0,0) rgba(0,0,0,0) !important;
+}
+
+
+/**
+ * Reload page button - in case switcher button is not present in DOM
+ */
+
+p.sfwc-reload-page-text {
+	margin-top: 20px;
+}
+
+a#sfwc-login-again {
+    color: #fff;
+    background: linear-gradient( 180deg ,#4672EE 0,#214EEC 100%);
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 0 1px 0 #1438b5, 0 2px 4px rgb(9 30 66 / 60%);
+    display: inline-block;
+    font-size: .875rem;
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: .6px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: none;
+    padding: .6875rem 1.5625rem;
+	margin-left: 10px;
+    border-radius: 2.5rem;
+    transition: .2s ease-in-out;
+    text-shadow: 0 0.5px 0.3px rgb(0 0 0 / 10%);
+    position: relative;
+    z-index: 0;
+}
+
+a#sfwc-login-again:after {
+    background: linear-gradient( 180deg ,#4B7AFF 0,#2A5AFF 100%);
+    position: absolute;
+    content: " ";
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 2.5rem;
+    opacity: 0;
+    transition: .2s ease-in-out;
+}
+
+a#sfwc-login-again:hover {
+    color: #fff;
+    box-shadow: 0 1px 0 #1438b5, 0 6px 12px rgb(9 30 66 / 20%);
+    background: linear-gradient( 180deg ,#4672EE 0,#214EEC 100%);
+    transform: translateY(-1px);
+}
+
+a#sfwc-login-again:hover:after {
+    opacity: 1;
+}
+
+/**
+ * Frontend Subaccounts tabbed
+ */
+.sfwc_my_account_tabrow {
+	list-style: none;
+	margin: 20px 0 20px;
+	padding: 0;
+	line-height: 24px;
+	height: 26px;
+	font-size: 12px;
+	font-family: verdana;
+	position: relative;
+}
+.sfwc_my_account_tabrow li {
+	border: 1px solid #AAA;
+	background: #f5f5f5;
+	display: inline-block;
+	position: relative;
+	z-index: 0;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	text-shadow: 0 1px #FFF;
+	padding: 0 20px;
+	
+	/*
+	background: #D1D1D1;
+	background: -o-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
+	background: -ms-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
+	background: -moz-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
+	background: -webkit-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
+	background: linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
+	
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 #FFF;
+	*/
+}
+.sfwc_my_account_tabrow li.sfwc_my_account_tab a {
+	color: #555;
+	text-decoration: none;
+}
+.sfwc_my_account_tabrow li.selected {
+	background: #FFF;
+	color: #333;
+	z-index: 2;
+	border-bottom-color: #FFF;
+}
+.sfwc_my_account_tabrow:before {
+	position: absolute;
+	content: " ";
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	border-bottom: 1px solid #AAA;
+	z-index: 1;
+}
+.sfwc_my_account_tabrow li.selected:before {
+	box-shadow: 2px 2px 0 #FFF;
+}
+.sfwc_my_account_tabrow li.selected:after {
+	box-shadow: -2px 2px 0 #FFF;
+}
+	
+/**
+ * Frontend Subaccounts tab
+ */
+ #sfwc-select-subaccount-orders-form-wrap:after {
+	content: "";
+	clear: both;
+	display: table;
+}
+			
+/**
+ * Frontend Add Subaccount tab.
+ */
+#sfwc_form_add_subaccount_frontend .company:before {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/**
+ * Frontend Manage Subaccounts tab.
+ */
+#frontend_manage_subaccounts {
+	position: relative; 
+	min-height: 250px;
+}
+#frontend_manage_subaccounts tr td {
+	vertical-align: middle;	
+}
+#frontend_manage_subaccounts tr td:first-child {
+	display: flex;
+}
+#frontend_manage_subaccounts tr td:first-child span {
+	display: flex;
+    line-height: normal;
+	align-items: center;
+}
+
+/**
+ * Frontend Edit Subaccount.
+ */
+#sfwc_frontend_edit_subaccount_go_back {
+	float: right;
+	margin-top: 5px;
+	font-size: 16px;
+	text-decoration: none;
+ }
+ #sfwc_frontend_edit_subaccount_go_back span {
+	position: relative;
+	top:3px;
+ }
+
+/**
+ * Frontend tables.
+ */
+table.sfwc_table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border-spacing: 0;
+	width: 100%;
+	margin: 0 0 1.41575em;
+	border-collapse: separate;
+}
+table.sfwc_table td, th {
+	padding: 0;
+}
+table.sfwc_table caption {
+	padding: 1em 0;
+	font-weight: 600;
+}
+table.sfwc_table td, table th {
+	padding: 1em 1.41575em;
+	text-align: left;
+	vertical-align: middle;
+}
+table.sfwc_table td p:last-child, table.sfwc_table th p:last-child {
+	margin-bottom: 0;
+}
+table.sfwc_table th {
+	font-weight: 600;
+}
+table.sfwc_table thead th {
+	padding: 1.41575em;
+	vertical-align: middle;
+}
+table.sfwc_table tbody h2 {
+	font-size: 1em;
+	letter-spacing: normal;
+	font-weight: 400;
+}
+table.sfwc_table tbody h2 a {
+	font-weight: 400;
+}
+body table.sfwc_table th {
+	background-color: #f8f8f8;
+}
+
+body table.sfwc_table tbody td {
+	background-color: #fdfdfd;
+}
+
+body table.sfwc_table tbody tr:nth-child(2n) td {
+	background-color: #fbfbfb;
+}
+
+
+
+
+/**
+ * Miscellaneous.
+ */
+table.sfwc_table tr img.avatar {
+	border-radius: 50%;
+    display: inline;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+img#sfwc-loading-icon {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	text-align: center;
+	margin: auto;
+}
