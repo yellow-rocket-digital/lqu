@@ -1,5 +1,6 @@
 <?php
 // Exit if accessed directly
+// Edited: Yellow Rocket, 7/12/23
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
