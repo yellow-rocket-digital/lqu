@@ -8,12 +8,14 @@ import type {
 	ExtensionCartUpdateArgs,
 	BillingAddressShippingAddress,
 	ApiErrorResponse,
+	CartShippingPackageShippingRate,
+	CartShippingRate,
 } from '@woocommerce/types';
-import { camelCase, mapKeys } from 'lodash';
 import { BillingAddress, ShippingAddress } from '@woocommerce/settings';
 import {
 	triggerAddedToCartEvent,
 	triggerAddingToCartEvent,
+	camelCaseKeys,
 } from '@woocommerce/base-utils';
 
 /**
@@ -68,9 +70,7 @@ export const setErrorData = (
 export const receiveCartContents = (
 	response: CartResponse
 ): { type: string; response: Partial< Cart > } => {
-	const cart = mapKeys( response, ( _, key ) =>
-		camelCase( key )
-	) as unknown as Cart;
+	const cart = camelCaseKeys( response ) as unknown as Cart;
 	const { shippingAddress, billingAddress, ...cartWithoutAddress } = cart;
 	return {
 		type: types.SET_CART_DATA,
@@ -383,8 +383,27 @@ export const changeCartItemQuantity =
  * @param {number | string} [packageId] The key of the packages that we will select within.
  */
 export const selectShippingRate =
-	( rateId: string, packageId = 0 ) =>
-	async ( { dispatch }: { dispatch: CartDispatchFromMap } ) => {
+	( rateId: string, packageId: number | null = null ) =>
+	async ( {
+		dispatch,
+		select,
+	}: {
+		dispatch: CartDispatchFromMap;
+		select: CartSelectFromMap;
+	} ) => {
+		const selectedShippingRate = select
+			.getShippingRates()
+			.find(
+				( shippingPackage: CartShippingRate ) =>
+					shippingPackage.package_id === packageId
+			)
+			?.shipping_rates.find(
+				( rate: CartShippingPackageShippingRate ) =>
+					rate.selected === true
+			);
+		if ( selectedShippingRate?.rate_id === rateId ) {
+			return;
+		}
 		try {
 			dispatch.shippingRatesBeingSelected( true );
 			const { response } = await apiFetchWithHeaders( {
@@ -396,7 +415,14 @@ export const selectShippingRate =
 				},
 				cache: 'no-store',
 			} );
-			dispatch.receiveCart( response );
+			// Remove shipping and billing address from the response, so we don't overwrite what the shopper is
+			// entering in the form if rates suddenly appear mid-edit.
+			const {
+				shipping_address: shippingAddress,
+				billing_address: billingAddress,
+				...rest
+			} = response;
+			dispatch.receiveCart( rest );
 			return response as CartResponse;
 		} catch ( error ) {
 			dispatch.receiveError( error );
@@ -453,6 +479,13 @@ export const updateCustomerData =
 		}
 	};
 
+export const setFullShippingAddressPushed = (
+	fullShippingAddressPushed: boolean
+) => ( {
+	type: types.SET_FULL_SHIPPING_ADDRESS_PUSHED,
+	fullShippingAddressPushed,
+} );
+
 type Actions =
 	| typeof addItemToCart
 	| typeof applyCoupon
@@ -473,6 +506,7 @@ type Actions =
 	| typeof setShippingAddress
 	| typeof shippingRatesBeingSelected
 	| typeof updateCustomerData
+	| typeof setFullShippingAddressPushed
 	| typeof updatingCustomerData;
 
 export type CartAction = ReturnOrGeneratorYieldUnion< Actions | Thunks >;

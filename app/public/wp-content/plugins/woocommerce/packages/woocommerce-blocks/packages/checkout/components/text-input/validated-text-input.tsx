@@ -1,19 +1,14 @@
 /**
  * External dependencies
  */
-import {
-	useRef,
-	useEffect,
-	useState,
-	useCallback,
-	InputHTMLAttributes,
-} from 'react';
+import { useRef, useEffect, useState, useCallback } from '@wordpress/element';
 import classnames from 'classnames';
 import { withInstanceId } from '@wordpress/compose';
 import { isObject } from '@woocommerce/types';
 import { useDispatch, useSelect } from '@wordpress/data';
 import { VALIDATION_STORE_KEY } from '@woocommerce/block-data';
 import { usePrevious } from '@woocommerce/base-hooks';
+import type { InputHTMLAttributes } from 'react';
 
 /**
  * Internal dependencies
@@ -54,6 +49,8 @@ interface ValidatedTextInputProps
 	customValidation?:
 		| ( ( inputObject: HTMLInputElement ) => boolean )
 		| undefined;
+	// Whether validation should run when focused - only has an effect when focusOnMount is also true.
+	validateOnMount?: boolean | undefined;
 }
 
 const ValidatedTextInput = ( {
@@ -69,6 +66,7 @@ const ValidatedTextInput = ( {
 	value = '',
 	customValidation,
 	label,
+	validateOnMount = true,
 	...rest
 }: ValidatedTextInputProps ): JSX.Element => {
 	const [ isPristine, setIsPristine ] = useState( true );
@@ -169,9 +167,20 @@ const ValidatedTextInput = ( {
 		if ( focusOnMount ) {
 			inputRef.current?.focus();
 		}
-		validateInput( true );
+
+		// if validateOnMount is false, only validate input if focusOnMount is also false
+		if ( validateOnMount || ! focusOnMount ) {
+			validateInput( true );
+		}
+
 		setIsPristine( false );
-	}, [ focusOnMount, isPristine, setIsPristine, validateInput ] );
+	}, [
+		validateOnMount,
+		focusOnMount,
+		isPristine,
+		setIsPristine,
+		validateInput,
+	] );
 
 	// Remove validation errors when unmounted.
 	useEffect( () => {
