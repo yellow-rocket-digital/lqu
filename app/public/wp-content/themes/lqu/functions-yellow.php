@@ -74,7 +74,7 @@ function login_logo_url() {
 }
 add_filter( 'login_headerurl', 'login_logo_url' );
 
-function my_login_logo_url_title() {
+function login_logo_url_title() {
     return 'Luther Quintana Upholstery';
 }
 add_filter( 'login_headertext', 'login_logo_url_title' );
