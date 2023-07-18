@@ -100,9 +100,7 @@ add_filter('woocommerce_account_menu_items', function($items) {
 add_action('login_form_register', 'ui_set_registration_username');
  
 function ui_set_registration_username(){
-  //if there is anything set for user email
   if( isset($_POST['user_email']) && ! empty( $_POST['user_email'] ) ){
-    //replace login with user email
     $_POST['user_login'] = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $_POST['user_email']);
   }
 }
@@ -119,20 +117,16 @@ function ui_registration_errors($wp_error, $sanitized_user_login, $user_email){
   add_filter('gettext', 'ui_custom_string', 20, 3);
 function ui_custom_string( $translated_text, $text, $domain ) {
   if($translated_text == 'Username or Email Address'){
-    //you can add any string you want here, as a case
     return 'Email Address';
   }
  
   return $translated_text;
 }
 
-// Please edit the address and name below.
-// Change the From address.
 add_filter( 'wp_mail_from', function ( $original_email_address ) {
     return 'info@lqupholstery.com';
 } );
  
-// Change the From name.
 add_filter( 'wp_mail_from_name', function ( $original_email_from ) {
     return 'Luther Quintana Upholstery';
 } );
