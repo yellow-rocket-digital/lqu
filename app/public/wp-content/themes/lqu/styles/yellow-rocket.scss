@@ -281,6 +281,18 @@ select.yith-wapo-option-value {
       position: absolute;
       z-index: 1;
       padding: 20px;
+      background-image: url('/wp-content/themes/lqu/images/magnifying-glass.svg');
+      background-size: 24px;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      @media (min-width:$desktop) {
+         padding: 30px;
+      }
+
+      img {
+         display: none !important;
+      }
    }
 }
 
@@ -424,7 +436,7 @@ select.yith-wapo-option-value {
 
    .input-text.qty {
       padding: 4px;
-      width: 40px;
+      width: auto;
       background: transparent;
       border: 1px solid $blue01;
    }
@@ -579,7 +591,7 @@ h2 { color: $blue01; }
    .raq_status,
    .ywraq-status {
       display: initial;
-      color: $blue01;
+      color: $blue01 !important;
       font-size: inherit;
       font-style: italic;
       padding: 0;
@@ -970,10 +982,14 @@ input[type="checkbox"]:checked::before {
 
    .forminator-multi-upload-message {
       @include font-family-BaskervilleURW;
-   }
 
-   .forminator-multi-upload-message p {
-      font-size: inherit !important;
+      a {
+         font-weight: normal;
+      }
+
+      p {
+         font-size: inherit !important;
+      }
    }
 }
 
@@ -1016,6 +1032,10 @@ input[type="checkbox"]:checked::before {
 .woocommerce-loop-product__link {
    .price {
       display: none;
+   }
+
+   .quantity .input-text {
+      max-width: 100px;
    }
 }
 
@@ -1320,4 +1340,12 @@ table.sfwc_table {
    input[type="submit"] {
       @include cta-button;
    }
+}
+
+.sfwc_frontend_edit_subaccount { // edit button
+   margin-bottom: 20px;
+}
+
+.privacy-policy-page-link {
+   margin-top: 16px;
 }
