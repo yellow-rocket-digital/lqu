@@ -12,5 +12,5 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 <h1 class="mt-0">Documents</h1>
 
 <div>
-    things
+    <?= do_shortcode('[forminator_form id="2598"]'); ?>
 </div>
