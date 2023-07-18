@@ -1,0 +1,688 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Subaccounts for WooCommerce\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-29 15:51-0500\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Mediaticus\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c\n"
+"Language: en_US\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 
+msgid "Get Subaccounts Pro"
+msgstr ""
+
+#: 
+msgid "and unlock this feature!"
+msgstr ""
+
+#: 
+msgid "Subaccounts"
+msgstr ""
+
+#: 
+msgid "Select Account Type"
+msgstr ""
+
+#: 
+msgid "Manager"
+msgstr ""
+
+#: 
+msgid "Default (Regular Customer)"
+msgstr ""
+
+#: 
+msgid "Select Subaccount"
+msgstr ""
+
+#: 
+msgid "No User found matching the criteria."
+msgstr ""
+
+#: 
+msgid "Deselect All"
+msgstr ""
+
+#: 
+msgid "Subaccounts Selection Rules"
+msgstr ""
+
+#: 
+msgid "[Show Rules]"
+msgstr ""
+
+#: 
+msgid "General Rules"
+msgstr ""
+
+#: 
+msgid "Supervisor"
+msgstr ""
+
+#: 
+msgid "Default"
+msgstr ""
+
+#: 
+msgid "Supervisor Add-on"
+msgstr ""
+
+#: 
+msgid "By selecting the %1$s radio button, only users with an account type equal to %2$s will appear (%3$s must be installed and active)."
+msgstr ""
+
+#: 
+msgid "By selecting the %1$s radio button, only users with an account type equal to %2$s (regular customers) will appear."
+msgstr ""
+
+#: 
+msgid "By selecting the %1$s radio button, no user will appear as Default users cannot have subaccounts."
+msgstr ""
+
+#: 
+msgid "Display and Selection Rules"
+msgstr ""
+
+#: 
+msgid "EXCLUDED"
+msgstr ""
+
+#: 
+msgid "DISABLED"
+msgstr ""
+
+#: 
+msgid "PRE-SELECTED"
+msgstr ""
+
+#: 
+msgid "The user currently being edited is %1$s from the user list above."
+msgstr ""
+
+#: 
+msgid "The selection of users is %1$s (grayed out) when they are already set as subaccounts of other users."
+msgstr ""
+
+#: 
+msgid "The subaccount(s) of the user that is currently being edited is/are %1$s."
+msgstr ""
+
+#: 
+msgid "Subaccount settings update was unsuccessful as the following accounts do not have a Manager account type:"
+msgstr ""
+
+#: 
+msgid "Subaccount settings update was unsuccessful as the following accounts do not have a Default account type:"
+msgstr ""
+
+#: 
+msgid "Subaccount settings update was unsuccessful as the following accounts have a different role than Customer or Subscriber:"
+msgstr ""
+
+#: 
+msgid "Subaccount settings update was unsuccessful as the following accounts already have other Supervisor or Manager accounts associated with them:"
+msgstr ""
+
+#: 
+msgid "Security check failed."
+msgstr ""
+
+#: 
+msgid "There are not any users."
+msgstr ""
+
+#: 
+msgid "Only users with Customer or Subscriber role can be displyed."
+msgstr ""
+
+#: 
+msgid "Subaccounts Info"
+msgstr ""
+
+#: 
+msgid "Customer"
+msgstr ""
+
+#: 
+msgid "Account Type"
+msgstr ""
+
+#: 
+msgid "WARNING:"
+msgstr ""
+
+#: 
+msgid "%1$s This User's Account Type is set as %2$s, but the %3$s is either uninstalled or not active. You may want to install and activate the add-on or change the User's Account Type."
+msgstr ""
+
+#: 
+msgid "Manager Account"
+msgstr ""
+
+#: 
+msgid "None"
+msgstr ""
+
+#: 
+msgid "Supervisor account types cannot have Managers above them."
+msgstr ""
+
+#: 
+msgid "Supervisor Account"
+msgstr ""
+
+#: 
+msgid "Supervisor account types cannot have Supervisors above them."
+msgstr ""
+
+#: 
+msgid "Manager account types cannot have Managers above them."
+msgstr ""
+
+#: 
+msgid "Not set"
+msgstr ""
+
+#: 
+msgid "No Manager has been set yet."
+msgstr ""
+
+#: 
+msgid "No data available for this order."
+msgstr ""
+
+#: 
+msgid "Subaccounts Options Page"
+msgstr ""
+
+#: 
+msgid "Get More Features"
+msgstr ""
+
+#: 
+msgid "Frontend User Switcher Pane Appearance"
+msgstr ""
+
+#: 
+msgid "Background Color:"
+msgstr ""
+
+#: 
+msgid "Headline Color:"
+msgstr ""
+
+#: 
+msgid "Text Color:"
+msgstr ""
+
+#: 
+msgid "Button Background Color:"
+msgstr ""
+
+#: 
+msgid "Button Text Color:"
+msgstr ""
+
+#: 
+msgid "Options"
+msgstr ""
+
+#: 
+msgid "Show Customer\'s Manager and Supervisor information on WooCommerce Order Page (Admin area)."
+msgstr ""
+
+#: 
+msgid "You may need to enable this under 'Screen Options' too."
+msgstr ""
+
+#: 
+msgid "Incorrect value entered for: Background Color."
+msgstr ""
+
+#: 
+msgid "Incorrect value entered for: Headline Color."
+msgstr ""
+
+#: 
+msgid "Incorrect value entered for: Text Color."
+msgstr ""
+
+#: 
+msgid "Incorrect value entered for: Button Background Color."
+msgstr ""
+
+#: 
+msgid "Incorrect value entered for: Button Text Color."
+msgstr ""
+
+#: 
+msgid "Settings Saved."
+msgstr ""
+
+#: 
+msgid "Subaccounts for WooCommerce"
+msgstr ""
+
+#: 
+msgid "Settings Page"
+msgstr ""
+
+#: 
+msgid "On this page you can configure the Subaccounts plugin settings."
+msgstr ""
+
+#: 
+msgid "Appearance"
+msgstr ""
+
+#: 
+msgid "User Switcher Pane Preview"
+msgstr ""
+
+#: 
+msgid "User Switcher Pane"
+msgstr ""
+
+#: 
+msgid "My Account"
+msgstr ""
+
+#: 
+msgid "This is the preview of the %1$s, which is visible in the %2$s area only for Manager account types. In case the %3$s is installed, the User Switcher Pane is also visible for Supervisor account types."
+msgstr ""
+
+#: 
+msgid "You are currently logged in as:"
+msgstr ""
+
+#: 
+msgid "User:"
+msgstr ""
+
+#: 
+msgid "Select Account"
+msgstr ""
+
+#: 
+msgid "[Restore default color scheme]"
+msgstr ""
+
+#: 
+msgid "Add 'Account Type' and 'Parent Accounts' columns to WooCommerce orders list page in WordPress admin area."
+msgstr ""
+
+#: 
+msgid "[Premium Feature]"
+msgstr ""
+
+#: 
+msgid "This feature is only available on Subaccounts Pro"
+msgstr ""
+
+#: 
+msgid "Show subaccounts information on WordPress users list page"
+msgstr ""
+
+#: 
+msgid "Add 'Account Type', 'Subaccounts' and 'Parent Accounts' columns to the users list page in WordPress admin area."
+msgstr ""
+
+#: 
+msgid "Add subaccounts information to new order emails"
+msgstr ""
+
+#: 
+msgid "Show customer's Manager and Supervisor information in new order emails."
+msgstr ""
+
+#: 
+msgid "No"
+msgstr ""
+
+#: 
+msgid "For Admin Only"
+msgstr ""
+
+#: 
+msgid "For Customer Only"
+msgstr ""
+
+#: 
+msgid "For both Admin and Customer"
+msgstr ""
+
+#: 
+msgid "Customer Display Name"
+msgstr ""
+
+#: 
+msgid "Set Customer's Display Name across the Subaccounts Plugin."
+msgstr ""
+
+#: 
+msgid "Username + Email"
+msgstr ""
+
+#: 
+msgid "Example:"
+msgstr ""
+
+#: 
+msgid "Full Name + Email"
+msgstr ""
+
+#: 
+msgid "If neither the First Name nor Last Name have been set, the customer's Username will be shown as a fallback."
+msgstr ""
+
+#: 
+msgid "Company + Email"
+msgstr ""
+
+#: 
+msgid "If no Company Name has been set, the customer's Username will be shown as a fallback."
+msgstr ""
+
+#: 
+msgid "Full Name: "
+msgstr ""
+
+#: 
+msgid "Company: "
+msgstr ""
+
+#: 
+msgid "Username: "
+msgstr ""
+
+#: 
+msgid "Username"
+msgstr ""
+
+#: 
+msgid "First Name"
+msgstr ""
+
+#: 
+msgid "Last Name"
+msgstr ""
+
+#: 
+msgid "Company"
+msgstr ""
+
+#: 
+msgid "Email"
+msgstr ""
+
+#: 
+msgid "Username is required."
+msgstr ""
+
+#: 
+msgid "Username is not valid."
+msgstr ""
+
+#: 
+msgid "Email is required."
+msgstr ""
+
+#: 
+msgid "Email is not valid."
+msgstr ""
+
+#: 
+msgid "Nonce could not be verified."
+msgstr ""
+
+#: 
+msgid "You can now switch to the newly added subaccount by selecting it from the drop-down menu."
+msgstr ""
+
+#: 
+msgid "An email containing the username and a link to set the password will be sent to the new account after the subaccount is created."
+msgstr ""
+
+#: 
+msgid "An email containing the username and a link to set the password has been sent to the new user."
+msgstr ""
+
+#: 
+msgid "Your session has most likely timed out. You can try reloading the page or logging in again."
+msgstr ""
+
+#: 
+msgid "Login Again"
+msgstr ""
+
+#: 
+msgid "Back to Supervisor"
+msgstr ""
+
+#: 
+msgid "Back to Manager"
+msgstr ""
+
+#: 
+msgid "You are not authorized to access the chosen account."
+msgstr ""
+
+#: 
+msgid "Incorrect data sent."
+msgstr ""
+
+#: 
+msgid "Parent Accounts"
+msgstr ""
+
+#: 
+msgid "No data available"
+msgstr ""
+
+#: 
+msgid "Supervisor Add-on is currently not active."
+msgstr ""
+
+#: 
+msgid "Filter"
+msgstr ""
+
+#: 
+msgid "Incorrect value entered for: Choose who can create and add new subaccounts."
+msgstr ""
+
+#: 
+msgid "Incorrect value entered for: Add subaccounts information to new order emails."
+msgstr ""
+
+#: 
+msgid "Incorrect value entered for: Customer Display Name."
+msgstr ""
+
+#: 
+msgid "No Supervisor has been set yet."
+msgstr ""
+
+
+
+
+
+
+
+
+
+
+
+
+#: 
+msgid "Choose who can create and add new subaccounts"
+msgstr ""
+
+#: 
+msgid "Admin Only"
+msgstr ""
+
+#: 
+msgid "Customers Only"
+msgstr ""
+
+#: 
+msgid "Both Admin and Customers"
+msgstr ""
+
+#: 
+msgid "Important:"
+msgstr ""
+
+#: 
+msgid "Add Subaccount"
+msgstr ""
+
+
+#: 
+msgid "Settings"
+msgstr ""
+
+#: 
+msgid "Permalinks"
+msgstr ""
+
+#: 
+msgid "Save Changes"
+msgstr ""
+
+#: 
+msgid "%1$s in case the %2$s menu item is not shown on the %3$s page, please update the WordPress permalinks structure by going to: %4$s and clicking %5$s."
+msgstr ""							
+
+#: 
+msgid "Show subaccounts information on WooCommerce order page"
+msgstr ""
+
+#: 
+msgid "Show subaccounts information on WooCommerce orders list page"
+msgstr ""
+
+#: 
+msgid "Order placed by"
+msgstr ""
+
+#: 
+msgid "for himself"
+msgstr ""
+
+#: 
+msgid "on behalf of"
+msgstr ""
+
+#: 
+msgid "No user id defined."
+msgstr ""
+
+#: 
+msgid "These fields are required."
+msgstr ""
+
+#: 
+msgid "Subaccount successfully added."
+msgstr ""
+
+#: 
+msgid "No information available"
+msgstr ""
+
+#: 
+msgid "Maximum number of subaccounts already reached for %1$s. Please contact the site administrator and ask to increase this value."
+msgstr ""
+
+#: 
+msgid "%1$s must be installed and activated in order to use %2$s."
+msgstr ""
+
+#: 
+msgid "Required by %s"
+msgstr ""
+
+#: 
+msgid "Subaccounts for WooCommerce allows the creation of subaccounts for your WooCommerce customers and subscribers."
+msgstr ""
+
+#: 
+msgid "Subaccounts Pro extends the Subaccounts for WooCommerce plugin by adding premium features and unlocking additional settings."
+msgstr ""
+
+#: 
+msgid "Subaccounts Supervisor add-on allows you to set a parent account (Supervisor) over a Manager account type."
+msgstr ""
+
+#: 
+msgid "%1$s This Order was placed by a %2$s account type, but the %3$s is either uninstalled or not active. You may want to install and activate the add-on."
+msgstr ""
+
+#: 
+msgid "No information yet available"
+msgstr ""
+
+#: 
+msgid "This information will be available after the customer has paid for the order."
+msgstr ""
+
+#: 
+msgid "This order was probably marked by the administrator as Completed or Processing."
+msgstr ""
+
+#: 
+msgid "%1$s make sure email notifications are properly set and enabled in: %2$s."
+msgstr ""
+
+#: 
+msgid "View"
+msgstr ""
+
+#: 
+msgid "Subaccount Orders"
+msgstr ""
+
+#: 
+msgid "I got it"
+msgstr ""
+
+#: 
+msgid "Permalink Settings update required"
+msgstr ""
+
+#: 
+msgid "%1$s: please update the WordPress permalink structure by going to: %2$s and clicking %3$s."
+msgstr ""
+
+#: 
+msgid "%1$s notice could not be dismissed due to nonce verification failure."
+msgstr ""
+
+#: 
+msgid "You are not allowed to view this order."
+msgstr ""
+
+#: 
+msgid "Selected order does not exist."
+msgstr ""
+
+#: 
+msgid "Emails"
+msgstr ""
+
+#: 
+msgid "Show"
+msgstr ""

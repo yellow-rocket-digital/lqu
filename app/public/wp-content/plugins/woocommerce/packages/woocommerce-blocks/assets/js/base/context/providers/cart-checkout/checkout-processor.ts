@@ -14,7 +14,7 @@ import {
 	emptyHiddenAddressFields,
 	removeAllNotices,
 } from '@woocommerce/base-utils';
-import { useDispatch, useSelect } from '@wordpress/data';
+import { useDispatch, useSelect, select as selectStore } from '@wordpress/data';
 import {
 	CHECKOUT_STORE_KEY,
 	PAYMENT_STORE_KEY,
@@ -47,7 +47,7 @@ import { useStoreCart } from '../../hooks/cart/use-store-cart';
  * Subscribes to checkout context and triggers processing via the API.
  */
 const CheckoutProcessor = () => {
-	const { onCheckoutValidationBeforeProcessing } = useCheckoutEventsContext();
+	const { onCheckoutValidation } = useCheckoutEventsContext();
 
 	const {
 		hasError: checkoutHasError,
@@ -160,6 +160,19 @@ const CheckoutProcessor = () => {
 
 	const checkValidation = useCallback( () => {
 		if ( hasValidationErrors() ) {
+			// If there is a shipping rates validation error, return the error message to be displayed.
+			if (
+				selectStore( VALIDATION_STORE_KEY ).getValidationError(
+					'shipping-rates-error'
+				) !== undefined
+			) {
+				return {
+					errorMessage: __(
+						'Sorry, this order requires a shipping option.',
+						'woo-gutenberg-products-block'
+					),
+				};
+			}
 			return false;
 		}
 		if ( hasPaymentError ) {
@@ -188,10 +201,7 @@ const CheckoutProcessor = () => {
 	useEffect( () => {
 		let unsubscribeProcessing: () => void;
 		if ( ! isExpressPaymentMethodActive ) {
-			unsubscribeProcessing = onCheckoutValidationBeforeProcessing(
-				checkValidation,
-				0
-			);
+			unsubscribeProcessing = onCheckoutValidation( checkValidation, 0 );
 		}
 		return () => {
 			if (
@@ -202,7 +212,7 @@ const CheckoutProcessor = () => {
 			}
 		};
 	}, [
-		onCheckoutValidationBeforeProcessing,
+		onCheckoutValidation,
 		checkValidation,
 		isExpressPaymentMethodActive,
 	] );

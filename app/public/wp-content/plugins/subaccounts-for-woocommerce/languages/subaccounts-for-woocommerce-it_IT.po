@@ -1,0 +1,511 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Subaccounts for WooCommerce\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-29 15:51-0500\n"
+"PO-Revision-Date: 2023-06-27 10:15+0200\n"
+"Last-Translator: Mediaticus\n"
+"Language-Team: \n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+msgid "Get Subaccounts Pro"
+msgstr "Ottieni Subaccounts Pro"
+
+msgid "and unlock this feature!"
+msgstr "e sblocca questa funzionalità!"
+
+msgid "Subaccounts"
+msgstr "Subaccount"
+
+msgid "Select Account Type"
+msgstr "Scegli tipologia account"
+
+msgid "Manager"
+msgstr "Responsabile"
+
+msgid "Default (Regular Customer)"
+msgstr "Predefinito (cliente regolare)"
+
+msgid "Select Subaccount"
+msgstr "Selezione subaccount"
+
+msgid "No User found matching the criteria."
+msgstr "Non è stato trovato nessun utente valido."
+
+msgid "Deselect All"
+msgstr "Deseleziona tutto"
+
+msgid "Subaccounts Selection Rules"
+msgstr "Regole per la selezione dei subaccount"
+
+msgid "[Show Rules]"
+msgstr "[Mostra le regole]"
+
+msgid "General Rules"
+msgstr "Regole generali"
+
+msgid "Supervisor"
+msgstr "Supervisore"
+
+msgid "Default"
+msgstr "Predefinito"
+
+msgid "Supervisor Add-on"
+msgstr "Supervisor Add-on"
+
+msgid "By selecting the %1$s radio button, only users with an account type equal to %2$s will appear (%3$s must be installed and active)."
+msgstr "Selezionando il bottone radio %1$s, verranno mostrati solo gli utenti con tipologia di account uguale a %2$s (%3$s deve essere installato e attivo)."
+
+msgid "By selecting the %1$s radio button, only users with an account type equal to %2$s (regular customers) will appear."
+msgstr "Selezionando il bottone radio %1$s, verranno mostrati solo gli utenti con tipologia di account uguale a %2$s (account clienti regolari)."
+
+msgid "By selecting the %1$s radio button, no user will appear as Default users cannot have subaccounts."
+msgstr "Selezionando il bottone radio %1$s, non verrà mostrato nessun utente in quanto gli utenti Predefiniti non possono avere subaccount."
+
+msgid "Display and Selection Rules"
+msgstr "Regole per la selezione dei subaccount"
+
+msgid "EXCLUDED"
+msgstr "ESCLUSO"
+
+msgid "DISABLED"
+msgstr "DISABILITATA"
+
+msgid "PRE-SELECTED"
+msgstr "PRE-SELEZIONATO/I"
+
+msgid "The user currently being edited is %1$s from the user list above."
+msgstr "L'utente che si sta editando è %1$s dalla lista utenti di cui sopra."
+
+msgid "The selection of users is %1$s (grayed out) when they are already set as subaccounts of other users."
+msgstr "La selezione degli utenti che sono già impostati come subaccount di altri utenti è %1$s."
+
+msgid "The subaccount(s) of the user that is currently being edited is/are %1$s."
+msgstr "Il/i subaccount dell'utente che si sta attualmente modificando è/sono %1$s."
+
+msgid "Subaccount settings update was unsuccessful as the following accounts do not have a Manager account type:"
+msgstr "L'aggiornamento delle impostazioni relative ai subaccount non è andato a buon fine in quanto i seguenti account non hanno una tipologia di account uguale a Manager:"
+
+msgid "Subaccount settings update was unsuccessful as the following accounts do not have a Default account type:"
+msgstr "L'aggiornamento delle impostazioni relative ai subaccount non è andato a buon fine in quanto i seguenti account non hanno una tipologia di account uguale a Predefinito:"
+
+msgid "Subaccount settings update was unsuccessful as the following accounts have a different role than Customer or Subscriber:"
+msgstr "L'aggiornamento delle impostazioni relative ai subaccount non è andato a buon fine in quanto i seguenti account hanno un ruolo diverso da Cliente o Sottoscrittore:"
+
+msgid "Subaccount settings update was unsuccessful as the following accounts already have other Supervisor or Manager accounts associated with them:"
+msgstr "L'aggiornamento delle impostazioni relative ai subaccount non è andato a buon fine in quanto i seguenti account hanno già altri utenti Supervisori o Responsabili a loro associati:"
+
+msgid "Security check failed."
+msgstr "Controllo di sicurezza fallito."
+
+msgid "There are not any users."
+msgstr "Non sono presenti utenti."
+
+msgid "Only users with Customer or Subscriber role can be displyed."
+msgstr "Solo gli utenti con ruolo di Cliente o Sottoscrittore possono essere visualizzati."
+
+msgid "Subaccounts Info"
+msgstr "Subaccounts Info"
+
+msgid "Customer"
+msgstr "Cliente"
+
+msgid "Account Type"
+msgstr "Tipo di account"
+
+msgid "WARNING:"
+msgstr "AVVISO:"
+
+msgid "%1$s This User's Account Type is set as %2$s, but the %3$s is either uninstalled or not active. You may want to install and activate the add-on or change the User's Account Type."
+msgstr "%1$s Il tipo di account di questo utente è impostato come %2$s, ma %3$s è disinstallato o non attivo. Potresti voler installare e attivare l'add-on o modificare il tipo di account di questo utente."
+
+msgid "Manager Account"
+msgstr "Account Responsabile"
+
+msgid "None"
+msgstr "Nessuno"
+
+msgid "Supervisor account types cannot have Managers above them."
+msgstr "Le tipologie di account Supervisore non possono avere Responsabili sopra di loro."
+
+msgid "Supervisor Account"
+msgstr "Account Supervisore"
+
+msgid "Supervisor account types cannot have Supervisors above them."
+msgstr "Le tipologie di account Supervisore non possono avere altri Supervisori sopra di loro."
+
+msgid "Manager account types cannot have Managers above them."
+msgstr "Le tipologie di account Responsabile non possono avere altri Responsabili sopra di loro."
+
+msgid "Not set"
+msgstr "Non impostato"
+
+msgid "No Manager has been set yet."
+msgstr "Nessun Responsabile è stato ancora impostato."
+
+msgid "No data available for this order."
+msgstr "Nessun dato disponibile per questo ordine."
+
+msgid "Subaccounts Options Page"
+msgstr "Pagina delle opzioni di Subaccounts"
+
+msgid "Get More Features"
+msgstr "Ottieni più funzionalità"
+
+msgid "Frontend User Switcher Pane Appearance"
+msgstr "Aspetto del riquadro per lo switch dell'utente"
+
+msgid "Background Color:"
+msgstr "Colore di sfondo:"
+
+msgid "Headline Color:"
+msgstr "Colore del titolo:"
+
+msgid "Text Color:"
+msgstr "Colore del testo:"
+
+msgid "Button Background Color:"
+msgstr "Colore di sfondo del bottone:"
+
+msgid "Button Text Color:"
+msgstr "Colore del testo del bottone:"
+
+msgid "Options"
+msgstr "Opzioni"
+
+msgid "Show Customer's Manager and Supervisor information on WooCommerce Order Page (Admin area)."
+msgstr "Mostra le informazioni sul Responsabile e sul Supervisore relative al cliente nella pagina dell'ordine di WooCommerce (area amministrativa)."
+
+msgid "You may need to enable this under 'Screen Options' too."
+msgstr "Potrebbe essere necessario abilitarne la visualizzazione anche in 'Impostazioni schermata'."
+
+msgid "Incorrect value entered for: Background Color."
+msgstr "Valore non corretto settato per: Colore di sfondo."
+
+msgid "Incorrect value entered for: Headline Color."
+msgstr "Valore non corretto settato per: Colore del titolo."
+
+msgid "Incorrect value entered for: Text Color."
+msgstr "Valore non corretto settato per: Colore del testo."
+
+msgid "Incorrect value entered for: Button Background Color."
+msgstr "Valore non corretto settato per: Colore di sfondo del bottone."
+
+msgid "Incorrect value entered for: Button Text Color."
+msgstr "Valore non corretto settato per: Colore del testo del bottone."
+
+msgid "Settings Saved."
+msgstr "Impostazioni salvate."
+
+msgid "Subaccounts for WooCommerce"
+msgstr "Subaccounts for WooCommerce"
+
+msgid "Settings Page"
+msgstr "Impostazioni"
+
+msgid "On this page you can configure the Subaccounts plugin settings."
+msgstr "In questa pagina puoi configurare le impostazioni del plugin Subaccounts."
+
+msgid "Appearance"
+msgstr "Aspetto"
+
+msgid "User Switcher Pane Preview"
+msgstr "Anteprima del riquadro per lo switch dell'utente"
+
+msgid "User Switcher Pane"
+msgstr "Riquadro per lo switch dell'utente"
+
+msgid "My Account"
+msgstr "Mio account"
+
+msgid "This is the preview of the %1$s, which is visible in the %2$s area only for Manager account types. In case the %3$s is installed, the User Switcher Pane is also visible for Supervisor account types."
+msgstr "Questa è l'anteprima del %1$s, che è visibile nell'area %2$s solo per le tipologie di account Responsabile. In caso sia installato anche %3$s, il riquadro per lo switch dell'utente è visibile anche per le tipologie di account Supervisore."
+
+msgid "You are currently logged in as:"
+msgstr "Sei attualmente loggato come:"
+
+msgid "User:"
+msgstr "Utente:"
+
+msgid "Select Account"
+msgstr "Selezione account"
+
+msgid "[Restore default color scheme]"
+msgstr "[Ripristina i colori di default]"
+
+msgid "Add 'Account Type' and 'Parent Accounts' columns to WooCommerce orders list page in WordPress admin area."
+msgstr "Mostra le colonne 'Tipo account' e 'Account superiori' nella pagina della lista degli ordini di WooCommerce nell'area amministrativa di WordPress."
+
+msgid "[Premium Feature]"
+msgstr "[Funzionalità premium]"
+
+msgid "This feature is only available on Subaccounts Pro"
+msgstr "Questa funzionalità è disponibile solo in Subaccounts Pro"
+
+msgid "Show subaccounts information on WordPress users list page"
+msgstr "Mostra le informazioni relative ai subaccount nella pagina della lista utenti di WordPress"
+
+msgid "Add 'Account Type', 'Subaccounts' and 'Parent Accounts' columns to the users list page in WordPress admin area."
+msgstr "Aggiungi le colonne 'Tipo account', 'Subaccount' e 'Account superiori' nella pagina della lista utenti nell'area amministrativa di WordPress."
+
+msgid "Add subaccounts information to new order emails"
+msgstr "Aggiungi le informazioni relative ai subaccount nelle email di conferma ricezione nuovo ordine"
+
+msgid "Show customer's Manager and Supervisor information in new order emails."
+msgstr "Mostra le informazioni sul Responsabile e sul Supervisore relative al cliente nelle email dei nuovi ordini."
+
+msgid "No"
+msgstr "No"
+
+msgid "For Admin Only"
+msgstr "Solo per l'amministratore"
+
+msgid "For Customer Only"
+msgstr "Solo per il cliente"
+
+msgid "For both Admin and Customer"
+msgstr "Sia per l'amministratore che per il cliente"
+
+msgid "Customer Display Name"
+msgstr "Visualizzazione nome cliente"
+
+msgid "Set Customer's Display Name across the Subaccounts Plugin."
+msgstr "Imposta il formato di visualizzazione del nome del cliente per il plugin Subaccounts."
+
+msgid "Username + Email"
+msgstr "Username + Email"
+
+msgid "Example:"
+msgstr "Esempio:"
+
+msgid "Full Name + Email"
+msgstr "Nome e cognome + Email"
+
+msgid "If neither the First Name nor Last Name have been set, the customer's Username will be shown as a fallback."
+msgstr "Nel caso in cui né il nome e né il cognome sia stato impostato, verrà mostrato l'username del cliente."
+
+msgid "Company + Email"
+msgstr "Azienda + Email"
+
+msgid "If no Company Name has been set, the customer's Username will be shown as a fallback."
+msgstr "Nel caso in cui il nome dell'azienda non sia stato impostato, verrà mostrato l'username del cliente."
+
+msgid "Full Name: "
+msgstr "Nome completo: "
+
+msgid "Company: "
+msgstr "Azienda: "
+
+msgid "Username: "
+msgstr "Username: "
+
+msgid "Username"
+msgstr "Nome utente"
+
+msgid "First Name"
+msgstr "Nome"
+
+msgid "Last Name"
+msgstr "Cognome"
+
+msgid "Company"
+msgstr "Azienda"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Username is required."
+msgstr "Il campo Nome utente è obbligatorio."
+
+msgid "Username is not valid."
+msgstr "Il campo Nome utente non è valido."
+
+msgid "Email is required."
+msgstr "Il campo Email è obbligatorio."
+
+msgid "Email is not valid."
+msgstr "Il campo Email non è valido."
+
+msgid "Nonce could not be verified."
+msgstr "Non è stato possibile verificare il Nonce."
+
+msgid "You can now switch to the newly added subaccount by selecting it from the drop-down menu."
+msgstr "Puoi adesso effettuare il passaggio al subaccount appena creato selezionandolo dal menu a tendina."
+
+msgid "An email containing the username and a link to set the password will be sent to the new account after the subaccount is created."
+msgstr "Un'email contenente il nome utente e un link per impostare la password verrà inviata al nuovo utente dopo che il subaccount sarà stato creato."
+
+msgid "An email containing the username and a link to set the password has been sent to the new user."
+msgstr "Un'email contenente il nome utente e un link per impostare la password è stata inviata al nuovo utente."
+
+msgid "Your session has most likely timed out. You can try reloading the page or logging in again."
+msgstr "La sessione sembra essere scaduta. Puoi provare a ricaricare la pagina o ad effettuare nuovamente il login."
+
+msgid "Login Again"
+msgstr "Effettua il login"
+
+msgid "Back to Supervisor"
+msgstr "Torna al Supervisore"
+
+msgid "Back to Manager"
+msgstr "Torna al Responsabile"
+
+msgid "You are not authorized to access the chosen account."
+msgstr "Non si dispone delle autorizzazioni necessarie per accedere all'account scelto."
+
+msgid "Incorrect data sent."
+msgstr "Dati inviati non corretti."
+
+msgid "Parent Accounts"
+msgstr "Account superiori"
+
+msgid "No data available"
+msgstr "Nessun dato disponibile"
+
+msgid "Supervisor Add-on is currently not active."
+msgstr "Supervisor Add-on al momento non risulta essere attivo."
+
+msgid "Filter"
+msgstr "Filtra"
+
+msgid "Incorrect value entered for: Choose who can create and add new subaccounts."
+msgstr "Valore non corretto settato per: Scegli chi può creare ed aggiungere nuovi subaccount."
+
+msgid "Incorrect value entered for: Add subaccounts information to new order emails."
+msgstr "Valore non corretto settato per: Aggiungi le informazioni relative ai subaccount nelle email di conferma ricezione nuovo ordine."
+
+msgid "Incorrect value entered for: Customer Display Name."
+msgstr "Valore non corretto settato per: Visualizzazione nome cliente."
+
+msgid "No Supervisor has been set yet."
+msgstr "Nessun Supervisore ancora impostato."
+
+msgid "Choose who can create and add new subaccounts"
+msgstr "Scegli chi può creare ed aggiungere nuovi subaccount"
+
+msgid "Admin Only"
+msgstr "Solo l'amministratore"
+
+msgid "Customers Only"
+msgstr "Solo i clienti"
+
+msgid "Both Admin and Customers"
+msgstr "Sia l'amministratore che i clienti"
+
+msgid "Important:"
+msgstr "Importante:"
+
+msgid "Add Subaccount"
+msgstr "Aggiungi subaccount"
+
+msgid "Settings"
+msgstr "Impostazioni"
+
+msgid "Permalinks"
+msgstr "Permalink"
+
+msgid "Save Changes"
+msgstr "Salva le modifiche"
+
+msgid "%1$s in case the %2$s menu item is not shown on the %3$s page, please update the WordPress permalinks structure by going to: %4$s and clicking %5$s."
+msgstr "%1$s in caso la voce di menu %2$s non fosse visibile nella pagina %3$s, si prega di aggiornare la struttura dei permalink di WordPress, andando in: %4$s e facendo clic su %5$s."
+
+msgid "Show subaccounts information on WooCommerce order page"
+msgstr "Mostra le informazioni relative ai subaccount nella pagina dell'ordine di WooCommerce"
+
+msgid "Show subaccounts information on WooCommerce orders list page"
+msgstr "Mostra le informazioni relative ai subaccount nella pagina della lista ordini di WooCommerce"
+
+msgid "Order placed by"
+msgstr "Ordine piazzato da"
+
+msgid "for himself"
+msgstr "per sé stesso"
+
+msgid "on behalf of"
+msgstr "per conto di"
+
+msgid "No user id defined."
+msgstr "Nessun ID utente definito."
+
+msgid "These fields are required."
+msgstr "La coompilazione di questi campi è obbligatoria."
+
+msgid "Subaccount successfully added."
+msgstr "Subaccount aggiunto correttamente."
+
+msgid "No information available"
+msgstr "Nessuna informazione disponibile"
+
+msgid "Maximum number of subaccounts already reached for %1$s. Please contact the site administrator and ask to increase this value."
+msgstr "Numero massimo di subaccount già raggiunto per %1$s. Si prega di contattare l'amministratore del sito e chiedere di aumentare tale valore."
+
+msgid "%1$s must be installed and activated in order to use %2$s."
+msgstr "%1$s deve essere installato e attivo per poter utilizzare %2$s."
+
+msgid "Required by %s"
+msgstr "Necessario per il funzionamento di %s"
+
+msgid "Subaccounts for WooCommerce allows the creation of subaccounts for your WooCommerce customers and subscribers."
+msgstr "Subaccounts for WooCommerce permette la creazione di subaccount per i tuoi clienti e abbonati WooCommerce."
+
+msgid "Subaccounts Pro extends the Subaccounts for WooCommerce plugin by adding premium features and unlocking additional settings."
+msgstr "Subaccounts Pro estende il plugin Subaccounts for WooCommerce aggiungendo funzionalità premium e sbloccando impostazioni aggiuntive."
+
+msgid "Subaccounts Supervisor add-on allows you to set a parent account (Supervisor) over a Manager account type."
+msgstr "Subaccounts Supervisor add-on permette l'aggiunta di un utente superiore (Supervisore) al di sopra di una tipologia di account Manager."
+
+msgid "%1$s This Order was placed by a %2$s account type, but the %3$s is either uninstalled or not active. You may want to install and activate the add-on."
+msgstr "%1$s Questo ordine è stato piazzato da un tipo di account %2$s, ma %3$s è disinstallato o non attivo. Potresti voler installare e attivare l'add-on."
+
+msgid "No information yet available"
+msgstr "Nessuna informazione ancora disponibile"
+
+msgid "This information will be available after the customer has paid for the order."
+msgstr "Queste informazioni saranno disponibili dopo che il cliente avrà pagato l'ordine."
+
+msgid "This order was probably marked by the administrator as Completed or Processing."
+msgstr "Questo ordine è stato probabilmente contrassegnato dall'amministratore come Completato o In lavorazione."
+
+msgid "%1$s make sure email notifications are properly set and enabled in: %2$s."
+msgstr "%1$s assicurati che le notifiche email siano correttamente configurate e abilitate in: %2$s."
+
+msgid "View"
+msgstr "Visualizza"
+
+msgid "Subaccount Orders"
+msgstr "Ordini subaccount"
+
+msgid "I got it"
+msgstr "Ho capito"
+
+msgid "Permalink Settings update required"
+msgstr "È necessario aggiornare le impostazioni dei permalink"
+
+msgid "%1$s: please update the WordPress permalink structure by going to: %2$s and clicking %3$s."
+msgstr "%1$s: si prega di aggiornare la struttura dei permalink di WordPress, andando in: %2$s e facendo clic su %3$s."
+
+msgid "%1$s notice could not be dismissed due to nonce verification failure."
+msgstr "%1$s non è stato possibile disattivare l'avviso a causa del fallimento della verifica del nonce."
+
+msgid "You are not allowed to view this order."
+msgstr "Non sei autorizzato a visualizzare questo ordine."
+
+msgid "Selected order does not exist."
+msgstr "L'ordine selezionato non esiste."
+
+msgid "Emails"
+msgstr "Email"
+
+msgid "Show"
+msgstr "Mostra"

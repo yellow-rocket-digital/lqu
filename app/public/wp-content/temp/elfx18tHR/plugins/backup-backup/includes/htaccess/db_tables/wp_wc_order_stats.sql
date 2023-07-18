@@ -1,7 +1,0 @@
-/* CUSTOM VARS START */
-/* REAL_TABLE_NAME: `wp_wc_order_stats`; */
-/* PRE_TABLE_NAME: `1668940036_wp_wc_order_stats`; */
-/* CUSTOM VARS END */
-
-CREATE TABLE IF NOT EXISTS `1668940036_wp_wc_order_stats` ( `order_id` bigint(20) unsigned NOT NULL, `parent_id` bigint(20) unsigned NOT NULL DEFAULT '0', `date_created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00', `date_created_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00', `num_items_sold` int(11) NOT NULL DEFAULT '0', `total_sales` double NOT NULL DEFAULT '0', `tax_total` double NOT NULL DEFAULT '0', `shipping_total` double NOT NULL DEFAULT '0', `net_total` double NOT NULL DEFAULT '0', `returning_customer` tinyint(1) DEFAULT NULL, `status` varchar(200) COLLATE utf8mb4_unicode_520_ci NOT NULL, `customer_id` bigint(20) unsigned NOT NULL, PRIMARY KEY (`order_id`), KEY `date_created` (`date_created`), KEY `customer_id` (`customer_id`), KEY `status` (`status`(191))) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-INSERT INTO `1668940036_wp_wc_order_stats` (`order_id`, `parent_id`, `date_created`, `date_created_gmt`, `num_items_sold`, `total_sales`, `tax_total`, `shipping_total`, `net_total`, `returning_customer`, `status`, `customer_id`) VALUES (2222,0,'2022-11-04 00:29:28','2022-11-04 04:29:28',1,100,0,0,100,0,'wc-completed',2),(2248,0,'2022-11-04 03:14:42','2022-11-04 07:14:42',1,100,0,0,100,1,'wc-pending',2),(2342,0,'2022-11-11 14:10:25','2022-11-11 19:10:25',1,100,0,0,100,1,'wc-ywraq-new',2);

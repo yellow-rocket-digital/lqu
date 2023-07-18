@@ -1,14 +1,14 @@
 === WooCommerce ===
 Contributors: automattic, mikejolley, jameskoster, claudiosanches, rodrigosprimo, peterfabian1000, vedjain, jamosova, obliviousharmony, konamiman, sadowski, wpmuguru, royho, barryhughes-1
 Tags: online store, ecommerce, shop, shopping cart, sell online, storefront, checkout, payments, woo, woo commerce, e-commerce, store
-Requires at least: 5.9
-Tested up to: 6.1
-Requires PHP: 7.2
-Stable tag: 7.5.1
+Requires at least: 6.1
+Tested up to: 6.2
+Requires PHP: 7.3
+Stable tag: 7.8.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-WooCommerce is the world’s most popular open-source eCommerce solution.
+Everything you need to launch an online store in days and keep it growing for years. From your first sale to millions in revenue, Woo is with you.
 
 == Description ==
 
@@ -163,12 +163,11 @@ WooCommerce comes with some sample data you can use to see how products look; im
 
 == Changelog ==
 
-= 7.5.1 2023-03-21 =
+= 7.8.2 2023-07-04 =
 
 **WooCommerce**
 
-* Fix - Fix no enforcing of min/max limits in quantity selector of variable products. [#36871](https://github.com/woocommerce/woocommerce/pull/36871)
-* Dev - Update column definitions with synonymous types to prevent dbDelta from trying to ALTER them on each install. [#37277](https://github.com/woocommerce/woocommerce/pull/37277)
-* Update - Update WooCommerce Blocks to 9.6.6. [#37298](https://github.com/woocommerce/woocommerce/pull/37298)
+* Fix - Add missing require for a wc-admin helper function. [#39030](https://github.com/woocommerce/woocommerce/pull/39030)
+
 
 [See changelog for all versions](https://raw.githubusercontent.com/woocommerce/woocommerce/trunk/changelog.txt).

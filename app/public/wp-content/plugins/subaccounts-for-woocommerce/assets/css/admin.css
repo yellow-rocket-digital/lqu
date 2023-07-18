@@ -1,0 +1,293 @@
+.wp-admin #sub_accounts_settings_options_tab *[disabled],
+.wp-admin select#sfwc_children *[disabled] {
+  cursor: not-allowed;
+}
+
+
+/**
+ * Backend Settings > Options Tab
+ */
+
+.wp-admin #sub_accounts_settings_options_tab .form-table td {
+    line-height: 2;
+}
+
+/**
+ * Backend Settings > Appearance Tab
+ */
+ 
+.wp-admin #sub_accounts_settings_appearance_tab_left {
+	margin-bottom: 50px;
+}
+ 
+.wp-admin #sfwc-user-switcher-pane {
+	margin: 10px 0;
+	padding: 20px;
+	background-color: #def6ff;
+	margin-right: 10px;
+	box-shadow: 0 4px 18px rgb(9 30 66 / 15%);
+}
+
+.wp-admin #sfwc-user-switcher-pane h3 {
+	margin: 10px 0;
+	font-size: 17px;
+	font-weight: bold;
+	color:#0088cc;
+}
+
+.wp-admin #sfwc-user-switcher-pane p {
+	margin: 0;
+	font-size: 16px;
+	color: #3b3b3b;
+	line-height: 24px;
+}
+
+.wp-admin #sfwc-user-switcher-pane form {
+	margin: 20px auto 0 auto;
+}
+
+.wp-admin #sfwc-user-switcher-pane form select {
+	padding: 8px;
+	font-weight: bold;
+	background-color: #0088cc;
+	color: #fff;
+	border: none;
+	width: 100%;
+	max-width: 250px;
+	border-radius: 3px;
+	
+	/* Hide default arrow down */
+	-webkit-appearance: none;	
+	-moz-appearance: none;
+	background: transparent;
+  
+	/* Add custom arrow down */
+	background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+	background-repeat: no-repeat;
+	background-position: center right;
+	
+	/* For browsers that support it, move the arrow slightly to the left */
+	background-origin: border-box;
+	background-position-x: 98%;
+	background-position-y: center;
+}
+
+.wp-admin #sfwc-user-switcher-pane form select:focus {
+	outline-color: #d8d8d8;
+}
+
+.wp-admin #sfwc-user-switcher-pane form select option:first-of-type {
+	display: none;
+	/*
+	color:#32373c;
+	background-color: #d2d2d2;
+	cursor: default;
+	*/
+}
+
+.wp-admin #sfwc-user-switcher-pane form select option {
+	background-color: #fff;
+	color: #7b858a;
+}
+
+.wp-admin #sfwc-user-switcher-pane-default-values {
+	color: #FF8C00;
+	cursor: pointer;
+}
+
+.wp-admin #sfwc-user-switcher-pane-default-values:hover {
+	color: #FF4500;
+	transition: 0.3s;
+}
+
+/**
+ * Reload page button - in case switcher button is not present in DOM
+ */
+
+p.sfwc-reload-page-text {
+	margin-top: 20px;
+}
+
+.wp-admin button#sfwc-reload-page-button {
+    color: #fff;
+    background: linear-gradient( 180deg ,#4672EE 0,#214EEC 100%);
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: 0 1px 0 #1438b5, 0 2px 4px rgb(9 30 66 / 60%);
+    display: inline-block;
+    font-size: .875rem;
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: .6px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: none;
+    padding: .6875rem 1.5625rem;
+	margin-left: 10px;
+    border-radius: 2.5rem;
+    transition: .2s ease-in-out;
+    text-shadow: 0 0.5px 0.3px rgb(0 0 0 / 10%);
+    position: relative;
+    z-index: 0;
+}
+
+.wp-admin button#sfwc-reload-page-button:after {
+    background: linear-gradient( 180deg ,#4B7AFF 0,#2A5AFF 100%);
+    position: absolute;
+    content: " ";
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 2.5rem;
+    opacity: 0;
+    transition: .2s ease-in-out;
+}
+
+.wp-admin button#sfwc-reload-page-button:hover {
+    color: #fff;
+    box-shadow: 0 1px 0 #1438b5, 0 6px 12px rgb(9 30 66 / 20%);
+    background: linear-gradient( 180deg ,#4672EE 0,#214EEC 100%);
+    transform: translateY(-1px);
+}
+
+.wp-admin button#sfwc-reload-page-button:hover:after {
+    opacity: 1;
+}
+
+kbd {
+    display: inline-block;
+    margin: 0 .1em;
+    padding: .1em .6em;
+    font-family: sans-serif;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #242729;
+    text-shadow: 0 1px 0 #fff;
+    background-color: #e4e6e8;
+    border: 1px solid #9fa6ad;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(12,13,14,0.15),inset 0 1px 0 0 #fff;
+    white-space: nowrap;
+}
+
+/**
+ * Users list page.
+ */
+ 
+td.sfwc_parent_account.column-sfwc_parent_account span.manager_wrap,
+td.sfwc_parent_account.column-sfwc_parent_account span.supervisor_wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+td.sfwc_parent_account.column-sfwc_parent_account span.manager_wrap {
+    margin-bottom: 3px;
+}
+
+td.sfwc_parent_account.column-sfwc_parent_account span.supervisor_wrap {
+    padding-left: 28px;
+    margin-top: -20px;
+}
+
+td.sfwc_parent_account.column-sfwc_parent_account strong {
+    margin-right: 4px;
+}
+
+td.sfwc_subaccounts.column-sfwc_subaccounts li {
+    list-style-type: disc !important;
+}
+
+td.sfwc_subaccounts.column-sfwc_subaccounts ul ul li::marker {
+	content: "\27A5";
+}
+
+td.sfwc_subaccounts.column-sfwc_subaccounts ul ul li a {
+    margin-left: 2px;
+}
+ 
+
+/**
+ * Backend media queries
+ */
+ 
+/* min-width: 783px */
+ 
+@media only screen and (min-width: 783px) {
+	
+	.wp-admin #sub_accounts_settings_options_tab .form-table td {
+		line-height: 1.3;
+	}
+	 
+	.wp-admin #sub_accounts_settings_appearance_tab_left {
+		width: 40%;
+		margin: 0 5% 0 0;
+		float: left;
+	}
+	
+	.wp-admin #sub_accounts_settings_appearance_tab_right {
+		width: 40%;
+		float: left;
+		margin-right: 0;
+	}
+}
+
+
+
+/* min-width: 910px */
+ 
+@media only screen and (min-width: 910px) {
+	
+	.wp-admin #sub_accounts_settings_options_tab .form-table th {
+		width: 450px;
+	}
+}
+
+
+
+/* min-width: 1200px */
+ 
+@media only screen and (min-width: 1200px) {
+	 
+	.wp-admin #sub_accounts_settings_appearance_tab_left {
+		width: 25%;
+		margin-right: 5%;
+		float: left;
+	}
+	
+	.wp-admin #sub_accounts_settings_appearance_tab_right {
+		width: 60%;
+		float: left;
+		margin-right: 0;
+	}
+	
+	.wp-admin #sfwc-user-switcher-pane select {
+		max-width: none;
+	}
+}
+
+
+/**
+ * .woocommerce-help-tip customization for hover on text.
+ */
+.tips.woocommerce-help-tip.sfwc-tip-underline {
+	margin-left: 0;
+	vertical-align: baseline;
+	font-size: 1em;
+	display: inline;
+	color: #3c434a; 
+	font-weight: 600;
+	line-height: 2em;
+	border-bottom: 1px dotted #000;
+	cursor: help;
+}
+.woocommerce-help-tip.sfwc-tip-underline:after {
+	content: '';
+}

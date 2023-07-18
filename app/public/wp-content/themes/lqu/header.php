@@ -28,6 +28,9 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 	<script src='https://www.google.com/recaptcha/api.js'></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
 	<?php wp_head(); ?>
 	<?php the_social_meta($post) ?>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -57,13 +60,12 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="<?=get_template_directory_uri() ?>/images/favicon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
-
 </head>
 <body <?php body_class(); ?>>
 
 <?php
 $post_type = get_post_type( get_the_ID() );
-if ($post_type == 'product') require('section-top-navigation.php');
+if ($post_type == 'product') { $top_navigation_color_theme = 'white'; require('section-top-navigation.php');  }
 ?>
 <?php
 /*

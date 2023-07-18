@@ -15,18 +15,16 @@ $show_reupholstery = current_user_can('edit_posts') ? true : get_field('show_reu
 			</li>
 
 			<li class="text-link desktop-link">
-				<span>
+				<span class="disabled pe-none">
 					<span>Custom</span> <span>Order</span>
 				</span>
 				<ul>
-					<li><a href="/product-category/custom-order/beds/">Beds</a></li>
+					<li><a href="/product-category/custom-order/headboards-beds/">Beds</a></li>
 					<li><a href="/product-category/custom-order/chairs/">Chairs</a></li>
 					<li><a href="/product-category/custom-order/chaises/">Chaises</a></li>
 					<li><a href="/product-category/custom-order/dining-chairs/">Dining Chairs</a></li>
-					<li><a href="/product-category/custom-order/draperies/">Draperies</a></li>
-					<li><a href="/product-category/custom-order/headboards/">Headboards</a></li>
+					<li><a href="/product-category/custom-order/headboards-beds/">Headboards</a></li>
 					<li><a href="/product-category/custom-order/ottomans/">Ottomans</a></li>
-					<li><a href="/product-category/custom-order/pillows/">Pillows</a></li>
 					<li><a href="/product-category/custom-order/slipper-chairs/">Slipper Chairs</a></li>
 					<li><a href="/product-category/custom-order/sofas/">Sofas</a></li>
 					<li><a href="/product-category/custom-order/samples/">Samples</a></li>
@@ -37,10 +35,11 @@ $show_reupholstery = current_user_can('edit_posts') ? true : get_field('show_reu
 				<a href="/reupholstery"><span>Reupholstery</span></a>
 			</li>
 			
-			<li class="text-link desktop-link">
-				<a href="/mercado"><span>Mercado</span></a>
-			</li>
-			
+			<?php if (is_user_logged_in()): ?>
+				<li class="text-link desktop-link">
+					<a href="/product-category/mercado"><span>Mercado</span></a>
+				</li>
+			<?php endif; ?>
 		</ul>
 
 		<div class="logo">
@@ -94,12 +93,21 @@ $show_reupholstery = current_user_can('edit_posts') ? true : get_field('show_reu
 				</a>
 			</li>
 			<li class="text-link desktop-link">
-			<?php if ( is_user_logged_in() ) { ?>
-				<a href="/my-account" class="clientDashboard"><span>Client Dashboard</span></a>
-				<?php } else { ?>
-				<a href="/my-account"><span>Client Login</span></a>
-				<?php } ?>
+				<a href="/my-account">
+					<?php if (is_user_logged_in()): ?>
+						<span>My Account</span>
+					<?php else: ?>
+						<span>Login</span>
+					<?php endif; ?>
+				</a>
 			</li>
+			<?php if (is_user_logged_in()): ?>
+				<li>
+					<a href="/request-quote">
+						<span class="dashicons dashicons-cart"></span>
+					</a>
+				</li>
+			<?php endif; ?>
 		</ul>
 
 	</nav>

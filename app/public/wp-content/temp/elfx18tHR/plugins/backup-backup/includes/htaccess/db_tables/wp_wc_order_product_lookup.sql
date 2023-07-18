@@ -1,7 +1,0 @@
-/* CUSTOM VARS START */
-/* REAL_TABLE_NAME: `wp_wc_order_product_lookup`; */
-/* PRE_TABLE_NAME: `1668940036_wp_wc_order_product_lookup`; */
-/* CUSTOM VARS END */
-
-CREATE TABLE IF NOT EXISTS `1668940036_wp_wc_order_product_lookup` ( `order_item_id` bigint(20) unsigned NOT NULL, `order_id` bigint(20) unsigned NOT NULL, `product_id` bigint(20) unsigned NOT NULL, `variation_id` bigint(20) unsigned NOT NULL, `customer_id` bigint(20) unsigned DEFAULT NULL, `date_created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00', `product_qty` int(11) NOT NULL, `product_net_revenue` double NOT NULL DEFAULT '0', `product_gross_revenue` double NOT NULL DEFAULT '0', `coupon_amount` double NOT NULL DEFAULT '0', `tax_amount` double NOT NULL DEFAULT '0', `shipping_amount` double NOT NULL DEFAULT '0', `shipping_tax_amount` double NOT NULL DEFAULT '0', PRIMARY KEY (`order_item_id`), KEY `order_id` (`order_id`), KEY `product_id` (`product_id`), KEY `customer_id` (`customer_id`), KEY `date_created` (`date_created`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-INSERT INTO `1668940036_wp_wc_order_product_lookup` (`order_item_id`, `order_id`, `product_id`, `variation_id`, `customer_id`, `date_created`, `product_qty`, `product_net_revenue`, `product_gross_revenue`, `coupon_amount`, `tax_amount`, `shipping_amount`, `shipping_tax_amount`) VALUES (1,2222,2195,0,2,'2022-11-04 00:29:28',1,100,100,0,0,0,0),(2,2248,1321,0,2,'2022-11-04 03:14:42',1,100,100,0,0,0,0),(3,2342,1321,0,2,'2022-11-11 14:10:25',1,100,100,0,0,0,0);
